@@ -1,12 +1,13 @@
 <template>
-  <div class="rubrikTemplate">
+  <div class="rubricTemplate">
 
-    <headTemplate :headTemplateData="headTemplateData" />
+    <rubricHead
+      :rubricHeadData="headTemplateData" />
 
-    <div v-if="rubrikData.templateNumber === 2" class="contentTemplate">
+    <div v-if="rubricData.templateNumber === 2" class="contentTemplate">
 
       <div class="leftSide">
-        <articleImage :articleImageData="rubrikData.articles[0].image" />
+        <articleImage :articleImageData="rubricData.articles[0].image" />
         <!--<articleContent />-->
         <!--<articleLearn />-->
       </div>
@@ -21,16 +22,16 @@
 </template>
 
 <script>
-  const headTemplate = () => import('./templatesElement/headTemplate.vue');
+  const rubricHead = () => import('./templatesElement/rubricHead.vue');
   const articleImage = () => import('./templatesElement/articleImage.vue');
 
   export default {
-    name: "rubriksTemplate",
+    name: "rubricsTemplate",
     props: {
-      rubrikData: { type: Object }
+      rubricData: { type: Object }
     },
     components: {
-      headTemplate,
+      rubricHead,
       articleImage
     },
     data() {
@@ -42,9 +43,9 @@
     computed: {
       headTemplateData() {
         return {
-          name: this.rubrikData.name,
-          icon: this.rubrikData.icon,
-          headItems: this.rubrikData.headItems,
+          name: this.rubricData.name,
+          icon: this.rubricData.icon,
+          headItems: this.rubricData.headItems,
         }
       },
       // articleImageData() {
@@ -64,7 +65,7 @@
 
 <style lang="scss" scoped>
 
-  .rubrikTemplate {
+  .rubricTemplate {
     margin-top: 50px;
 
     .contentTemplate {

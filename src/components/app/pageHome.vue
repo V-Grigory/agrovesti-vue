@@ -1,27 +1,27 @@
 <template>
   <div class="pageHome">
 
-    <rubriksTemplate
-      v-for="(rubrik, index) in rubriks"
+    <rubricsTemplate
+      v-for="(rubric, index) in rubrics"
       :key="index"
-      :rubrikData="rubrik"
+      :rubricData="rubric"
     />
 
   </div>
 </template>
 
 <script>
-  import rubriksTemplate from './rubriksTemplate.vue';
-  // const rubriksTemplate = () => import('../template/template.vue');
+  import rubricsTemplate from './rubricsTemplate.vue';
+  // const rubricsTemplate = () => import('../template/template.vue');
 
   export default {
     name: `pageHome`,
     components: {
-      rubriksTemplate
+      rubricsTemplate
     },
     data() {
       return {
-        rubriks: [
+        rubrics: [
           {
             templateNumber: 2,
             name: 'Опыт',

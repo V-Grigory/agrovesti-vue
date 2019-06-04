@@ -1,6 +1,6 @@
 <template>
 
-  <div class="headTemplate">
+  <div class="rubricHead">
     <h1 class="iconTemplateHead-1">{{ headTemplateData.name }}</h1>
     <div class="items">
       <a
@@ -23,7 +23,7 @@
 
 <script>
   export default {
-    name: "headTemplate",
+    name: "rubricHead",
     props: {
       headTemplateData: { type: Object }
     },
@@ -41,7 +41,7 @@
 
 <style lang="scss" scoped>
 
-  .headTemplate {
+  .rubricHead {
     text-transform: uppercase;
     border-bottom: 2px solid #0f4f96;
     padding-bottom: 10px;
