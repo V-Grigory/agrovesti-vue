@@ -1,14 +1,22 @@
 <template>
-  <div class="rubricTemplate">
+  <div class="rubricsTemplate">
 
     <rubricHead
-      :rubricHeadData="headTemplateData" />
+      :rubricHeadData="{
+        name: rubricData.name,
+        icon: rubricData.icon,
+        headItems: rubricData.headItems
+      }" />
 
-    <div v-if="rubricData.templateNumber === 2" class="contentTemplate">
+    <div v-if="rubricData.templateNumber === 2" class="templateNumber-2">
 
       <div class="leftSide">
         <articleImage :articleImageData="rubricData.articles[0].image" />
-        <!--<articleContent />-->
+        <articleContent
+          :articleContentData="{
+            title: rubricData.articles[0].title,
+            description: rubricData.articles[0].description
+          }" />
         <!--<articleLearn />-->
       </div>
 
@@ -24,6 +32,7 @@
 <script>
   const rubricHead = () => import('./templatesElement/rubricHead.vue');
   const articleImage = () => import('./templatesElement/articleImage.vue');
+  const articleContent = () => import('./templatesElement/articleContent.vue');
 
   export default {
     name: "rubricsTemplate",
@@ -32,49 +41,31 @@
     },
     components: {
       rubricHead,
-      articleImage
+      articleImage,
+      articleContent
     },
     data() {
       return {
-        //showF: false,
-        //showClientSideComponents: false,
       };
     },
-    computed: {
-      headTemplateData() {
-        return {
-          name: this.rubricData.name,
-          icon: this.rubricData.icon,
-          headItems: this.rubricData.headItems,
-        }
-      },
-      // articleImageData() {
-      //
-      // }
-    },
-    methods: {
-      // articleImageData(v) {
-      //   return v
-      // }
-    },
-    mounted() {
-      //this.showClientSideComponents = true;
-    },
+    computed: {},
+    methods: {},
+    mounted() {},
   }
 </script>
 
 <style lang="scss" scoped>
 
-  .rubricTemplate {
+  .rubricsTemplate {
     margin-top: 50px;
+    .leftSide {
 
-    .contentTemplate {
-      .leftSide {
+    }
+    .rightSide {
 
-      }
-      .rightSide {
+    }
+    .templateNumber-2 {
 
-      }
     }
   }
 

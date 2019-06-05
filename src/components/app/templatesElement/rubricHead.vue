@@ -1,10 +1,10 @@
 <template>
 
   <div class="rubricHead">
-    <h1 class="iconTemplateHead-1">{{ headTemplateData.name }}</h1>
+    <h1 class="iconTemplateHead-1">{{ rubricHeadData.name }}</h1>
     <div class="items">
       <a
-        v-for="(item, index) in headTemplateData.headItems"
+        v-for="(item, index) in rubricHeadData.headItems"
         :key="index"
         href="#"
         class="item"
@@ -12,10 +12,6 @@
       >
         <nobr>{{ item }}</nobr>
       </a>
-
-      <!--<a href="#" class="item"><nobr>Растениеводство</nobr></a>-->
-      <!--<a href="#" class="item active"><nobr>Животноводство</nobr></a>-->
-      <!--<a href="#" class="item withArrow"><nobr>Тульская область</nobr></a>-->
     </div>
   </div>
 
@@ -25,7 +21,7 @@
   export default {
     name: "rubricHead",
     props: {
-      headTemplateData: { type: Object }
+      rubricHeadData: { type: Object }
     },
     data() {
       return {
