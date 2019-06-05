@@ -11,13 +11,18 @@
     <div v-if="rubricData.templateNumber === 2" class="templateNumber-2">
 
       <div class="leftSide">
-        <articleImage :articleImageData="rubricData.articles[0].image" />
+        <articleImage
+          :articleImageData="rubricData.articles[0].image"
+        />
         <articleContent
           :articleContentData="{
             title: rubricData.articles[0].title,
             description: rubricData.articles[0].description
-          }" />
-        <!--<articleLearn />-->
+          }"
+        />
+        <articleIntroduce
+          :articleIntroduceData="rubricData.articles[0].introduce"
+        />
       </div>
 
       <div class="rightSide">
@@ -33,6 +38,8 @@
   const rubricHead = () => import('./templatesElement/rubricHead.vue');
   const articleImage = () => import('./templatesElement/articleImage.vue');
   const articleContent = () => import('./templatesElement/articleContent.vue');
+  const articleIntroduce =
+    () => import('./templatesElement/articleIntroduce.vue');
 
   export default {
     name: "rubricsTemplate",
@@ -42,7 +49,8 @@
     components: {
       rubricHead,
       articleImage,
-      articleContent
+      articleContent,
+      articleIntroduce
     },
     data() {
       return {

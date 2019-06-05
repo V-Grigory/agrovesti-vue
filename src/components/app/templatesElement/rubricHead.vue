@@ -1,6 +1,6 @@
 <template>
-
   <div class="rubricHead">
+
     <h1 class="iconTemplateHead-1">{{ rubricHeadData.name }}</h1>
     <div class="items">
       <a
@@ -13,8 +13,8 @@
         <nobr>{{ item }}</nobr>
       </a>
     </div>
-  </div>
 
+  </div>
 </template>
 
 <script>
