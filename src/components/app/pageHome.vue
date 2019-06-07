@@ -2,7 +2,7 @@
   <div class="pageHome">
 
     <rubricsTemplate
-      v-for="(rubric, index) in rubrics"
+      v-for="(rubric, index) in rubricsMock"
       :key="index"
       :rubricData="rubric"
     />
@@ -55,9 +55,76 @@
         ]
       };
     },
-    mounted() {
-      //this.showClientSideComponents = true;
+    computed: {
+      rubricsMock() {
+        let res = []
+        var numImg
+        for(var i = 1; i <= 3; i++) {
+
+          var articles = []
+          for(var j = 1; j <= 8; j++) {
+            if(i == 1 && j == 1) numImg = 2; else numImg = 1;
+            // var numImg = j === 2 ? j : 1
+            articles.push({
+              image: `public/static/articleImg${numImg}.png`,
+              title: this.generateWords(7, 15),
+              description: this.generateWords(30, 60),
+              introduce: [
+                this.generateWords(5, 30),
+                this.generateWords(5, 30),
+                this.generateWords(5, 30),
+              ]
+            })
+          }
+          res.push({
+            templateNumber: i,
+            name: 'Опыт',
+            icon: `../../../images/iconTemplateHead-1.png`,
+            headItems: ['Растениеводство', 'Животноводство',
+              'Тульская область'],
+            articles: articles
+          })
+        }
+        return res
+      }
     },
+    mounted() {
+      console.log(this.rubricsMock)
+      // this.generateWords(24, 100)
+    },
+    methods: {
+      generateWords (min, max) {
+        let done = false
+        let countTry = 0
+        while(!done) {
+          countTry++
+          if(countTry === 200) done = true
+          var totalOutWords = Math.floor(Math.random() * 100 + 1)
+          if(totalOutWords >= min && totalOutWords <= max) done = true
+        }
+
+        let words = [
+          'Как ',
+          'получить ',
+          'недорогое ',
+          'сложное ',
+          'удобрение ',
+          'с ',
+          'комплексом ',
+          'микроэлементов ',
+          'используя ',
+          'дешевый ',
+          'ЭТОГО БЫТЬ НЕ ДОЛЖНО '
+        ]
+        let res = ''
+        for(var i = 0; i <= totalOutWords; i++) {
+          var wordIndex = Math.floor(Math.random() * 10)
+          res += words[wordIndex]
+        }
+        //console.log('Words - ' + res)
+        return res
+      }
+    }
     // asyncData ({ store }) {
     //   return store.dispatch('INIT_PAGE', {whatTypeCardsNeed: 'initJkKv'})
     // }
