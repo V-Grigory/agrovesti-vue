@@ -11,24 +11,43 @@
     <div v-if="rubricData.templateNumber === 2" class="templateNumber-2">
 
       <div class="leftSide">
-        <articleImage
-          :articleImageData="rubricData.articles[0].image"
-        />
-        <articleContent
-          :articleContentData="{
-            title: rubricData.articles[0].title,
-            description: rubricData.articles[0].description
-          }"
-        />
-        <articleIntroduce
-          :articleIntroduceData="rubricData.articles[0].introduce"
-        />
+        <div class="articleImageWrapper">
+          <articleImage
+            :articleImageData="rubricData.articles[0].image"
+          />
+        </div>
+        <div class="articleContentWrapper">
+          <articleContent
+            :articleContentData="{
+              title: rubricData.articles[0].title,
+              description: rubricData.articles[0].description
+            }"
+          />
+        </div>
+        <div class="articleIntroduceWrapper">
+          <articleIntroduce
+            :articleIntroduceData="rubricData.articles[0].introduce"
+          />
+        </div>
       </div>
 
       <div class="rightSide">
-
+        <div
+          class="articleContentWrapper"
+          v-for="(article, index) in rubricData.articles"
+          v-if="index !== 0"
+          :key="index"
+        >
+          <articleContent
+            :articleContentData="{
+              title: article.title,
+              description: article.description
+            }"
+          />
+        </div>
       </div>
 
+      <div style="clear: both;"></div>
     </div>
 
   </div>
@@ -66,14 +85,36 @@
 
   .rubricsTemplate {
     margin-top: 50px;
-    .leftSide {
 
-    }
-    .rightSide {
-
-    }
     .templateNumber-2 {
+      /*display: flex;*/
+      .leftSide {
+        float: left;
+        width: 65%;
+        padding: 0 0 25px 0;
+        .articleImageWrapper {}
+        .articleContentWrapper {
+          margin: 25px 0;
+        }
+        .articleIntroduceWrapper {}
+      }
+      .rightSide {
+        float: right;
+        width: 33%;
+        .articleContentWrapper {
+          margin: 0 0 25px 0;
+          padding: 15px 0 0 0;
+          border-top: 1px solid #c0c0c0;
+        }
+      }
+    }
 
+    @media (max-width: 620px) {
+      .templateNumber-2 .leftSide,
+      .templateNumber-2 .rightSide {
+        float: none;
+        width: 100%;
+      }
     }
   }
 

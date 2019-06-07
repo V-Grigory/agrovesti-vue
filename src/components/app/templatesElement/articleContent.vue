@@ -20,17 +20,17 @@
 <style lang="scss" scoped>
 
 	.articleContent {
-		padding: 25px 0;
 		.title {
 			font-size: 16px;
 			text-transform: uppercase;
 			font-weight: bold;
+			line-height: 1.2;
 		}
 		.description {
+			margin: 15px 0 0 0;
 			color: #424949;
 			font-size: 14px;
 			line-height: 1.4;
-			margin: 15px 0 0 0;
 		}
 	}
 

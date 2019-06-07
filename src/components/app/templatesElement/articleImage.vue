@@ -2,7 +2,7 @@
   <div class="articleImage">
 
     <img :src="articleImageData" alt="">
-    
+
   </div>
 </template>
 
@@ -18,7 +18,9 @@
 <style lang="scss" scoped>
 
   .articleImage {
-
+    img {
+      width: 100%;
+    }
   }
 
 </style>
