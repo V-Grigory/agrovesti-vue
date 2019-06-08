@@ -62,8 +62,9 @@
         for(var i = 1; i <= 3; i++) {
 
           var articles = []
-          for(var j = 1; j <= 8; j++) {
+          for(var j = 1; j <= 4; j++) {
             if(i == 1 && j == 1) numImg = 2; else numImg = 1;
+            if(i == 3) numImg = 2;
             // var numImg = j === 2 ? j : 1
             articles.push({
               image: `public/static/articleImg${numImg}.png`,
