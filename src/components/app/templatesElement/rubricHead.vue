@@ -1,16 +1,16 @@
 <template>
   <div class="rubricHead">
 
-    <h1 class="iconTemplateHead-1">{{ rubricHeadData.name }}</h1>
+    <h1 class="iconTemplateHead-1">{{ rubricHeadData.name_ru }}</h1>
     <div class="items">
       <a
-        v-for="(item, index) in rubricHeadData.headItems"
+        v-for="(item, index) in rubricHeadData.children"
         :key="index"
         href="#"
         class="item"
         :class="{active: index === 1, withArrow: index === 2}"
       >
-        <nobr>{{ item }}</nobr>
+        <nobr>{{ item.name_ru }}</nobr>
       </a>
     </div>
 

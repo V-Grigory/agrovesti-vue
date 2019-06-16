@@ -5,9 +5,9 @@
 
     <ul>
       <li
-        v-for="(item, index) in articleIntroduceData"
+        v-for="(item, index) in articleIntroduceDataMock"
         :key="index"
-        :class="{lastItem: index === articleIntroduceData.length - 1}"
+        :class="{lastItem: index === articleIntroduceDataMock.length - 1}"
       >
         {{ item }}
       </li>
@@ -21,6 +21,19 @@
     name: "articleIntroduce",
     props: {
       articleIntroduceData: Array
+    },
+    data() {
+      return {
+        articleIntroduceDataMock: [
+          'Преимущества и сложности применения технологии Strip-Till. — ' +
+          'Как с помощью дифференцированного опрыскивания сэкономить на ' +
+          'гербицидах сплошного действия.',
+          'Как получить недорогое сложное удобрение с комплексом ' +
+          'микроэлементов, используя дешевый сульфат аммония и добавки.',
+          'Как увеличить размер семечки подсолнечника и за счет этого ' +
+          'поднять его рыночную стоимость.'
+        ]
+      }
     }
   }
 </script>

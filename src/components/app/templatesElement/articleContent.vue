@@ -1,7 +1,9 @@
 <template>
   <div class="articleContent">
 
-		<h2 class="title">{{ articleContentData.title }}</h2>
+		<h2 class="title">
+			<a href="#">{{ articleContentData.name_ru }}</a>
+		</h2>
 
 		<div class="description">{{ articleContentData.description }}</div>
 
@@ -25,6 +27,10 @@
 			text-transform: uppercase;
 			font-weight: bold;
 			line-height: 1.2;
+			a {
+				color: black;
+				&:hover { color: #4d545c; }
+			}
 		}
 		.description {
 			margin: 15px 0 0 0;

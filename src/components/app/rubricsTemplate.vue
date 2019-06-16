@@ -3,13 +3,13 @@
 
     <rubricHead
       :rubricHeadData="{
-        name: rubricData.name,
-        icon: rubricData.icon,
-        headItems: rubricData.headItems
+        name_ru: rubricData.name_ru,
+        icon_number: rubricData.icon_number,
+        children: rubricData.children
       }" />
 
     <!--templateNumber-1-->
-    <div v-if="rubricData.templateNumber === 1" class="templateNumber-1">
+    <div v-if="rubricData.template_number === 1" class="templateNumber-1">
 
       <!--first item-->
       <div class="leftSide-49">
@@ -21,7 +21,7 @@
         <articleContent
           class="margin-bottom-25"
           :articleContentData="{
-              title: rubricData.articles[0].title,
+              name_ru: rubricData.articles[0].name_ru,
               description: rubricData.articles[0].description
             }"
         />
@@ -44,7 +44,7 @@
           <articleContent
             class="margin-top-25 margin-bottom-25"
             :articleContentData="{
-                  title: article.title,
+                  name_ru: article.name_ru,
                   description: article.description
                 }"
           />
@@ -59,87 +59,87 @@
     </div>
 
     <!--templateNumber-2-->
-    <div v-if="rubricData.templateNumber === 2" class="templateNumber-2">
+    <div v-if="rubricData.template_number === 2" class="templateNumber-2">
 
-      <div class="leftSide-65">
-        <articleImage
-          :articleImageData="rubricData.articles[0].image"
-        />
-        <articleContent
-          class="margin-top-25 margin-bottom-25"
-          :articleContentData="{
-              title: rubricData.articles[0].title,
-              description: rubricData.articles[0].description
-            }"
-        />
-        <articleIntroduce
-          :articleIntroduceData="rubricData.articles[0].introduce"
-        />
-      </div>
+<!--      <div class="leftSide-65">-->
+<!--        <articleImage-->
+<!--          :articleImageData="rubricData.articles[0].image"-->
+<!--        />-->
+<!--        <articleContent-->
+<!--          class="margin-top-25 margin-bottom-25"-->
+<!--          :articleContentData="{-->
+<!--              title: rubricData.articles[0].title,-->
+<!--              description: rubricData.articles[0].description-->
+<!--            }"-->
+<!--        />-->
+<!--        <articleIntroduce-->
+<!--          :articleIntroduceData="rubricData.articles[0].introduce"-->
+<!--        />-->
+<!--      </div>-->
 
-      <div class="rightSide-33">
-        <articleContent
-          class="border-top margin-bottom-25"
-          v-for="(article, index) in rubricData.articles"
-          v-if="index !== 0"
-          :key="index"
-          :articleContentData="{
-            title: article.title,
-            description: article.description
-          }"
-        />
-      </div>
+<!--      <div class="rightSide-33">-->
+<!--        <articleContent-->
+<!--          class="border-top margin-bottom-25"-->
+<!--          v-for="(article, index) in rubricData.articles"-->
+<!--          v-if="index !== 0"-->
+<!--          :key="index"-->
+<!--          :articleContentData="{-->
+<!--            title: article.title,-->
+<!--            description: article.description-->
+<!--          }"-->
+<!--        />-->
+<!--      </div>-->
 
-      <div style="clear: both;"></div>
+<!--      <div style="clear: both;"></div>-->
     </div>
 
     <!--templateNumber-3-->
-    <div v-if="rubricData.templateNumber === 3" class="templateNumber-3">
+    <div v-if="rubricData.template_number === 3" class="templateNumber-3">
 
-      <div class="leftSide-49">
-        <articleImage
-          :articleImageData="rubricData.articles[0].image"
-        />
-      </div>
-      <div class="rightSide-49">
-        <articleContent
-          class="margin-bottom-25"
-          :articleContentData="{
-            title: rubricData.articles[0].title,
-            description: rubricData.articles[0].description
-          }"
-        />
-        <articleIntroduce
-          :articleIntroduceData="rubricData.articles[0].introduce"
-        />
-      </div>
-      <div style="clear: both;"></div>
+<!--      <div class="leftSide-49">-->
+<!--        <articleImage-->
+<!--          :articleImageData="rubricData.articles[0].image"-->
+<!--        />-->
+<!--      </div>-->
+<!--      <div class="rightSide-49">-->
+<!--        <articleContent-->
+<!--          class="margin-bottom-25"-->
+<!--          :articleContentData="{-->
+<!--            title: rubricData.articles[0].title,-->
+<!--            description: rubricData.articles[0].description-->
+<!--          }"-->
+<!--        />-->
+<!--        <articleIntroduce-->
+<!--          :articleIntroduceData="rubricData.articles[0].introduce"-->
+<!--        />-->
+<!--      </div>-->
+<!--      <div style="clear: both;"></div>-->
 
-      <div
-        v-for="(article, index) in rubricData.articles"
-        v-if="index !== 0"
-        :key="index"
-      >
-        <div class="leftSide-49">
-          <articleContent
-            class="margin-top-25 margin-bottom-25"
-            :articleContentData="{
-                title: article.title,
-                description: article.description
-              }"
-          />
-          <articleIntroduce
-            :articleIntroduceData="article.introduce"
-          />
-        </div>
-        <div class="rightSide-49">
-          <articleImage
-            :articleImageData="article.image"
-          />
-        </div>
+<!--      <div-->
+<!--        v-for="(article, index) in rubricData.articles"-->
+<!--        v-if="index !== 0"-->
+<!--        :key="index"-->
+<!--      >-->
+<!--        <div class="leftSide-49">-->
+<!--          <articleContent-->
+<!--            class="margin-top-25 margin-bottom-25"-->
+<!--            :articleContentData="{-->
+<!--                title: article.title,-->
+<!--                description: article.description-->
+<!--              }"-->
+<!--          />-->
+<!--          <articleIntroduce-->
+<!--            :articleIntroduceData="article.introduce"-->
+<!--          />-->
+<!--        </div>-->
+<!--        <div class="rightSide-49">-->
+<!--          <articleImage-->
+<!--            :articleImageData="article.image"-->
+<!--          />-->
+<!--        </div>-->
 
-        <div style="clear: both;"></div>
-      </div>
+<!--        <div style="clear: both;"></div>-->
+<!--      </div>-->
 
     </div>
 
