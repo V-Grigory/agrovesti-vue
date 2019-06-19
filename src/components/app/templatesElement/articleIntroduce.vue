@@ -5,9 +5,9 @@
 
     <ul>
       <li
-        v-for="(item, index) in articleIntroduceDataMock"
+        v-for="(item, index) in articleIntroduceData"
         :key="index"
-        :class="{lastItem: index === articleIntroduceDataMock.length - 1}"
+        :class="{lastItem: index === articleIntroduceData.length - 1}"
       >
         {{ item }}
       </li>

@@ -9,6 +9,7 @@ Vue.use(Router)
 // const UserView = () => import('../views/UserView.vue')
 
 const pageHome = () => import(`../components/app/pageHome.vue`);
+const pageArticle = () => import(`../components/app/pageArticle.vue`);
 
 export function createRouter () {
   return new Router({
@@ -16,7 +17,8 @@ export function createRouter () {
     fallback: false,
     //scrollBehavior: () => ({ y: 0 }),
     routes: [
-      { path: `/`, name: 'home', component: pageHome }
+      { path: `/`, name: 'home', component: pageHome },
+      { path: `/articles/:id`, name: 'article', component: pageArticle }
 
       // { path: '/top/:page(\\d+)?', component: createListView('top') },
       // { path: '/new/:page(\\d+)?', component: createListView('new') },

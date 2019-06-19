@@ -3,15 +3,40 @@
 
     <h1 class="iconTemplateHead-1">{{ rubricHeadData.name_ru }}</h1>
     <div class="items">
-      <a
+      <div
         v-for="(item, index) in rubricHeadData.children"
+        v-if="index <= 2"
         :key="index"
-        href="#"
         class="item"
-        :class="{active: index === 1, withArrow: index === 2}"
+        :class="{itemWithDotInBack: index < 2}"
       >
-        <nobr>{{ item.name_ru }}</nobr>
-      </a>
+        <nobr>
+          <a href="#">{{ item.name_ru }}</a>
+          <img
+            v-if="index < 2"
+            src="../../../images/iconTemplateHeadItem.png" />
+          <img
+            v-else
+            class="arrow"
+            @click="showHiddenItems"
+            src="../../../images/iconTemplateHeadArrowItem.png" />
+        </nobr>
+      </div>
+    </div>
+
+    <div class="hiddenItems" id="hiddenItems">
+      <div
+        v-for="(item, index) in rubricHeadData.children"
+        v-if="index > 2"
+        :key="index"
+        class="item"
+        :class="{itemWithDotInBack: index > 2}"
+      >
+        <nobr>
+          <a href="#">{{ item.name_ru }}</a>
+          <img src="../../../images/iconTemplateHeadItem.png">
+        </nobr>
+      </div>
     </div>
 
   </div>
@@ -24,14 +49,14 @@
       rubricHeadData: { type: Object }
     },
     data() {
-      return {
-        //showF: false,
-        //showClientSideComponents: false,
-      };
+      return {};
     },
-    mounted() {
-      //this.showClientSideComponents = true;
-    },
+    methods: {
+      showHiddenItems () {
+        let el = document.getElementById('hiddenItems')
+        el.style.display = el.style.display === 'block' ? 'none' : 'block'
+      }
+    }
   }
 </script>
 
@@ -42,6 +67,7 @@
     border-bottom: 2px solid #0f4f96;
     padding-bottom: 10px;
     margin-bottom: 30px;
+
     h1 {
       color: #0f4f96;
       font-size: 30px;
@@ -54,25 +80,29 @@
       background: url("../../../images/iconTemplateHead-1.png")
       no-repeat left center;
     }
-    .items {
+
+    .items, .hiddenItems {
       display: inline-block;
       .item {
         font-size: 15px;
-        color: #000;
         font-weight: bold;
-        padding-right: 16px;
         margin: 10px 15px 0px 0px;
         display: inline-block;
-        background: url("../../../images/iconTemplateHeadItem.png")
-        no-repeat right center;
-        &:hover { color: #4d545c; }
+        nobr {
+          a {
+            color: #000;
+            &:hover { color: #4d545c; }
+          }
+          img {
+            margin: 2px 0 2px 9px;
+          }
+          .arrow {
+            cursor: pointer;
+          }
+        }
       }
-      .withArrow {
-        background: url("../../../images/iconTemplateHeadArrowItem.png")
-        no-repeat right center;
-      }
-      .active { color: #4d545c; }
     }
+    .hiddenItems { display: none; }
   }
 
 </style>

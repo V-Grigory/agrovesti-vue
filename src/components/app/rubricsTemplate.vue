@@ -2,18 +2,19 @@
   <div class="rubricsTemplate">
 
     <rubricHead
-      :rubricHeadData="{
-        name_ru: rubricData.name_ru,
-        icon_number: rubricData.icon_number,
-        children: rubricData.children
-      }" />
+      :rubricHeadData="rubricData" />
 
     <!--templateNumber-1-->
-    <div v-if="rubricData.template_number === 1" class="templateNumber-1">
+    <div
+      v-if="rubricData.articles.length > 0
+      && rubricData.template_number === 1"
+      class="templateNumber-1"
+    >
 
       <!--first item-->
       <div class="leftSide-49">
         <articleImage
+          v-if="rubricData.articles[0].image"
           :articleImageData="rubricData.articles[0].image"
         />
       </div>
@@ -26,7 +27,8 @@
             }"
         />
         <articleIntroduce
-          :articleIntroduceData="rubricData.articles[0].introduce"
+          v-if="rubricData.articles[0].introduce.length > 0"
+          :articleIntroduceData="JSON.parse(rubricData.articles[0].introduce)"
         />
       </div>
       <div style="clear: both;"></div>
