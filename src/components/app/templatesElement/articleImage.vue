@@ -1,7 +1,7 @@
 <template>
   <div class="articleImage">
 
-    <img :src="'http://localhost:8000/images/'+articleImageData" alt="">
+    <img :src="'http://agrovesti.ru/images/'+articleImageData" alt="">
 
   </div>
 </template>

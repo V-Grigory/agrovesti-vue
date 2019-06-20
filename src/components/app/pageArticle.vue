@@ -1,10 +1,14 @@
 <template>
   <div class="pageArticle">
 
-<!--    {{ article.tilda_content }}-->
-    <div v-html="article.tilda_content">
-
-    </div>
+    <div
+      v-if="article.tilda_content"
+      v-html="article.tilda_content"
+    ></div>
+    <div
+      v-else
+      v-html="article.article"
+    ></div>
 
   </div>
 </template>
@@ -24,11 +28,17 @@
       };
     },
     mounted() {
-      axios.get('http://localhost:8000/api/articles/kontakty').then(res => {
+      // console.log(this.$route.params.id)
+      // return
+      axios.get(
+        `http://localhost:8000/api/articles/${this.$route.params.id}`
+      ).then(res => {
+        console.log('OK')
         console.log(res)
         this.article = res.data
       })
       .catch(error => {
+        console.log('error')
         console.log(error)
       });
     }

@@ -22,9 +22,10 @@
         <articleContent
           class="margin-bottom-25"
           :articleContentData="{
-              name_ru: rubricData.articles[0].name_ru,
-              description: rubricData.articles[0].description
-            }"
+            name_ru: rubricData.articles[0].name_ru,
+            name_en: rubricData.articles[0].name_en,
+            description: rubricData.articles[0].description
+          }"
         />
         <articleIntroduce
           v-if="rubricData.articles[0].introduce.length > 0"
@@ -41,17 +42,20 @@
       >
         <div :class="[index % 2 ? 'leftSide-49' : 'rightSide-49']">
           <articleImage
+            v-if="article.image"
             :articleImageData="article.image"
           />
           <articleContent
             class="margin-top-25 margin-bottom-25"
             :articleContentData="{
-                  name_ru: article.name_ru,
-                  description: article.description
-                }"
+              name_ru: article.name_ru,
+              name_en: article.name_en,
+              description: article.description
+            }"
           />
           <articleIntroduce
-            :articleIntroduceData="article.introduce"
+            v-if="article.introduce.length > 0"
+            :articleIntroduceData="JSON.parse(article.introduce)"
           />
         </div>
         <div
