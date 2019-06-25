@@ -33,12 +33,12 @@
       axios.get(
         `http://localhost:8000/api/articles/${this.$route.params.id}`
       ).then(res => {
-        console.log('OK')
-        console.log(res)
+        // console.log('OK')
+        // console.log(res)
         this.article = res.data
       })
       .catch(error => {
-        console.log('error')
+        // console.log('error')
         console.log(error)
       });
     }

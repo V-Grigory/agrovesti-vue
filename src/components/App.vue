@@ -7,8 +7,16 @@
         <div class="topMenu menuWrapper contentWrappper">
           <div class="leftSide">
             <span class="title">Консалтинг  компаний:</span>
-            <a href="#" class="menuItem">Животноводство</a>
-            <a href="#" class="menuItem">Растениеводство</a>
+            <router-link
+              :to="`/rubrics/resheniya-dlya-polya2506190244`"
+              class="menuItem"
+            >решения для поля
+            </router-link>
+            <router-link
+              :to="`/rubrics/resheniya-dlya-fermy2506190245`"
+              class="menuItem"
+            >решения для фермы
+            </router-link>
           </div>
           <div class="rightSide">
             <a href="#" class="menuItem logIn">ВОЙТИ</a>
@@ -24,11 +32,26 @@
           </a>
         </div>
         <div class="rightSide">
-          <a href="#" class="menuItem">ОПЫТ</a>
-          <a href="#" class="menuItem">КЕЙСЫ</a>
-          <a href="#" class="menuItem">НОВИНКИ</a>
-          <a href="#" class="menuItem">АГРОНАБЛЮДЕНИЕ</a>
-          <a href="#" class="menuItem">ТРЕНДЫ</a>
+          <router-link
+            :to="`/rubrics/rastenievodstvo2506190251`" class="menuItem"
+          >
+            РАСТЕНИЕВОДСТВО
+          </router-link>
+          <router-link
+            :to="`/rubrics/zhivotnovodstvo2506190251`" class="menuItem"
+          >
+            ЖИВОТНОВОДСТВО
+          </router-link>
+          <router-link
+            :to="`/rubrics/agropoligon2506190252`" class="menuItem"
+          >
+            АГРОПОЛИГОН
+          </router-link>
+          <router-link
+            :to="`/rubrics/trends`" class="menuItem"
+          >
+            ТРЕНДЫ
+          </router-link>
         </div>
       </div>
 
@@ -178,7 +201,8 @@
         .menuItem {
           color: #4d545c;
           font-size: 18px;
-          margin: 25px 13px 0 13px;
+          /*margin: 25px 13px 0 13px;*/
+          margin: 0 8px 0 8px;
           font-weight: bold;
           display: inline-block;
           &:hover { color: #c0c0c0; }

@@ -1,7 +1,13 @@
 <template>
   <div class="rubricHead">
 
-    <h1 class="iconTemplateHead-1">{{ rubricHeadData.name_ru }}</h1>
+    <h1 class="iconTemplateHead-1">
+      <router-link
+        :to="`/rubrics/${rubricHeadData.name_en}`"
+      >
+        {{ rubricHeadData.name_ru }}
+      </router-link>
+    </h1>
     <div class="items">
       <div
         v-for="(item, index) in rubricHeadData.children"
@@ -11,7 +17,12 @@
         :class="{itemWithDotInBack: index < 2}"
       >
         <nobr>
-          <a href="#">{{ item.name_ru }}</a>
+          <!--<a href="#">{{ item.name_ru }}</a>-->
+          <router-link
+            :to="`/rubrics/${item.name_en}`"
+          >
+            {{ item.name_ru }}
+          </router-link>
           <img
             v-if="index < 2"
             src="../../../images/iconTemplateHeadItem.png" />
@@ -69,12 +80,14 @@
     margin-bottom: 30px;
 
     h1 {
-      color: #0f4f96;
       font-size: 30px;
       font-weight: bold;
       display: inline-block;
       margin-right: 50px;
       padding: 4px 0px 4px 50px;
+      a {
+        color: #0f4f96;
+      }
     }
     h1.iconTemplateHead-1 {
       background: url("../../../images/iconTemplateHead-1.png")

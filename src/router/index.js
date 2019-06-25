@@ -10,6 +10,7 @@ Vue.use(Router)
 
 const pageHome = () => import(`../components/app/pageHome.vue`);
 const pageArticle = () => import(`../components/app/pageArticle.vue`);
+const pageRubric = () => import(`../components/app/pageRubric.vue`);
 
 export function createRouter () {
   return new Router({
@@ -19,6 +20,7 @@ export function createRouter () {
     routes: [
       { path: `/`, name: 'home', component: pageHome },
       { path: `/articles/:id`, name: 'article', component: pageArticle },
+      { path: `/rubrics/:id`, name: 'rubric', component: pageRubric },
 
       // { path: '/top/:page(\\d+)?', component: createListView('top') },
       // { path: '/new/:page(\\d+)?', component: createListView('new') },

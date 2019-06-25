@@ -4,10 +4,10 @@
     <rubricHead
       :rubricHeadData="rubricData" />
 
-    <!--templateNumber-1-->
+    <!--templateNumber-10-->
     <div
       v-if="rubricData.articles.length > 0
-      && rubricData.template_number === 1"
+      && rubricData.template_number === 10"
       class="templateNumber-1"
     >
 
@@ -64,89 +64,142 @@
       </div>
     </div>
 
-    <!--templateNumber-2-->
-    <div v-if="rubricData.template_number === 2" class="templateNumber-2">
+    <!--templateNumber-11-->
+    <div
+      v-if="rubricData.articles.length > 0
+      && rubricData.template_number === 11"
+      class="templateNumber-11"
+    >
 
-<!--      <div class="leftSide-65">-->
-<!--        <articleImage-->
-<!--          :articleImageData="rubricData.articles[0].image"-->
-<!--        />-->
-<!--        <articleContent-->
-<!--          class="margin-top-25 margin-bottom-25"-->
-<!--          :articleContentData="{-->
-<!--              title: rubricData.articles[0].title,-->
-<!--              description: rubricData.articles[0].description-->
-<!--            }"-->
-<!--        />-->
-<!--        <articleIntroduce-->
-<!--          :articleIntroduceData="rubricData.articles[0].introduce"-->
-<!--        />-->
-<!--      </div>-->
+      <div class="leftSide-65">
+        <articleImage
+          v-if="rubricData.articles[0].image"
+          :articleImageData="rubricData.articles[0].image"
+        />
+        <articleContent
+          class="margin-top-25 margin-bottom-25"
+          :articleContentData="{
+            name_ru: rubricData.articles[0].name_ru,
+            name_en: rubricData.articles[0].name_en,
+            description: rubricData.articles[0].description
+          }"
+        />
+        <articleIntroduce
+          v-if="rubricData.articles[0].introduce.length > 0"
+          :articleIntroduceData="JSON.parse(rubricData.articles[0].introduce)"
+        />
+      </div>
 
-<!--      <div class="rightSide-33">-->
-<!--        <articleContent-->
-<!--          class="border-top margin-bottom-25"-->
-<!--          v-for="(article, index) in rubricData.articles"-->
-<!--          v-if="index !== 0"-->
-<!--          :key="index"-->
-<!--          :articleContentData="{-->
-<!--            title: article.title,-->
-<!--            description: article.description-->
-<!--          }"-->
-<!--        />-->
-<!--      </div>-->
+      <div class="rightSide-33">
+        <articleContent
+          class="border-top margin-bottom-25"
+          v-for="(article, index) in rubricData.articles"
+          v-if="index !== 0"
+          :key="index"
+          :articleContentData="{
+            name_ru: article.name_ru,
+            name_en: article.name_en,
+            description: article.description
+          }"
+        />
+      </div>
 
-<!--      <div style="clear: both;"></div>-->
+      <div style="clear: both;"></div>
     </div>
 
-    <!--templateNumber-3-->
-    <div v-if="rubricData.template_number === 3" class="templateNumber-3">
+    <!--templateNumber-12-->
+    <div
+      v-if="rubricData.articles.length > 0
+      && rubricData.template_number === 12"
+      class="templateNumber-12"
+    >
 
-<!--      <div class="leftSide-49">-->
-<!--        <articleImage-->
-<!--          :articleImageData="rubricData.articles[0].image"-->
-<!--        />-->
-<!--      </div>-->
-<!--      <div class="rightSide-49">-->
-<!--        <articleContent-->
-<!--          class="margin-bottom-25"-->
-<!--          :articleContentData="{-->
-<!--            title: rubricData.articles[0].title,-->
-<!--            description: rubricData.articles[0].description-->
-<!--          }"-->
-<!--        />-->
-<!--        <articleIntroduce-->
-<!--          :articleIntroduceData="rubricData.articles[0].introduce"-->
-<!--        />-->
-<!--      </div>-->
-<!--      <div style="clear: both;"></div>-->
+      <div class="leftSide-49">
+        <articleImage
+          v-if="rubricData.articles[0].image"
+          :articleImageData="rubricData.articles[0].image"
+        />
+      </div>
+      <div class="rightSide-49">
+        <articleContent
+          class="margin-bottom-25"
+          :articleContentData="{
+            name_ru: rubricData.articles[0].name_ru,
+            name_en: rubricData.articles[0].name_en,
+            description: rubricData.articles[0].description
+          }"
+        />
+        <articleIntroduce
+          v-if="rubricData.articles[0].introduce.length > 0"
+          :articleIntroduceData="JSON.parse(rubricData.articles[0].introduce)"
+        />
+      </div>
+      <div style="clear: both;"></div>
 
-<!--      <div-->
-<!--        v-for="(article, index) in rubricData.articles"-->
-<!--        v-if="index !== 0"-->
-<!--        :key="index"-->
-<!--      >-->
-<!--        <div class="leftSide-49">-->
-<!--          <articleContent-->
-<!--            class="margin-top-25 margin-bottom-25"-->
-<!--            :articleContentData="{-->
-<!--                title: article.title,-->
-<!--                description: article.description-->
-<!--              }"-->
-<!--          />-->
-<!--          <articleIntroduce-->
-<!--            :articleIntroduceData="article.introduce"-->
-<!--          />-->
-<!--        </div>-->
-<!--        <div class="rightSide-49">-->
-<!--          <articleImage-->
-<!--            :articleImageData="article.image"-->
-<!--          />-->
-<!--        </div>-->
+      <div
+        v-for="(article, index) in rubricData.articles"
+        v-if="index !== 0"
+        :key="index"
+      >
+        <div class="leftSide-49">
+          <articleContent
+            class="margin-top-25 margin-bottom-25"
+            :articleContentData="{
+              name_ru: article.name_ru,
+              name_en: article.name_en,
+              description: article.description
+            }"
+          />
+          <articleIntroduce
+            v-if="article.introduce.length > 0"
+            :articleIntroduceData="JSON.parse(article.introduce)"
+          />
+        </div>
+        <div class="rightSide-49">
+          <articleImage
+            v-if="article.image"
+            :articleImageData="article.image"
+          />
+        </div>
 
-<!--        <div style="clear: both;"></div>-->
-<!--      </div>-->
+        <div style="clear: both;"></div>
+      </div>
 
+    </div>
+
+    <!--templateNumber-13-->
+    <div
+      v-if="rubricData.articles.length > 0
+      && rubricData.template_number === 13"
+      class="templateNumber-13"
+    >
+      <div
+        v-for="(article, index) in rubricData.articles"
+        :key="index"
+      >
+        <div :class="[index % 2 === 0 ? 'leftSide-49' : 'rightSide-49']">
+          <articleImage
+            v-if="article.image"
+            :articleImageData="article.image"
+          />
+          <articleContent
+            class="margin-top-25 margin-bottom-25"
+            :articleContentData="{
+              name_ru: article.name_ru,
+              name_en: article.name_en,
+              description: article.description
+            }"
+          />
+          <articleIntroduce
+            v-if="article.introduce.length > 0"
+            :articleIntroduceData="JSON.parse(article.introduce)"
+          />
+        </div>
+        <div
+          v-if="index % 2 > 0 || index === rubricData.articles.length - 1"
+          style="clear: both;"
+        ></div>
+      </div>
     </div>
 
   </div>
@@ -200,47 +253,6 @@
     .margin-bottom-25 { margin-bottom: 25px; }
     .border-top { padding: 15px 0 0 0; border-top: 1px solid #c0c0c0; }
 
-    /*.templateNumber-1 {*/
-      /*.leftSide {*/
-        /*!*float: left;*!*/
-        /*!*width: 49%;*!*/
-      /*}*/
-      /*.rightSide {*/
-        /*!*float: right;*!*/
-        /*!*width: 49%;*!*/
-      /*}*/
-    /*}*/
-
-    /*.templateNumber-2 {*/
-      /*!*display: flex;*!*/
-      /*.leftSide {*/
-        /*!*float: left;*!*/
-        /*!*width: 65%;*!*/
-        /*!*margin: 0 0 25px 0;*!*/
-        /*.articleImageWrapper {}*/
-        /*.articleContentWrapper {*/
-          /*!*margin: 25px 0;*!*/
-        /*}*/
-        /*.articleIntroduceWrapper {}*/
-      /*}*/
-      /*.rightSide {*/
-        /*!*float: right;*!*/
-        /*!*width: 33%;*!*/
-        /*.articleContentWrapper {*/
-          /*!*margin: 0 0 25px 0;*!*/
-          /*!*padding: 15px 0 0 0;*!*/
-          /*!*border-top: 1px solid #c0c0c0;*!*/
-        /*}*/
-      /*}*/
-    /*}*/
-
-    /*@media (max-width: 620px) {*/
-    /*  .templateNumber-2 .leftSide,*/
-    /*  .templateNumber-2 .rightSide {*/
-    /*    float: none;*/
-    /*    width: 100%;*/
-    /*  }*/
-    /*}*/
   }
 
 </style>
