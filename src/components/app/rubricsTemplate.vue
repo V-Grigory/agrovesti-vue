@@ -7,7 +7,7 @@
     <!--templateNumber-10-->
     <div
       v-if="rubricData.articles.length > 0
-      && rubricData.template_number === 10"
+      && rubricData.template_number == 10"
       class="templateNumber-1"
     >
 
@@ -67,7 +67,7 @@
     <!--templateNumber-11-->
     <div
       v-if="rubricData.articles.length > 0
-      && rubricData.template_number === 11"
+      && rubricData.template_number == 11"
       class="templateNumber-11"
     >
 
@@ -110,7 +110,7 @@
     <!--templateNumber-12-->
     <div
       v-if="rubricData.articles.length > 0
-      && rubricData.template_number === 12"
+      && rubricData.template_number == 12"
       class="templateNumber-12"
     >
 
@@ -170,7 +170,7 @@
     <!--templateNumber-13-->
     <div
       v-if="rubricData.articles.length > 0
-      && rubricData.template_number === 13"
+      && rubricData.template_number == 13"
       class="templateNumber-13"
     >
       <div
