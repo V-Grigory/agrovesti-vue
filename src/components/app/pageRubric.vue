@@ -1,6 +1,13 @@
 <template>
   <div class="pageRubric">
 
+    <breadCrumbs
+      :breadCrumbsData="{
+	      name_ru: rubric.name_ru,
+	      name_en: rubric.name_en,
+	      parent: rubric.parent}"
+    />
+
     <div v-if="rubric.articles && rubric.articles.length > 0">
 
       <!--first item-->
@@ -62,6 +69,7 @@
 
 <script>
 	import axios from 'axios';
+	const breadCrumbs = () => import('./breadCrumbs.vue');
 	const articleImage = () => import('./templatesElement/articleImage.vue');
 	const articleContent = () => import('./templatesElement/articleContent.vue');
 	const articleIntroduce =
@@ -70,6 +78,7 @@
 	export default {
 		name: `pageRubric`,
 		components: {
+			breadCrumbs,
 			articleImage,
 			articleContent,
 			articleIntroduce
@@ -80,16 +89,12 @@
 			};
 		},
 		mounted() {
-			// console.log(this.$route.params.id)
-			// return
 			axios.get(
 				`http://localhost:8000/api/rubrics/${this.$route.params.id}`
 			).then(res => {
-				console.log('OK')
 				console.log(res)
 				this.rubric = res.data
 			}).catch(error => {
-        console.log('error')
         console.log(error)
       });
 		}

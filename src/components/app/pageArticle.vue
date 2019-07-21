@@ -1,6 +1,14 @@
 <template>
   <div class="pageArticle">
 
+    <breadCrumbs
+      v-if="article.rubriks"
+      :breadCrumbsData="{
+	      name_ru: article.rubriks[0].name_ru,
+	      name_en: article.rubriks[0].name_en,
+	      parent: article.rubriks[0].parent}"
+    />
+
     <div
       v-if="article.tilda_content"
       v-html="article.tilda_content"
@@ -15,11 +23,13 @@
 
 <script>
   import axios from 'axios';
+	const breadCrumbs = () => import('./breadCrumbs.vue');
   // import rubricsTemplate from './rubricsTemplate.vue';
 
   export default {
     name: `pageArticle`,
     components: {
+			breadCrumbs
       // rubricsTemplate
     },
     data() {
@@ -28,17 +38,13 @@
       };
     },
     mounted() {
-      // console.log(this.$route.params.id)
-      // return
       axios.get(
         `http://localhost:8000/api/articles/${this.$route.params.id}`
       ).then(res => {
-        // console.log('OK')
-        // console.log(res)
         this.article = res.data
+				// console.log(this.article)
       })
       .catch(error => {
-        // console.log('error')
         console.log(error)
       });
     }

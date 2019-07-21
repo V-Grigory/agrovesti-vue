@@ -44,7 +44,11 @@
         :class="{itemWithDotInBack: index > 2}"
       >
         <nobr>
-          <a href="#">{{ item.name_ru }}</a>
+          <router-link
+            :to="`/rubrics/${item.name_en}`"
+          >
+            {{ item.name_ru }}
+          </router-link>
           <img src="../../../images/iconTemplateHeadItem.png">
         </nobr>
       </div>

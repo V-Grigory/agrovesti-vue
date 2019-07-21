@@ -2,12 +2,16 @@
   <div class="articleContent">
 
 		<h2 class="title">
-			<!--<a href="#">{{ articleContentData.name_ru }}</a>-->
-			<router-link
-				:to="`/articles/${articleContentData.name_en}`"
+			<a
+			  :href="`/articles/${articleContentData.name_en}`"
 			>
 				{{ articleContentData.name_ru }}
-			</router-link>
+			</a>
+			<!--<router-link-->
+				<!--:to="`/articles/${articleContentData.name_en}`"-->
+			<!--&gt;-->
+				<!--{{ articleContentData.name_ru }}-->
+			<!--</router-link>-->
 		</h2>
 
 		<div class="description">{{ articleContentData.description }}</div>

@@ -113,35 +113,11 @@
       && rubricData.template_number == 12"
       class="templateNumber-12"
     >
-
-      <div class="leftSide-49">
-        <articleImage
-          v-if="rubricData.articles[0].image"
-          :articleImageData="rubricData.articles[0].image"
-        />
-      </div>
-      <div class="rightSide-49">
-        <articleContent
-          class="margin-bottom-25"
-          :articleContentData="{
-            name_ru: rubricData.articles[0].name_ru,
-            name_en: rubricData.articles[0].name_en,
-            description: rubricData.articles[0].description
-          }"
-        />
-        <articleIntroduce
-          v-if="rubricData.articles[0].introduce.length > 0"
-          :articleIntroduceData="JSON.parse(rubricData.articles[0].introduce)"
-        />
-      </div>
-      <div style="clear: both;"></div>
-
       <div
         v-for="(article, index) in rubricData.articles"
-        v-if="index !== 0"
         :key="index"
       >
-        <div class="leftSide-49">
+        <div :class="[index % 2 ? 'leftSide-49' : 'rightSide-49']">
           <articleContent
             class="margin-top-25 margin-bottom-25"
             :articleContentData="{
@@ -155,7 +131,7 @@
             :articleIntroduceData="JSON.parse(article.introduce)"
           />
         </div>
-        <div class="rightSide-49">
+        <div :class="[index % 2 ? 'rightSide-49' : 'leftSide-49']">
           <articleImage
             v-if="article.image"
             :articleImageData="article.image"
@@ -164,7 +140,6 @@
 
         <div style="clear: both;"></div>
       </div>
-
     </div>
 
     <!--templateNumber-13-->

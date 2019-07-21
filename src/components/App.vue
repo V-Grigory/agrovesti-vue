@@ -32,26 +32,32 @@
           </a>
         </div>
         <div class="rightSide">
-          <router-link
-            :to="`/rubrics/rastenievodstvo2506190251`" class="menuItem"
+          <a
+            v-for="(item, i) in menu.main_menu"
+            :href="`/rubrics/${item.name_en}`"
+            class="menuItem"
           >
-            РАСТЕНИЕВОДСТВО
-          </router-link>
-          <router-link
-            :to="`/rubrics/zhivotnovodstvo2506190251`" class="menuItem"
-          >
-            ЖИВОТНОВОДСТВО
-          </router-link>
-          <router-link
-            :to="`/rubrics/agropoligon2506190252`" class="menuItem"
-          >
-            АГРОПОЛИГОН
-          </router-link>
-          <router-link
-            :to="`/rubrics/trends`" class="menuItem"
-          >
-            ТРЕНДЫ
-          </router-link>
+            {{ item.name_ru }}
+          </a>
+
+          <!--<a href="/rubrics/sibir" class="menuItem">РАСТЕНИЕВОДСТВО</a>-->
+          <!--&lt;!&ndash;<router-link&ndash;&gt;-->
+            <!--&lt;!&ndash;to="/rubrics/sibir" class="menuItem"&ndash;&gt;-->
+          <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;РАСТЕНИЕВОДСТВО&ndash;&gt;-->
+          <!--&lt;!&ndash;</router-link>&ndash;&gt;-->
+          <!--<a-->
+            <!--href="/rubrics/rastenievodstvo2506190251" class="menuItem"-->
+          <!--&gt;РАСТЕНИЕВОДСТВО</a>-->
+          <!--<a-->
+            <!--href="/rubrics/zhivotnovodstvo2506190251" class="menuItem"-->
+          <!--&gt;ЖИВОТНОВОДСТВО</a>-->
+          <!--<a-->
+            <!--href="/rubrics/agropoligon2506190252" class="menuItem"-->
+          <!--&gt;АГРОПОЛИГОН</a>-->
+          <!--<a-->
+            <!--href="/rubrics/trends" class="menuItem"-->
+          <!--&gt;ТРЕНДЫ</a>-->
         </div>
       </div>
 
@@ -83,21 +89,26 @@
           <div class="block block-2">
             <p class="title">Рубрики</p>
             <div class="content">
-              <p class="item">
-                <a href="#">Опыт</a>
+              <p v-for="(item, i) in menu.footer_menu" class="item">
+                <a :href="`/rubrics/${item.name_en}`">
+                  {{ item.name_ru }}
+                </a>
               </p>
-              <p class="item">
-                <a href="#">Кейсы</a>
-              </p>
-              <p class="item">
-                <a href="#">Новинки</a>
-              </p>
-              <p class="item">
-                <a href="#">Агронаблюдение</a>
-              </p>
-              <p class="item">
-                <a href="#">Тренды</a>
-              </p>
+              <!--<p class="item">-->
+                <!--<a href="#">Опыт</a>-->
+              <!--</p>-->
+              <!--<p class="item">-->
+                <!--<a href="#">Кейсы</a>-->
+              <!--</p>-->
+              <!--<p class="item">-->
+                <!--<a href="#">Новинки</a>-->
+              <!--</p>-->
+              <!--<p class="item">-->
+                <!--<a href="#">Агронаблюдение</a>-->
+              <!--</p>-->
+              <!--<p class="item">-->
+                <!--<a href="#">Тренды</a>-->
+              <!--</p>-->
             </div>
           </div>
 
@@ -139,6 +150,31 @@
 
   </div>
 </template>
+
+<script>
+	import axios from 'axios';
+
+	export default {
+		name: `app`,
+		data() {
+			return {
+				menu: {}
+			};
+		},
+		mounted() {
+			axios.get('http://localhost:8000/api/menu').then(res => {
+				console.log(res)
+				this.menu = res.data
+			})
+      .catch(error => {
+        console.log(error)
+      });
+		}
+		// asyncData ({ store }) {
+		//   return store.dispatch('INIT_PAGE', {whatTypeCardsNeed: 'initJkKv'})
+		// }
+	};
+</script>
 
 <style lang="scss">
   @import '../../node_modules/normalize.css';
