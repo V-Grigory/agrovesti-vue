@@ -31,33 +31,17 @@
             <img src="../images/logo.png" alt="agrovesti">
           </a>
         </div>
-        <div class="rightSide">
+        <div
+          v-if="menu.rubriks && menu.rubriks.main_menu" class="rightSide"
+        >
           <a
-            v-for="(item, i) in menu.main_menu"
+            v-for="(item, i) in menu.rubriks.main_menu"
+            :key="i"
             :href="`/rubrics/${item.name_en}`"
             class="menuItem"
           >
             {{ item.name_ru }}
           </a>
-
-          <!--<a href="/rubrics/sibir" class="menuItem">РАСТЕНИЕВОДСТВО</a>-->
-          <!--&lt;!&ndash;<router-link&ndash;&gt;-->
-            <!--&lt;!&ndash;to="/rubrics/sibir" class="menuItem"&ndash;&gt;-->
-          <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;РАСТЕНИЕВОДСТВО&ndash;&gt;-->
-          <!--&lt;!&ndash;</router-link>&ndash;&gt;-->
-          <!--<a-->
-            <!--href="/rubrics/rastenievodstvo2506190251" class="menuItem"-->
-          <!--&gt;РАСТЕНИЕВОДСТВО</a>-->
-          <!--<a-->
-            <!--href="/rubrics/zhivotnovodstvo2506190251" class="menuItem"-->
-          <!--&gt;ЖИВОТНОВОДСТВО</a>-->
-          <!--<a-->
-            <!--href="/rubrics/agropoligon2506190252" class="menuItem"-->
-          <!--&gt;АГРОПОЛИГОН</a>-->
-          <!--<a-->
-            <!--href="/rubrics/trends" class="menuItem"-->
-          <!--&gt;ТРЕНДЫ</a>-->
         </div>
       </div>
 
@@ -77,56 +61,50 @@
           <div class="block block-1">
             <p class="title">Размещение рекламы</p>
             <div class="content">
-              <p class="item">
-                Медиа-кит: 2019 (аудитория, участие в выставках, цены)
-              </p>
-              <p class="item">
-                <a href="#">Контакты отдела рекламы</a>
-              </p>
+              <div class="items">
+                <p class="item">
+                  Медиа-кит: 2019 (аудитория, участие в выставках, цены)
+                </p>
+                <p class="item">
+                  <a href="#">Контакты отдела рекламы</a>
+                </p>
+              </div>
             </div>
           </div>
 
           <div class="block block-2">
             <p class="title">Рубрики</p>
             <div class="content">
-              <p v-for="(item, i) in menu.footer_menu" class="item">
-                <a :href="`/rubrics/${item.name_en}`">
-                  {{ item.name_ru }}
-                </a>
-              </p>
-              <!--<p class="item">-->
-                <!--<a href="#">Опыт</a>-->
-              <!--</p>-->
-              <!--<p class="item">-->
-                <!--<a href="#">Кейсы</a>-->
-              <!--</p>-->
-              <!--<p class="item">-->
-                <!--<a href="#">Новинки</a>-->
-              <!--</p>-->
-              <!--<p class="item">-->
-                <!--<a href="#">Агронаблюдение</a>-->
-              <!--</p>-->
-              <!--<p class="item">-->
-                <!--<a href="#">Тренды</a>-->
-              <!--</p>-->
+              <div class="items"
+                v-if="menu.rubriks && menu.rubriks.footer_menu"
+              >
+                <p
+                  v-for="(item, i) in menu.rubriks.footer_menu"
+                  :key="i" class="item"
+                >
+                  <a :href="`/rubrics/${item.name_en}`">
+                    {{ item.name_ru }}
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
 
           <div class="block block-3">
             <p class="title">О нас</p>
             <div class="content">
-              <p class="item">
-                <a href="#">Оформление, продление подписки</a>
-              </p>
-              <p class="item">
-                <a href="#">Предложить тему для публикации</a>
-              </p>
-              <p class="item">
-                <a href="#">Команда редакции</a>
-              </p>
-              <p class="item">
-                <a href="#">Принципы и ценности</a>
-              </p>
+              <div class="items"
+                v-if="menu.articles && menu.articles.footer_menu"
+              >
+                <p
+                  v-for="(item, i) in menu.articles.footer_menu"
+                  :key="i" class="item"
+                >
+                  <a :href="`/articles/${item.name_en}`">
+                    {{ item.name_ru }}
+                  </a>
+                </p>
+              </div>
               <div class="social">
                 <a href="#" class="vk"></a>
                 <a href="#" class="facebook"></a>
@@ -163,7 +141,7 @@
 		},
 		mounted() {
 			axios.get('http://localhost:8000/api/menu').then(res => {
-				console.log(res)
+				// console.log(res)
 				this.menu = res.data
 			})
       .catch(error => {
@@ -273,15 +251,17 @@
           text-transform: uppercase;
         }
         .content {
-          .item {
-            color: #c7c7c9;
-            font-size: 14px;
-            margin-bottom: 13px;
-            a {
+          .items {
+            .item {
               color: #c7c7c9;
-              text-decoration: underline;
-              &:hover {
-                text-decoration: none;
+              font-size: 14px;
+              margin-bottom: 13px;
+              a {
+                color: #c7c7c9;
+                text-decoration: underline;
+                &:hover {
+                  text-decoration: none;
+                }
               }
             }
           }
