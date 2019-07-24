@@ -29,13 +29,13 @@
           <img
             v-else
             class="arrow"
-            @click="showHiddenItems"
+            @click="showHiddenItems('hiddenItems-' + rubricHeadData.id)"
             src="../../../images/iconTemplateHeadArrowItem.png" />
         </nobr>
       </div>
     </div>
 
-    <div class="hiddenItems" id="hiddenItems">
+    <div class="hiddenItems" :id="'hiddenItems-' + rubricHeadData.id">
       <div
         v-for="(item, index) in rubricHeadData.children"
         v-if="index > 2"
@@ -67,8 +67,8 @@
       return {};
     },
     methods: {
-      showHiddenItems () {
-        let el = document.getElementById('hiddenItems')
+      showHiddenItems (element) {
+        let el = document.getElementById(element)
         el.style.display = el.style.display === 'block' ? 'none' : 'block'
       }
     }
