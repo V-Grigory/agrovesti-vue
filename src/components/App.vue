@@ -106,11 +106,37 @@
                 </p>
               </div>
               <div class="social">
-                <a href="#" class="vk"></a>
-                <a href="#" class="facebook"></a>
-                <a href="#" class="twitter"></a>
-                <a href="#" class="odnoklassniki"></a>
-                <a href="#" class="google"></a>
+                <a
+                  href="https://www.instagram.com/agrarnaya_politika/"
+                  title="https://www.instagram.com/agrarnaya_politika/"
+                  class="instagram"
+                  target="_blank"></a>
+                <a
+                  href="https://www.youtube.com/channel/UCYjCv8lY13TS94lfhX0VdsQ"
+                  title="https://www.youtube.com/channel/UCYjCv8lY13TS94lfhX0VdsQ"
+                  class="youtube"
+                  target="_blank"></a>
+                <a
+                  href="https://vk.com/public172093914"
+                  title="https://vk.com/public172093914"
+                  class="vk"
+                  target="_blank"></a>
+                <a
+                  href="https://www.facebook.com/groups/596192440784158/"
+                  title="https://www.facebook.com/groups/596192440784158/"
+                  class="facebook"
+                  target="_blank"></a>
+                <a
+                  href="https://twitter.com/agrovesti"
+                  title="https://twitter.com/agrovesti"
+                  class="twitter"
+                  target="_blank"></a>
+                <a
+                  href="https://ok.ru/profile/577033813172"
+                  title="https://ok.ru/profile/577033813172"
+                  class="odnoklassniki"
+                  target="_blank"></a>
+                <!--<a href="#" class="google"></a>-->
               </div>
             </div>
           </div>
@@ -158,7 +184,7 @@
   @import '../../node_modules/normalize.css';
   @import '../../node_modules/reset-css/sass/reset';
 
-  body { font-family: sans-serif; }
+  body { font-family: 'Montserrat', sans-serif; }
   a { text-decoration: none; }
 
   .contentWrappper {
@@ -214,10 +240,10 @@
       .rightSide {
         .menuItem {
           color: #4d545c;
-          font-size: 18px;
+          font-size: 20px;
           /*margin: 25px 13px 0 13px;*/
           margin: 0 8px 0 8px;
-          font-weight: bold;
+          /*font-weight: bold;*/
           display: inline-block;
           &:hover { color: #c0c0c0; }
         }
@@ -273,6 +299,12 @@
               width: 42px;
               margin: 0px 10px 5px 0px;
             }
+            .instagram {
+              background: url("../images/iconSocialInstagram.png") no-repeat center;
+            }
+            .youtube {
+              background: url("../images/iconSocialYoutube.png") no-repeat center;
+            }
             .vk {
               background: url("../images/iconSocialVk.png") no-repeat center;
             }
@@ -285,15 +317,15 @@
             .odnoklassniki {
               background: url("../images/iconSocialOdnoklassniki.png") no-repeat center;
             }
-            .google {
-              background: url("../images/iconSocialGoogle.png") no-repeat center;
-            }
+            /*.google {*/
+              /*background: url("../images/iconSocialGoogle.png") no-repeat center;*/
+            /*}*/
           }
         }
       }
-      .block-1 { width: 50% }
-      .block-2 { width: 25% }
-      .block-3 { width: 25% }
+      .block-1 { width: 40% }
+      .block-2 { width: 30% }
+      .block-3 { width: 30% }
     }
     .registrationInfo {
       border-top: 1px solid #6c6e71;

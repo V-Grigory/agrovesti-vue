@@ -26,11 +26,15 @@
           <img
             v-if="index < 2"
             src="../../../images/iconTemplateHeadItem.png" />
-          <img
+          <p
             v-else
-            class="arrow"
             @click="showHiddenItems('hiddenItems-' + rubricHeadData.id)"
-            src="../../../images/iconTemplateHeadArrowItem.png" />
+            class="arrowTitle">
+            больше
+            <img
+              class="arrow"
+              src="../../../images/iconTemplateHeadArrowItem.png" />
+          </p>
         </nobr>
       </div>
     </div>
@@ -49,7 +53,9 @@
           >
             {{ item.name_ru }}
           </router-link>
-          <img src="../../../images/iconTemplateHeadItem.png">
+          <span
+            v-if="index < rubricHeadData.children.length - 1"
+            class="delimiter">|</span>
         </nobr>
       </div>
     </div>
@@ -79,31 +85,25 @@
 
   .rubricHead {
     text-transform: uppercase;
-    border-bottom: 2px solid #0f4f96;
+    border-bottom: 1px solid #c0c0c0;
     padding-bottom: 10px;
     margin-bottom: 30px;
 
     h1 {
-      font-size: 30px;
+      font-size: 26px;
       font-weight: bold;
       display: inline-block;
       margin-right: 50px;
-      padding: 4px 0px 4px 50px;
       a {
         color: #0f4f96;
       }
-    }
-    h1.iconTemplateHead-1 {
-      background: url("../../../images/iconTemplateHead-1.png")
-      no-repeat left center;
     }
 
     .items, .hiddenItems {
       display: inline-block;
       .item {
         font-size: 15px;
-        font-weight: bold;
-        margin: 10px 15px 0px 0px;
+        margin: 10px 10px 0px 0px;
         display: inline-block;
         nobr {
           a {
@@ -111,15 +111,34 @@
             &:hover { color: #4d545c; }
           }
           img {
-            margin: 2px 0 2px 9px;
+            margin: 2px 0 2px 5px;
           }
-          .arrow {
+          .arrowTitle {
+            text-transform: none;
+            font-size: 13px;
+            color: #0f4f96;
+            display: inline-block;
+            font-weight: bold;
+            margin-left: 5px;
             cursor: pointer;
+            img {
+              margin: 0 0 0 5px;
+            }
+            .arrow {}
           }
         }
       }
     }
-    .hiddenItems { display: none; }
+    .hiddenItems {
+      display: none;
+      text-transform: none;
+      .item {
+        font-size: 14px;
+      }
+      .delimiter {
+        margin-left: 5px;
+      }
+    }
   }
 
 </style>
