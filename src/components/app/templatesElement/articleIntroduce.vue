@@ -56,7 +56,7 @@
     ul {
       li {
         color: #424949;
-        font-size: 12px;
+        font-size: 13px;
         line-height: 1.3;
         margin: 0 0 10px 0;
         list-style: none;

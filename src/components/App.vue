@@ -241,6 +241,7 @@
         .menuItem {
           color: #4d545c;
           font-size: 20px;
+          line-height: 1.3;
           /*margin: 25px 13px 0 13px;*/
           margin: 0 8px 0 8px;
           /*font-weight: bold;*/
