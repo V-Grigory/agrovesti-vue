@@ -64,6 +64,13 @@
       </div>
     </div>
 
+	  <pagination
+		  v-if="rubric.articles_count
+		  && Math.ceil(rubric.articles_count / articlesOnPage) > 1"
+		  :pagesCount="Math.ceil(rubric.articles_count / articlesOnPage)"
+		  @getPage="getPage"
+	  />
+
   </div>
 </template>
 
@@ -74,6 +81,7 @@
 	const articleContent = () => import('./templatesElement/articleContent.vue');
 	const articleIntroduce =
 		() => import('./templatesElement/articleIntroduce.vue');
+  const pagination = () => import('./pagination.vue');
 
 	export default {
 		name: `pageRubric`,
@@ -81,22 +89,31 @@
 			breadCrumbs,
 			articleImage,
 			articleContent,
-			articleIntroduce
+			articleIntroduce,
+      pagination
     },
 		data() {
 			return {
-				rubric: {}
+				rubric: {},
+				articlesOnPage: 7
 			};
 		},
 		mounted() {
-			axios.get(
-				`http://localhost:8000/api/rubrics/${this.$route.params.id}`
-			).then(res => {
-				// console.log(res)
-				this.rubric = res.data
-			}).catch(error => {
-        console.log(error)
-      });
+			this.getPage(1)
+		},
+		methods: {
+      getPage (pageNumber) {
+        console.log('pageNumber: ' + pageNumber)
+	      let url = 'http://localhost:8000/api/rubrics'
+        axios.get(
+          `${url}/${this.$route.params.id}?p=${pageNumber}`
+        ).then(res => {
+          // console.log(res)
+          this.rubric = res.data
+        }).catch(error => {
+          console.log(error)
+        });
+      }
 		}
 	};
 </script>
