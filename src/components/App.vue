@@ -8,12 +8,12 @@
           <div class="leftSide">
             <span class="title">Консалтинг  компаний:</span>
             <router-link
-              :to="`/rubrics/resheniya-dlya-polya2506190244`"
+              :to="`/rubrics/konsalting-kompaniy-dlya-polya2307190556`"
               class="menuItem"
             >решения для поля
             </router-link>
             <router-link
-              :to="`/rubrics/resheniya-dlya-fermy2506190245`"
+              :to="`/rubrics/konsalting-kompaniy-dlya-fermy2307190559`"
               class="menuItem"
             >решения для фермы
             </router-link>
