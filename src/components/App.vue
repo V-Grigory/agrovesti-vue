@@ -19,7 +19,7 @@
             </router-link>
           </div>
           <div class="rightSide">
-            <a href="#" class="menuItem logIn">ВОЙТИ</a>
+            <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
             <a href="#" class="menuItem describe">ПОДПИСАТЬСЯ</a>
           </div>
         </div>
@@ -28,7 +28,7 @@
       <div class="mainMenu menuWrapper contentWrappper">
         <div class="leftSide">
           <a href="/" class="logo">
-            <img src="../images/logo.png" alt="agrovesti">
+            <img src="../images/logo.jpg" alt="agrovesti">
           </a>
         </div>
         <div
@@ -61,12 +61,16 @@
           <div class="block block-1">
             <p class="title">Размещение рекламы</p>
             <div class="content">
-              <div class="items">
-                <p class="item">
-                  Медиа-кит: 2019 (аудитория, участие в выставках, цены)
-                </p>
-                <p class="item">
-                  <a href="#">Контакты отдела рекламы</a>
+              <div class="items"
+                v-if="menu.articles && menu.articles.footer_menu"
+              >
+                <p
+                  v-for="(item, i) in menu.articles.footer_menu.menu_1"
+                  :key="i" class="item"
+                >
+                  <a :href="`/articles/${item.name_en}`">
+                    {{ item.name_ru }}
+                  </a>
                 </p>
               </div>
             </div>
@@ -97,7 +101,7 @@
                 v-if="menu.articles && menu.articles.footer_menu"
               >
                 <p
-                  v-for="(item, i) in menu.articles.footer_menu"
+                  v-for="(item, i) in menu.articles.footer_menu.menu_2"
                   :key="i" class="item"
                 >
                   <a :href="`/articles/${item.name_en}`">
@@ -278,6 +282,7 @@
           text-transform: uppercase;
         }
         .content {
+          padding-right: 10px;
           .items {
             .item {
               color: #c7c7c9;
