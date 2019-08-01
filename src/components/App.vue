@@ -7,16 +7,16 @@
         <div class="topMenu menuWrapper contentWrappper">
           <div class="leftSide">
             <span class="title">Консалтинг  компаний:</span>
-            <router-link
-              :to="`/rubrics/konsalting-kompaniy-dlya-polya2307190556`"
+            <a
+              href="/rubrics/konsalting-kompaniy-dlya-polya2307190556"
               class="menuItem"
             >решения для поля
-            </router-link>
-            <router-link
-              :to="`/rubrics/konsalting-kompaniy-dlya-fermy2307190559`"
+            </a>
+            <a
+              href="/rubrics/konsalting-kompaniy-dlya-fermy2307190559"
               class="menuItem"
             >решения для фермы
-            </router-link>
+            </a>
           </div>
           <div class="rightSide">
             <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
