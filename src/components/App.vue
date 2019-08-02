@@ -20,7 +20,10 @@
           </div>
           <div class="rightSide">
             <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
-            <a href="#" class="menuItem describe">ПОДПИСАТЬСЯ</a>
+            <a
+              href="/articles/kontakty-otdela-reklamy"
+              class="menuItem describe"
+            >ПОДПИСАТЬСЯ</a>
           </div>
         </div>
       </div>
