@@ -11,6 +11,8 @@
 </template>
 
 <script>
+  const urlAPI = process.env.NODE_ENV === 'production'
+    ? 'agrovesti.ru' : 'localhost:8000';
   import axios from 'axios';
   import rubricsTemplate from './rubricsTemplate.vue';
   // const rubricsTemplate = () => import('../template/template.vue');
@@ -26,7 +28,7 @@
       };
     },
     mounted() {
-      axios.get('http://localhost:8000/api').then(res => {
+      axios.get(`http://${urlAPI}/api`).then(res => {
         // console.log(res)
         this.rubrics = res.data.data
       })

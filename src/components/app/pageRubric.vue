@@ -75,6 +75,8 @@
 </template>
 
 <script>
+  const urlAPI = process.env.NODE_ENV === 'production'
+    ? 'agrovesti.ru' : 'localhost:8000';
 	import axios from 'axios';
 	const breadCrumbs = () => import('./breadCrumbs.vue');
 	const articleImage = () => import('./templatesElement/articleImage.vue');
@@ -103,8 +105,8 @@
 		},
 		methods: {
       getPage (pageNumber) {
-        console.log('pageNumber: ' + pageNumber)
-	      let url = 'http://localhost:8000/api/rubrics'
+        // console.log('pageNumber: ' + pageNumber)
+	      let url = `http://${urlAPI}/api/rubrics`
         axios.get(
           `${url}/${this.$route.params.id}?p=${pageNumber}`
         ).then(res => {

@@ -21,7 +21,7 @@
           <div class="rightSide">
             <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
             <a
-              href="/articles/kontakty-otdela-reklamy"
+              href="/articles/stranitsa-oformleniya-podpiski"
               class="menuItem describe"
             >ПОДПИСАТЬСЯ</a>
           </div>
@@ -163,6 +163,8 @@
 </template>
 
 <script>
+  const urlAPI = process.env.NODE_ENV === 'production'
+    ? 'agrovesti.ru' : 'localhost:8000';
 	import axios from 'axios';
 
 	export default {
@@ -173,7 +175,7 @@
 			};
 		},
 		mounted() {
-			axios.get('http://localhost:8000/api/menu').then(res => {
+			axios.get(`http://${urlAPI}/api/menu`).then(res => {
 				// console.log(res)
 				this.menu = res.data
 			})
