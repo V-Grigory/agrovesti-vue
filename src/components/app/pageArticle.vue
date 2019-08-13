@@ -20,7 +20,7 @@
     ></div>
     -->
 
-    <div v-if="article.need_pay === 1 && !articlesAccessToken()">
+    <div v-if="article.need_pay == 1 && !articlesAccessToken()">
 
       <h1>{{article.name_ru}}</h1>
 
@@ -44,7 +44,8 @@
           v-model="accessCode"
           placeholder="Ваш код подписчика" class="textInput" type="text"
         />
-        <button @click="getAuthToken()">ОТПРАВИТЬ</button>
+	      <p v-if="errAuthText" class="errAuthText">{{errAuthText}}</p>
+        <button @click="getAuthToken()">ВОЙТИ</button>
 
         <p
           @click="openRegisterBlock = !openRegisterBlock"
@@ -94,7 +95,8 @@
         article: {},
         accessCode: '',
         openRegisterBlock: false,
-        email: ''
+        email: '',
+	      errAuthText: ''
       };
     },
     mounted() {
@@ -120,6 +122,7 @@
         })
         .catch(error => {
           console.log(error)
+	        this.errAuthText = 'Неверный код доступа или доступ заблокирован'
         });
       },
       articlesAccessToken () {
@@ -170,6 +173,11 @@
         width: 350px;
         margin-top: 20px;
       }
+	    .errAuthText {
+		    font-size: 13px;
+		    color: #CB4335;
+		    margin-top: 9px;
+	    }
       button {
         display: block;
         margin: 30px auto;

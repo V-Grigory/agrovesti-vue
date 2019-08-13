@@ -27,12 +27,12 @@
             v-if="index < 2"
             src="../../../images/iconTemplateHeadItem.png" />
           <p
-            v-else
-            @click="showHiddenItems('hiddenItems-' + rubricHeadData.id)"
+            v-else-if="rubricHeadData.children.length > 3"
+            @click="showHiddenItems(rubricHeadData.id)"
             class="arrowTitle">
-            больше
+            <span :id="'managerHiddenItems-' + rubricHeadData.id">подробнее</span>
             <img
-              class="arrow"
+              :id="'managerArrow-' + rubricHeadData.id"
               src="../../../images/iconTemplateHeadArrowItem.png" />
           </p>
         </nobr>
@@ -74,7 +74,15 @@
     },
     methods: {
       showHiddenItems (element) {
-        let el = document.getElementById(element)
+        let elMan = document.getElementById('managerHiddenItems-' + element)
+        elMan.innerHTML = elMan.innerHTML === 'подробнее'
+          ? 'скрыть' : 'подробнее'
+
+        let elArrow = document.getElementById('managerArrow-' + element)
+        elArrow.className = elArrow.className === 'rotatedArrow'
+          ? '' : 'rotatedArrow'
+
+        let el = document.getElementById('hiddenItems-' + element)
         el.style.display = el.style.display === 'block' ? 'none' : 'block'
       }
     }
@@ -108,7 +116,7 @@
         nobr {
           a {
             color: #000;
-            &:hover { color: #4d545c; }
+            &:hover { color: #2E86C1; }
           }
           img {
             margin: 2px 0 2px 5px;
@@ -125,6 +133,7 @@
               margin: 0 0 0 5px;
             }
             .arrow {}
+            .rotatedArrow { transform: rotate(180deg); }
           }
         }
       }

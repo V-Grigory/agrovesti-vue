@@ -38,7 +38,7 @@
 			line-height: 1.2;
 			a {
 				color: black;
-				&:hover { color: #4d545c; }
+				&:hover { color: #2E86C1; }
 			}
 		}
 		.description {

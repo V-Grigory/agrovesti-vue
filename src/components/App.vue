@@ -255,7 +255,7 @@
           margin: 0 8px 0 8px;
           /*font-weight: bold;*/
           display: inline-block;
-          &:hover { color: #c0c0c0; }
+          &:hover { color: #2E86C1; }
         }
       }
     }
