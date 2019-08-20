@@ -129,7 +129,17 @@
         return sessionStorage.getItem('articlesAccessToken')
       },
       sendEmailForRegistration () {
-
+        let params = { params: {email: this.email} };
+        let url = `http://${urlAPI}/api/clientRegistration/`;
+        axios.get(url, params).then(res => {
+          // sessionStorage.setItem("articlesAccessToken", res.data);
+          // location.reload()
+          console.log(res)
+        })
+        .catch(error => {
+          console.log(error);
+          this.errAuthText = 'Неверный Email'
+        });
       }
     }
   };
