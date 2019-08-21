@@ -9,69 +9,63 @@
 	      parent: article.rubriks[0].parent}"
     />
 
-    <!--
     <div
-      v-if="article.tilda_content"
-      v-html="article.tilda_content"
+      v-html="article.tilda_content ? article.tilda_content : article.article"
+      :class="[{'closedArticle': (article.need_pay == 1
+        && !articlesAccessToken())}]"
+    >
+    </div>
+    <div v-if="article.need_pay == 1 && !articlesAccessToken()"
+      class="bottomClosedArticle"
     ></div>
-    <div
-      v-else
-      v-html="article.article"
-    ></div>
-    -->
 
-    <div v-if="article.need_pay == 1 && !articlesAccessToken()">
+    <div v-if="article.need_pay == 1 && !articlesAccessToken()"
+      class="authorization"
+    >
 
-      <h1>{{article.name_ru}}</h1>
+      <img src="../../images/headAuth.png" alt="" class="headAuth">
 
-      <div class="description">{{article.description}}</div>
-
-      <articleIntroduce
-        v-if="article.introduce.length > 0"
-        :articleIntroduceData="JSON.parse(article.introduce)"
+      <p class="textOffer">&nbsp;</p>
+      <p class="textOffer">Для продолжения чтения введите ваш код подписчика</p>
+      <p class="textOffer">
+        (номер вашего мобильного телефона или четырехзначный код доступа)
+      </p>
+      <input
+        v-model="accessCode"
+        placeholder="Ваш код подписчика" class="textInput" type="text"
       />
+      <p v-if="notificate.auth.failTextNotificate" class="failTextNotificate">
+        {{notificate.auth.failTextNotificate}}</p>
+      <button @click="getAuthToken()">ВОЙТИ</button>
 
-      <div class="authorization">
+      <p
+        @click="openRegisterBlock = !openRegisterBlock"
+        class="question"
+      >Еще не подписчик?</p>
 
-        <img src="../../images/headAuth.png" alt="" class="headAuth">
-
-        <p class="textOffer">&nbsp;</p>
-        <p class="textOffer">Для продолжения чтения введите ваш код подписчика</p>
+      <div v-show="openRegisterBlock">
         <p class="textOffer">
-          (номер вашего мобильного телефона или четырехзначный код доступа)
+          Введите ваш E-mail, на который мы отправим одноразовый
+          код доступа на сайт
         </p>
         <input
-          v-model="accessCode"
-          placeholder="Ваш код подписчика" class="textInput" type="text"
+          v-model="email"
+          placeholder="Ваш E-mail" class="textInput" type="text"
         />
-	      <p v-if="errAuthText" class="errAuthText">{{errAuthText}}</p>
-        <button @click="getAuthToken()">ВОЙТИ</button>
-
         <p
-          @click="openRegisterBlock = !openRegisterBlock"
-          class="question"
-        >Еще не подписчик?</p>
-
-        <div v-show="openRegisterBlock">
-          <p class="textOffer">
-            Введите ваш E-mail, на который мы отправим одноразовый
-            код доступа на сайт
-          </p>
-          <input
-            v-model="email"
-            placeholder="Ваш E-mail" class="textInput" type="text"
-          />
-          <button @click="sendEmailForRegistration()">ОТПРАВИТЬ</button>
-
-        </div>
+          v-if="notificate.reg.successTextNotificate
+            && !notificate.reg.failTextNotificate"
+          class="successTextNotificate"
+        >{{notificate.reg.successTextNotificate}}</p>
+        <p
+          v-if="notificate.reg.failTextNotificate"
+          class="failTextNotificate"
+        >{{notificate.reg.failTextNotificate}}</p>
+        <button @click="sendEmailForRegistration()">ОТПРАВИТЬ</button>
 
       </div>
 
     </div>
-    <div
-      v-else
-      v-html="article.tilda_content ? article.tilda_content : article.article"
-    ></div>
 
   </div>
 </template>
@@ -81,14 +75,14 @@
     ? 'agrovesti.ru' : 'localhost:8000';
   import axios from 'axios';
 	const breadCrumbs = () => import('./breadCrumbs.vue');
-  const articleIntroduce =
-    () => import('./templatesElement/articleIntroduce.vue');
+  // const articleIntroduce =
+  //   () => import('./templatesElement/articleIntroduce.vue');
 
   export default {
     name: `pageArticle`,
     components: {
 			breadCrumbs,
-      articleIntroduce
+      // articleIntroduce
     },
     data() {
       return {
@@ -96,7 +90,16 @@
         accessCode: '',
         openRegisterBlock: false,
         email: '',
-	      errAuthText: ''
+        notificate: {
+          auth: {
+            failTextNotificate: '',
+            successTextNotificate: ''
+          },
+          reg: {
+            failTextNotificate: '',
+            successTextNotificate: ''
+          }
+        }
       };
     },
     mounted() {
@@ -121,8 +124,9 @@
           location.reload()
         })
         .catch(error => {
-          console.log(error)
-	        this.errAuthText = 'Неверный код доступа или доступ заблокирован'
+          console.log(error);
+	        this.notificate.auth.failTextNotificate =
+            'Неверный код доступа или доступ заблокирован'
         });
       },
       articlesAccessToken () {
@@ -131,14 +135,16 @@
       sendEmailForRegistration () {
         let params = { params: {email: this.email} };
         let url = `http://${urlAPI}/api/clientRegistration/`;
-        axios.get(url, params).then(res => {
-          // sessionStorage.setItem("articlesAccessToken", res.data);
-          // location.reload()
-          console.log(res)
+        axios.get(url, params).then(() => {
+          // console.log(res)
+          this.notificate.reg.successTextNotificate =
+            'Вы успешно зарегистрированы! ' +
+            'Код доступа отправлен на указанный вами Email.';
         })
         .catch(error => {
           console.log(error);
-          this.errAuthText = 'Неверный Email'
+          this.notificate.reg.failTextNotificate =
+            'Пожалуйста, нажмите кнопку Отправить еще раз'
         });
       }
     }
@@ -147,6 +153,7 @@
 
 <style lang="scss">
   .pageArticle {
+    /*
     h1 {
       text-align: center;
       font-size: 23px;
@@ -159,11 +166,22 @@
       color: #424949;
       margin-bottom: 35px;
       line-height: 1.4;
+    } */
+
+    .closedArticle {
+      height: 1300px;
+      overflow: hidden;
+    }
+    .bottomClosedArticle {
+      height: 100px;
+      margin-top: -100px;
+      position: relative;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
     }
 
     .authorization {
       max-width: 800px;
-      margin: 50px auto;
+      margin: 100px auto;
       text-align: center;
       img.headAuth {
         width: 100%;
@@ -183,11 +201,16 @@
         width: 350px;
         margin-top: 20px;
       }
-	    .errAuthText {
+	    .failTextNotificate {
 		    font-size: 13px;
 		    color: #CB4335;
 		    margin-top: 9px;
 	    }
+      .successTextNotificate {
+        font-size: 13px;
+        color: #239B56;
+        margin-top: 9px;
+      }
       button {
         display: block;
         margin: 30px auto;
