@@ -164,7 +164,7 @@
 
 <script>
   const urlAPI = process.env.NODE_ENV === 'production'
-    ? 'agrovesti.ru' : 'localhost:8000';
+    ? 'old.agrovesti.ru' : 'localhost:8000';
 	import axios from 'axios';
 
 	export default {
