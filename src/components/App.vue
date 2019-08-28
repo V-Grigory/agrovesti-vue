@@ -31,7 +31,7 @@
       <div class="mainMenu menuWrapper contentWrappper">
         <div class="leftSide">
           <a href="/" class="logo">
-            <img src="../images/logo.jpg" alt="agrovesti">
+            <img src="../images/logo.png" alt="agrovesti">
           </a>
         </div>
         <div

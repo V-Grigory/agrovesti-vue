@@ -106,6 +106,10 @@
       this.getArticle()
     },
     methods: {
+      initData () {
+        this.notificate.reg.successTextNotificate = '';
+        this.notificate.reg.failTextNotificate = '';
+      },
       getArticle () {
         axios.get(
           `http://${urlAPI}/api/articles/${this.$route.params.id}`
@@ -133,19 +137,41 @@
         return sessionStorage.getItem('articlesAccessToken')
       },
       sendEmailForRegistration () {
+        this.initData();
+        if(!this.validateEmailForRegistration()) {
+          return
+        }
         let params = { params: {email: this.email} };
         let url = `http://${urlAPI}/api/clientRegistration/`;
-        axios.get(url, params).then(() => {
+        axios.get(url, params).then((res) => {
           // console.log(res)
-          this.notificate.reg.successTextNotificate =
-            'Вы успешно зарегистрированы! ' +
-            'Код доступа отправлен на указанный вами Email.';
+          if(res.data === 'already_registered') {
+            this.notificate.reg.successTextNotificate =
+              'Вы уже зарегистрированы! ' +
+              'По вопросам предоставления доступа обращайтесь ' +
+              'в отдел подписки, тел.: 8(909)-463-9900, 8(905)-475-2525.';
+          }
+          if(res.data === 'success_registered') {
+            this.notificate.reg.successTextNotificate =
+              'Вы успешно зарегистрированы! ' +
+              'Код доступа отправлен на указанный вами Email.';
+          }
         })
         .catch(error => {
           console.log(error);
           this.notificate.reg.failTextNotificate =
             'Пожалуйста, нажмите кнопку Отправить еще раз'
         });
+      },
+      validateEmailForRegistration () {
+        if(!this.email) {
+          this.notificate.reg.failTextNotificate = 'Укажите Email'
+        }
+        if(this.email && this.email.indexOf('@') === -1) {
+          this.notificate.reg.failTextNotificate
+            = 'Вы указали некорректный Email'
+        }
+        return this.email && this.email.indexOf('@') > -1
       }
     }
   };
@@ -169,7 +195,7 @@
     } */
 
     .closedArticle {
-      height: 1300px;
+      min-height: 2000px;
       overflow: hidden;
     }
     .bottomClosedArticle {
@@ -205,11 +231,13 @@
 		    font-size: 13px;
 		    color: #CB4335;
 		    margin-top: 9px;
+        line-height: 1.5;
 	    }
       .successTextNotificate {
         font-size: 13px;
         color: #239B56;
         margin-top: 9px;
+        line-height: 1.5;
       }
       button {
         display: block;
