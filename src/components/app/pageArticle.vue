@@ -195,7 +195,7 @@
     } */
 
     .closedArticle {
-      min-height: 2000px;
+      height: 2000px;
       overflow: hidden;
     }
     .bottomClosedArticle {
