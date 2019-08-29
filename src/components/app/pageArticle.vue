@@ -130,7 +130,9 @@
         .catch(error => {
           console.log(error);
 	        this.notificate.auth.failTextNotificate =
-            'Неверный код доступа или доступ заблокирован'
+            'Неверный код доступа или доступ заблокированн, ' +
+            'для восстановления свяжитесь с отделом подписки: ' +
+            '8(905)-475-2525, agro_podpiska@mail.ru'
         });
       },
       articlesAccessToken () {
@@ -147,9 +149,9 @@
           // console.log(res)
           if(res.data === 'already_registered') {
             this.notificate.reg.successTextNotificate =
-              'Вы уже зарегистрированы! ' +
-              'По вопросам предоставления доступа обращайтесь ' +
-              'в отдел подписки, тел.: 8(909)-463-9900, 8(905)-475-2525.';
+              'На данный e-mail уже был предоставлен одноразовый код ' +
+              'доступа, для постоянного доступа обратитесь в отдел ' +
+              'подписки: тел.: 8(905)-475-2525, e-mail: agro_podpiska@mail.ru'
           }
           if(res.data === 'success_registered') {
             this.notificate.reg.successTextNotificate =
@@ -220,7 +222,6 @@
       }
       input.textInput {
         font-family: sans-serif;
-        color: #909497;
         padding: 10px;
         border: none;
         border-bottom: 2px solid #1B4F72;
