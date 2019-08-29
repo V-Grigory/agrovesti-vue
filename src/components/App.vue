@@ -21,6 +21,10 @@
           <div class="rightSide">
             <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
             <a
+              @click.prevent="search.showBlock = !search.showBlock"
+              class="menuItem search" href="#"
+            >ПОИСК</a>
+            <a
               href="/articles/stranitsa-oformleniya-podpiski"
               class="menuItem describe"
             >ПОДПИСАТЬСЯ</a>
@@ -171,7 +175,10 @@
 		name: `app`,
 		data() {
 			return {
-				menu: {}
+				menu: {},
+        search: {
+				  showBlock: false
+        }
 			};
 		},
 		mounted() {
@@ -227,15 +234,20 @@
         }
       }
       .rightSide {
-        .logIn {
+        /*.logIn {*/
+          /*background: url("../images/iconLogIn.png") no-repeat left center;*/
+          /*padding-left: 20px;*/
+          /*margin: 5px 30px 5px 0;*/
+        /*}*/
+        .search {
           background: url("../images/iconLogIn.png") no-repeat left center;
           padding-left: 20px;
-          margin: 5px 30px 5px 0px;
+          margin: 5px 30px 5px 0;
         }
         .describe {
           background: url("../images/iconDescribe.png") no-repeat left center;
           padding-left: 20px;
-          margin: 5px 0px 5px 0px;
+          margin: 5px 0 5px 0;
         }
       }
     }
