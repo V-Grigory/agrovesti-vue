@@ -32,6 +32,36 @@
         </div>
       </div>
 
+      <div v-if="search.showBlock" class="contentWrappper">
+        <div class="searchBlockWrapper">
+          <div class="searchBlock">
+            <div class="searchBlockContent">
+
+              <input type="text" placeholder="Текст" v-model="search.text" />
+              <div @click="goSearch()"
+                class="btnSearch">ПОИСК
+              </div>
+              <div @click="search.showBlock = !search.showBlock"
+                class="btnCloseSearch">X
+              </div>
+
+              <div v-if="search.result.length > 0" class="searchResult">
+                <p class="title">Результаты поиска:</p>
+
+                <a
+                  v-for="article in search.result"
+                  :href="`/articles/${article.name_en}`"
+                  class="links"
+                >
+                  {{ article.name_ru }}
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="mainMenu menuWrapper contentWrappper">
         <div class="leftSide">
           <a href="/" class="logo">
@@ -177,7 +207,9 @@
 			return {
 				menu: {},
         search: {
-				  showBlock: false
+				  showBlock: false,
+          text: '',
+          result: []
         }
 			};
 		},
@@ -189,7 +221,25 @@
       .catch(error => {
         console.log(error)
       });
-		}
+		},
+    methods: {
+      goSearch () {
+        if(!this.search.text) {
+          return
+        }
+        let url = `http://${urlAPI}/api/search/`;
+        let params = {
+          params: { text: this.search.text }
+        };
+        axios.get(url, params).then((res) => {
+          this.search.result = res.data;
+          // console.log(this.search.result)
+        })
+        .catch(error => {
+          console.log(error)
+        })
+      }
+    }
 		// asyncData ({ store }) {
 		//   return store.dispatch('INIT_PAGE', {whatTypeCardsNeed: 'initJkKv'})
 		// }
@@ -248,6 +298,57 @@
           background: url("../images/iconDescribe.png") no-repeat left center;
           padding-left: 20px;
           margin: 5px 0 5px 0;
+        }
+      }
+    }
+
+    .searchBlockWrapper {
+      position: relative;
+      .searchBlock {
+        position: absolute;
+        width: 100%;
+        background-color: #ffffff;
+        /* opacity: 0.9; */
+        z-index: 1;
+        .searchBlockContent {
+          padding: 30px 20px;
+          input {
+            padding: 5px;
+            margin-right: 10px;
+            min-width: 200px;
+            width: 80%;
+            border: 1px solid #000;
+          }
+          .btnSearch {
+            display: inline-block;
+            background-color: #0f4f96;
+            padding: 8px 15px;
+            color: #fff;
+            cursor: pointer;
+            margin: 5px 0;
+          }
+          .btnCloseSearch {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            cursor: pointer;
+            font-size: 18px;
+          }
+
+          .searchResult {
+            .title {
+              margin: 30px 0 15px 0;
+              color: #424949;
+            }
+            .links {
+              display: inline-block;
+              /* font-size: 14px; */
+              color: #2E86C1;
+              font-family: sans-serif;
+              line-height: 1.6;
+              &:hover { color: #0f4f96; }
+            }
+          }
         }
       }
     }
