@@ -98,7 +98,9 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'Vue HN 2.0', // default title
+    title: 'Аграрная Политика - Новое имя общероссийского журнала ' +
+        '«Аграрные Известия». Обзоры практик управления, повышения ' +
+        'рентабельности производства. Инновации. Тренды.', // default title
     url: req.url
   }
   renderer.renderToString(context, (err, html) => {
