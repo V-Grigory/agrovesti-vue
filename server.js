@@ -67,6 +67,7 @@ app.use(compression({ threshold: 0 }))
 app.use(favicon('./public/logo-48.png'))
 app.use('/dist', serve('./dist', true))
 app.use('/public', serve('./public', true))
+// app.use('/tilda', serve('./public/tilda', true))
 app.use('/manifest.json', serve('./manifest.json', true))
 app.use('/service-worker.js', serve('./dist/service-worker.js'))
 
@@ -97,11 +98,28 @@ function render (req, res) {
     }
   }
 
+	const urlAPI = isProd ? '/tilda/' : 'http://localhost:8000/tilda/'
+  let tildaAssets = { js: [], css: [] }
+  for(let tAssets of ['js', 'css']) {
+		fs
+			.readdirSync(__dirname + `/../old.agrovesti.ru/public/tilda/${tAssets}/`)
+			.forEach(file => {
+				tildaAssets[tAssets].push(`${urlAPI}${tAssets}/${file}`)
+			})
+		if(tildaAssets[tAssets].length < 15) {
+			while(tildaAssets[tAssets].length < 15) {
+				tildaAssets[tAssets].push(`empty_blank.${tAssets}`)
+			}
+		}
+	}
+  // console.log(tildaAssets)
+
   const context = {
     title: 'Аграрная Политика - Новое имя общероссийского журнала ' +
         '«Аграрные Известия». Обзоры практик управления, повышения ' +
         'рентабельности производства. Инновации. Тренды.', // default title
-    url: req.url
+    url: req.url,
+		tildaAssets
   }
   renderer.renderToString(context, (err, html) => {
     if (err) {
