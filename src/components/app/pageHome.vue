@@ -11,9 +11,8 @@
 </template>
 
 <script>
-  const urlAPI = process.env.NODE_ENV === 'production'
-    ? 'old.agrovesti.ru' : 'localhost:8000';
-  import axios from 'axios';
+  // import { urlAPI } from '../../api/agroApi'
+  // import axios from 'axios';
   import rubricsTemplate from './rubricsTemplate.vue';
   // const rubricsTemplate = () => import('../template/template.vue');
 
@@ -24,21 +23,21 @@
     },
     data() {
       return {
-        rubrics: []
+        rubrics: this.$store.state.rubrics
       };
     },
     mounted() {
-      axios.get(`http://${urlAPI}/api`).then(res => {
-        // console.log(res)
-        this.rubrics = res.data.data
-      })
-      .catch(error => {
-        console.log(error)
-      });
+      // axios.get(`http://${urlAPI}/api`).then(res => {
+      //   // console.log(res)
+      //   this.rubrics = res.data.data
+      // })
+      // .catch(error => {
+      //   console.log(error)
+      // });
+    },
+    asyncData ({ store }) {
+      return store.dispatch('GET_MAIN_PAGE')
     }
-    // asyncData ({ store }) {
-    //   return store.dispatch('INIT_PAGE', {whatTypeCardsNeed: 'initJkKv'})
-    // }
   };
 </script>
 

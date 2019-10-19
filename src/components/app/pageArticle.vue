@@ -9,6 +9,10 @@
 	      parent: article.rubriks[0].parent}"
     />
 
+    <div class="datePublication">
+      Дата публикации: {{ getNormDate(article.created_at) }}
+    </div>
+
     <div
       v-html="article.tilda_content ? article.tilda_content : article.article"
       :class="[{'closedArticle': (article.need_pay == 1
@@ -71,18 +75,14 @@
 </template>
 
 <script>
-  const urlAPI = process.env.NODE_ENV === 'production'
-    ? 'old.agrovesti.ru' : 'localhost:8000';
+  import { urlAPI } from '../../api/agroApi'
   import axios from 'axios';
 	const breadCrumbs = () => import('./breadCrumbs.vue');
-  // const articleIntroduce =
-  //   () => import('./templatesElement/articleIntroduce.vue');
 
   export default {
     name: `pageArticle`,
     components: {
-			breadCrumbs,
-      // articleIntroduce
+			breadCrumbs
     },
     data() {
       return {
@@ -103,24 +103,25 @@
       };
     },
     mounted() {
-      this.getArticle()
+      // this.getArticle()
+      this.article = this.$store.state.article
     },
     methods: {
       initData () {
         this.notificate.reg.successTextNotificate = '';
         this.notificate.reg.failTextNotificate = '';
       },
-      getArticle () {
-        axios.get(
-          `http://${urlAPI}/api/articles/${this.$route.params.id}`
-        ).then(res => {
-          this.article = res.data
-          // console.log(this.article)
-        })
-        .catch(error => {
-          console.log(error)
-        });
-      },
+      // getArticle () {
+      //   axios.get(
+      //     `http://${urlAPI}/api/articles/${this.$route.params.id}`
+      //   ).then(res => {
+      //     this.article = res.data
+      //     // console.log(this.article)
+      //   })
+      //   .catch(error => {
+      //     console.log(error)
+      //   });
+      // },
       getAuthToken () {
         let params = { params: {accessCode: this.accessCode} };
         axios.get(`http://${urlAPI}/api/getAuthToken/`, params).then(res => {
@@ -174,7 +175,33 @@
             = 'Вы указали некорректный Email'
         }
         return this.email && this.email.indexOf('@') > -1
+      },
+      getNormDate (date) {
+        // let d = new Date('2018-07-06 07:29:34')
+        let d = new Date(date)
+        let year = d.getFullYear()
+        let month = d.getMonth() + 1
+        let day  = d.getDay() + 1
+        let textMonth = {
+          1: 'января',
+          2: 'февраля',
+          3: 'марта',
+          4: 'апреля',
+          5: 'мая',
+          6: 'июня',
+          7: 'июля',
+          8: 'августа',
+          9: 'сентября',
+          10: 'октября',
+          11: 'ноября',
+          12: 'декабря',
+        }
+        return `${day} ${textMonth[month]} ${year}`
+        // console.log( `${d} ${textMonth[m]} ${y}` )
       }
+    },
+    asyncData ({ store, route: { params: { id }}}) {
+      return store.dispatch('GET_ARTICLE_PAGE', id)
     }
   };
 </script>
@@ -195,6 +222,12 @@
       margin-bottom: 35px;
       line-height: 1.4;
     } */
+
+    .datePublication {
+      font-size: 12px;
+      color: #4d545c;
+      margin: 0 0 25px 0;
+    }
 
     .closedArticle {
       height: 2000px;

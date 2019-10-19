@@ -190,6 +190,25 @@
           <p>Свидетельство: ПИ № ФС 77-71663 от 23.11.2017 г.</p>
         </div>
 
+        <!-- Yandex.Metrika informer -->
+        <a
+          href="https://metrika.yandex.ru/stat/?id=47604658&amp;from=informer"
+          style="text-decoration: none; color: #fff; font-size: 12px; margin-top: 7px; display: inline-block;"
+          target="_blank"
+          rel="nofollow"
+        >
+          <img
+            src="https://informer.yandex.ru/informer/47604658/3_1_FFFFFFFF_EFEFEFFF_0_uniques"
+            style="width:88px; height:31px; border:0; margin-right: 5px;"
+            alt="Яндекс.Метрика"
+            title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
+            class="ym-advanced-informer"
+            data-cid="47604658"
+            data-lang="ru"
+          />
+        </a>
+        <!-- /Yandex.Metrika informer -->
+
       </div>
     </div>
 
@@ -197,8 +216,7 @@
 </template>
 
 <script>
-  const urlAPI = process.env.NODE_ENV === 'production'
-    ? 'old.agrovesti.ru' : 'localhost:8000';
+  import { urlAPI } from '../api/agroApi'
 	import axios from 'axios';
 
 	export default {
@@ -214,6 +232,7 @@
 			};
 		},
 		mounted() {
+		  // !! нужно забирать только один раз, при первом заходе
 			axios.get(`http://${urlAPI}/api/menu`).then(res => {
 				// console.log(res)
 				this.menu = res.data
@@ -221,6 +240,7 @@
       .catch(error => {
         console.log(error)
       });
+      this.yandexMetrika()
 		},
     methods: {
       goSearch () {
@@ -238,11 +258,34 @@
         .catch(error => {
           console.log(error)
         })
+      },
+      yandexMetrika () {
+        (function (d, w, c) {
+          (w[c] = w[c] || []).push(function() {
+            try {
+              w.yaCounter47604658 = new Ya.Metrika({
+                id:47604658,
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+              });
+            } catch(e) { }
+          });
+
+          var n = d.getElementsByTagName("script")[0],
+            s = d.createElement("script"),
+            f = function () { n.parentNode.insertBefore(s, n); };
+          s.type = "text/javascript";
+          s.async = true;
+          s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+          if (w.opera == "[object Opera]") {
+            d.addEventListener("DOMContentLoaded", f, false);
+          } else { f(); }
+        })(document, window, "yandex_metrika_callbacks");
       }
     }
-		// asyncData ({ store }) {
-		//   return store.dispatch('INIT_PAGE', {whatTypeCardsNeed: 'initJkKv'})
-		// }
 	};
 </script>
 

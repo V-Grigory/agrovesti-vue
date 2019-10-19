@@ -75,8 +75,7 @@
 </template>
 
 <script>
-  const urlAPI = process.env.NODE_ENV === 'production'
-    ? 'old.agrovesti.ru' : 'localhost:8000';
+  import { urlAPI } from '../../api/agroApi'
 	import axios from 'axios';
 	const breadCrumbs = () => import('./breadCrumbs.vue');
 	const articleImage = () => import('./templatesElement/articleImage.vue');
@@ -112,6 +111,7 @@
         ).then(res => {
           // console.log(res)
           this.rubric = res.data
+          window.scrollTo(0,0)
         }).catch(error => {
           console.log(error)
         });

@@ -55,10 +55,18 @@
 			&:hover { color: grey }
 		}
 		.pageNumber {
-			margin: 0 5px;
+			margin: 0 1px;
+			padding: 4px 8px;
+			display: inline-block;
+			border-radius: 11px;
+			&:hover {
+				color: #ffffff;
+				background-color: #0f4f96;
+			}
 		}
 		.currentPageNumber {
-			color: grey;
+			color: #ffffff;
+			background-color: #0f4f96;
 		}
 	}
 </style>
