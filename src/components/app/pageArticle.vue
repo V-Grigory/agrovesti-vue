@@ -181,7 +181,7 @@
         let d = new Date(date)
         let year = d.getFullYear()
         let month = d.getMonth() + 1
-        let day  = d.getDay() + 1
+        let day  = d.getDate()
         let textMonth = {
           1: 'января',
           2: 'февраля',
@@ -197,7 +197,6 @@
           12: 'декабря',
         }
         return `${day} ${textMonth[month]} ${year}`
-        // console.log( `${d} ${textMonth[m]} ${y}` )
       }
     },
     asyncData ({ store, route: { params: { id }}}) {

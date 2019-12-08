@@ -64,9 +64,14 @@
 
       <div class="mainMenu menuWrapper contentWrappper">
         <div class="leftSide">
+          <!--
           <a href="/" class="logo">
             <img src="../images/logo.png" alt="agrovesti">
           </a>
+          -->
+          <router-link to="/">
+            <img src="../images/logo.png" alt="agrovesti">
+          </router-link>
         </div>
         <div
           v-if="menu.rubriks && menu.rubriks.main_menu" class="rightSide"
@@ -293,7 +298,8 @@
   @import '../../node_modules/normalize.css';
   @import '../../node_modules/reset-css/sass/reset';
 
-  body { font-family: 'Montserrat', sans-serif; }
+  /*body { font-family: 'Montserrat', sans-serif; }*/
+  body { font-family: 'Nunito', sans-serif; }
   a { text-decoration: none; }
 
   .contentWrappper {
@@ -404,7 +410,8 @@
       }
       .rightSide {
         .menuItem {
-          color: #4d545c;
+          /*color: #4d545c;*/
+          color: #000000;
           font-size: 20px;
           line-height: 1.3;
           /*margin: 25px 13px 0 13px;*/
