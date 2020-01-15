@@ -3,32 +3,30 @@
 
     <div class="header">
 
-      <div style="background-color: #0f4f96;">
-        <div class="topMenu menuWrapper contentWrappper">
-          <div class="leftSide">
-            <span class="title">Консалтинг  компаний:</span>
-            <a
-              href="/rubrics/konsalting-kompaniy-dlya-polya2307190556"
-              class="menuItem"
-            >решения для поля
-            </a>
-            <a
-              href="/rubrics/konsalting-kompaniy-dlya-fermy2307190559"
-              class="menuItem"
-            >решения для фермы
-            </a>
-          </div>
-          <div class="rightSide">
-            <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
-            <a
-              @click.prevent="search.showBlock = !search.showBlock"
-              class="menuItem search" href="#"
-            >ПОИСК</a>
-            <a
-              href="/articles/stranitsa-oformleniya-podpiski"
-              class="menuItem describe"
-            >ПОДПИСАТЬСЯ</a>
-          </div>
+      <div class="topMenu menuWrapper contentWrappper">
+        <div class="leftSide">
+          <span class="title">Консалтинг  компаний:</span>
+          <a
+            href="/rubrics/konsalting-kompaniy-dlya-polya2307190556"
+            class="menuItem"
+          >решения для поля
+          </a>
+          <a
+            href="/rubrics/konsalting-kompaniy-dlya-fermy2307190559"
+            class="menuItem"
+          >решения для фермы
+          </a>
+        </div>
+        <div class="rightSide">
+          <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
+          <a
+            @click.prevent="search.showBlock = !search.showBlock"
+            class="menuItem search" href="#"
+          >ПОИСК</a>
+          <a
+            href="/articles/stranitsa-oformleniya-podpiski"
+            class="menuItem describe"
+          >ПОДПИСАТЬСЯ</a>
         </div>
       </div>
 
@@ -87,7 +85,7 @@
         </div>
       </div>
 
-      <div class="headerBorderBottom"></div>
+      <!--<div class="headerBorderBottom"></div>-->
     </div>
 
 
@@ -315,10 +313,14 @@
   }
 
   .header {
+    background: url("../images/headerBg.png") repeat-x bottom #00062c;
+    min-height: 198px;
+
     .topMenu {
       min-height: 45px;
       color: #ffffff;
       font-size: 14px;
+      font-weight: bold;
       .menuItem {
         color: #ffffff;
         margin: 0px 10px 10px 0;
@@ -339,7 +341,7 @@
           /*margin: 5px 30px 5px 0;*/
         /*}*/
         .search {
-          background: url("../images/iconLogIn.png") no-repeat left center;
+          background: url("../images/iconSearch.png") no-repeat left center;
           padding-left: 20px;
           margin: 5px 30px 5px 0;
         }
@@ -409,14 +411,15 @@
         a.logo { display: inline-block; }
       }
       .rightSide {
+        margin: 25px 0 15px 0;
         .menuItem {
           /*color: #4d545c;*/
-          color: #000000;
+          color: #ffffff;
           font-size: 20px;
           line-height: 1.3;
           /*margin: 25px 13px 0 13px;*/
-          margin: 0 8px 0 8px;
-          /*font-weight: bold;*/
+          margin: 2px 8px 2px 8px;
+          font-weight: bold;
           display: inline-block;
           &:hover { color: #2E86C1; }
         }
@@ -429,15 +432,15 @@
       }
     }
 
-    .headerBorderBottom {
-      height: 6px;
-      background: url("../images/headerBorderBottom.png") repeat-x center;
-    }
+    /*.headerBorderBottom {*/
+      /*height: 6px;*/
+      /*background: url("../images/headerBorderBottom.png") repeat-x center;*/
+    /*}*/
   }
 
   .footer {
     background-color: #3c3f44;
-    padding: 0px 0px 45px 0px;
+    padding: 0 0 45px 0;
     .blocks {
       display: flex;
       .block {
