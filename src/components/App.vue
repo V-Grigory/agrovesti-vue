@@ -409,7 +409,7 @@
       padding-bottom: 15px;
       .leftSide {
         a.logo { display: inline-block; }
-        @media (max-width: 768px) {
+        @media (max-width: 440px) {
           a {
             img { width: 100%; }
           }
