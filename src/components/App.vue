@@ -409,6 +409,11 @@
       padding-bottom: 15px;
       .leftSide {
         a.logo { display: inline-block; }
+        @media (max-width: 768px) {
+          a {
+            img { width: 100%; }
+          }
+        }
       }
       .rightSide {
         margin: 25px 0 15px 0;
