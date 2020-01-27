@@ -1,6 +1,10 @@
 <template>
   <div class="articleContent">
 
+	  <div v-if="articleContentData.tag" class="tag">
+		  {{ articleContentData.tag }}
+	  </div>
+
 		<h2 class="title">
 			<!--we do not use router-link here, because pictures will not be loaded-->
 			<a
@@ -10,7 +14,15 @@
 			</a>
 		</h2>
 
-		<div class="description">{{ articleContentData.description }}</div>
+		<div class="description">
+			<span
+				v-if="articleContentData.subtitle"
+				class="subtitle"
+			>
+				{{ articleContentData.subtitle }}:
+			</span>
+			{{ articleContentData.description }}
+		</div>
 
 	</div>
 </template>
@@ -27,6 +39,15 @@
 <style lang="scss" scoped>
 
 	.articleContent {
+		.tag {
+			display: inline-block;
+			margin: 0 0 10px 0;
+			background-color: #00abe9;
+			color: #fff;
+			padding: 3px 6px;
+			text-transform: uppercase;
+			font-size: 15px;
+		}
 		.title {
 			font-size: 16px;
 			text-transform: uppercase;
@@ -38,6 +59,11 @@
 			}
 		}
 		.description {
+			.subtitle {
+				color: #2874a6;
+				text-transform: uppercase;
+				font-weight: bold;
+			}
 			margin: 15px 0 0 0;
 			/*color: #424949;*/
 			font-size: 16px;

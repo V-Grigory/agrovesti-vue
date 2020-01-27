@@ -22,14 +22,19 @@
         <articleContent
           class="margin-bottom-25"
           :articleContentData="{
+            tag: rubricData.articles[0].tag,
             name_ru: rubricData.articles[0].name_ru,
             name_en: rubricData.articles[0].name_en,
+            subtitle: rubricData.articles[0].subtitle,
             description: rubricData.articles[0].description
           }"
         />
         <articleIntroduce
           v-if="rubricData.articles[0].introduce.length > 0"
-          :articleIntroduceData="JSON.parse(rubricData.articles[0].introduce)"
+          :articleIntroduceData="{
+            title_introduce: rubricData.articles[0].title_introduce,
+            introduce: JSON.parse(rubricData.articles[0].introduce)
+          }"
         />
       </div>
       <div style="clear: both;"></div>
@@ -48,14 +53,19 @@
           <articleContent
             class="margin-top-25 margin-bottom-25"
             :articleContentData="{
+              tag: article.tag,
               name_ru: article.name_ru,
               name_en: article.name_en,
+              subtitle: article.subtitle,
               description: article.description
             }"
           />
           <articleIntroduce
             v-if="article.introduce.length > 0"
-            :articleIntroduceData="JSON.parse(article.introduce)"
+            :articleIntroduceData="{
+              title_introduce: article.title_introduce,
+              introduce: JSON.parse(article.introduce)
+            }"
           />
         </div>
         <div
@@ -79,14 +89,19 @@
         <articleContent
           class="margin-top-25 margin-bottom-25"
           :articleContentData="{
+            tag: rubricData.articles[0].tag,
             name_ru: rubricData.articles[0].name_ru,
             name_en: rubricData.articles[0].name_en,
+            subtitle: rubricData.articles[0].subtitle,
             description: rubricData.articles[0].description
           }"
         />
         <articleIntroduce
           v-if="rubricData.articles[0].introduce.length > 0"
-          :articleIntroduceData="JSON.parse(rubricData.articles[0].introduce)"
+          :articleIntroduceData="{
+            title_introduce: rubricData.articles[0].title_introduce,
+            introduce: JSON.parse(rubricData.articles[0].introduce)
+          }"
         />
       </div>
 
@@ -97,8 +112,10 @@
           v-if="index !== 0"
           :key="index"
           :articleContentData="{
+            tag: article.tag,
             name_ru: article.name_ru,
             name_en: article.name_en,
+            subtitle: article.subtitle,
             description: article.description
           }"
         />
@@ -121,14 +138,19 @@
           <articleContent
             class="margin-top-25 margin-bottom-25"
             :articleContentData="{
+              tag: article.tag,
               name_ru: article.name_ru,
               name_en: article.name_en,
+              subtitle: article.subtitle,
               description: article.description
             }"
           />
           <articleIntroduce
             v-if="article.introduce.length > 0"
-            :articleIntroduceData="JSON.parse(article.introduce)"
+            :articleIntroduceData="{
+              title_introduce: article.title_introduce,
+              introduce: JSON.parse(article.introduce)
+            }"
           />
         </div>
         <div :class="[index % 2 ? 'rightSide-49' : 'leftSide-49']">
@@ -160,14 +182,19 @@
           <articleContent
             class="margin-top-25 margin-bottom-25"
             :articleContentData="{
+              tag: article.tag,
               name_ru: article.name_ru,
               name_en: article.name_en,
+              subtitle: article.subtitle,
               description: article.description
             }"
           />
           <articleIntroduce
             v-if="article.introduce.length > 0"
-            :articleIntroduceData="JSON.parse(article.introduce)"
+            :articleIntroduceData="{
+              title_introduce: article.title_introduce,
+              introduce: JSON.parse(article.introduce)
+            }"
           />
         </div>
         <div

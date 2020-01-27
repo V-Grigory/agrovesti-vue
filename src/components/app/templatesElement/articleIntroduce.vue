@@ -1,14 +1,18 @@
 <template>
   <div class="articleIntroduce">
 
-    <div class="title">ИЗ МАТЕРИАЛА ВЫ УЗНАЕТЕ:</div>
+    <div class="title">
+      {{ articleIntroduceData.title_introduce
+      ? articleIntroduceData.title_introduce
+      : 'ИЗ МАТЕРИАЛА ВЫ УЗНАЕТЕ' }}:
+    </div>
 
     <ul>
       <li
-        v-for="(item, index) in articleIntroduceData"
+        v-for="(item, index) in articleIntroduceData.introduce"
         :key="index"
-        :class="{lastItem: index === articleIntroduceData.length - 1}"
       >
+        <!--:class="{lastItem: index === articleIntroduceData.length - 1}"-->
         {{ item }}
       </li>
     </ul>
@@ -20,7 +24,7 @@
   export default {
     name: "articleIntroduce",
     props: {
-      articleIntroduceData: Array
+      articleIntroduceData: Object
     },
     data() {
       return {
@@ -45,6 +49,7 @@
     padding: 25px 25px 15px 25px;
     position: relative;
     .title {
+      text-transform: uppercase;
       color: #2874A6;
       position: absolute;
       padding: 0 10px;
@@ -69,13 +74,12 @@
           /*margin-left: -1em;*/
         }
       }
-      .lastItem::after {
+      /* .lastItem::after {
         content: "\2022 \2022 \2022";
         color: #2874A6;;
         font-weight: bold;
         display: inline-block;
-        /*width: 1em;*/
-      }
+      } */
     }
   }
 
