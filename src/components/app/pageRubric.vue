@@ -21,14 +21,19 @@
         <articleContent
           class="margin-bottom-25"
           :articleContentData="{
+            tag: rubric.articles[0].tag,
             name_ru: rubric.articles[0].name_ru,
             name_en: rubric.articles[0].name_en,
+            subtitle: rubric.articles[0].subtitle,
             description: rubric.articles[0].description
           }"
         />
         <articleIntroduce
           v-if="rubric.articles[0].introduce.length > 0"
-          :articleIntroduceData="JSON.parse(rubric.articles[0].introduce)"
+          :articleIntroduceData="{
+            title_introduce: rubric.articles[0].title_introduce,
+            introduce: JSON.parse(rubric.articles[0].introduce)
+          }"
         />
       </div>
       <div style="clear: both;"></div>
@@ -47,14 +52,19 @@
           <articleContent
             class="margin-top-25 margin-bottom-25"
             :articleContentData="{
+              tag: article.tag,
               name_ru: article.name_ru,
               name_en: article.name_en,
+              subtitle: article.subtitle,
               description: article.description
             }"
           />
           <articleIntroduce
             v-if="article.introduce.length > 0"
-            :articleIntroduceData="JSON.parse(article.introduce)"
+            :articleIntroduceData="{
+              title_introduce: article.title_introduce,
+              introduce: JSON.parse(article.introduce)
+            }"
           />
         </div>
         <div
