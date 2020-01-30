@@ -27,7 +27,11 @@
       class="authorization"
     >
 
-      <img src="../../images/headAuth.png" alt="" class="headAuth">
+      <!--<img src="../../images/headAuth.png" alt="" class="headAuth">-->
+      <p class="textOffer">
+        Ваша поддержка в качестве подписчика позволяет публиковать
+        объективные результаты опыта внедрения новинок и инноваций
+      </p>
 
       <p class="textOffer">&nbsp;</p>
       <p class="textOffer">Для продолжения чтения введите ваш код подписчика</p>
@@ -48,6 +52,7 @@
       >Еще не подписчик?</p>
 
       <div v-show="openRegisterBlock">
+        <p class="textOffer">&nbsp;</p>
         <p class="textOffer">
           Введите ваш E-mail, на который мы отправим одноразовый
           код доступа на сайт
@@ -68,6 +73,41 @@
         <button @click="sendEmailForRegistration()">ОТПРАВИТЬ</button>
 
       </div>
+
+
+      <p class="textOffer">&nbsp;</p>
+      <p class="textOffer" style="text-align: left;">
+        Благодаря поддержке руководителей, специалистов АПК в качестве
+        подписчиков редакция имеет возможность публиковать материалы,
+        отвечающие на важные вопросы:
+      </p>
+      <p class="textOfferDetail">
+        какие сегодня есть лучшие практики внедрения новинок и инноваций
+      </p>
+      <p class="textOfferDetail">
+        как интегрировать новые технические решения в действующее производство
+      </p>
+      <p class="textOffer">&nbsp;</p>
+
+      <p class="textOffer" style="text-align: left;">
+        Для оформления подписки позвоните или напишите нам:
+      </p>
+      <p class="textOffer" style="text-align: left;">
+        <a :href="'tel:89094639900'" class="textOfferContact">
+          8-909-463-99-00 (Елена)
+        </a>
+        <a href="mailto: agropodpiska@mail.ru" class="textOfferContact">
+          agropodpiska@mail.ru
+        </a>
+      </p>
+      <p class="textOffer" style="text-align: left;">
+        <a :href="'tel:89054752525'" class="textOfferContact">
+          8-905-475-25-25 (Мария)
+        </a>
+        <a href="mailto: agro211019@mail.ru" class="textOfferContact">
+          agro211019@mail.ru
+        </a>
+      </p>
 
     </div>
 
@@ -250,7 +290,26 @@
         font-family: sans-serif;
         font-size: 19px;
         color: #515A5A;
-        margin: 10px 0;
+        margin: 5px 0;
+        line-height: 1.3;
+        .textOfferContact {
+          color: #0f4f96;
+          font-size: 16px;
+          margin: 0 0 0 15px;
+        }
+      }
+      p.textOfferDetail {
+        line-height: 1.3;
+        margin: 10px 0 10px 25px;
+        text-align: left;
+        &::before {
+          content: "\2022";
+          color: #2874A6;;
+          font-weight: bold;
+          display: inline-block;
+          width: 1em;
+          /*margin-left: -1em;*/
+        }
       }
       input.textInput {
         font-family: sans-serif;

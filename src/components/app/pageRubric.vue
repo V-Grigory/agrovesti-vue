@@ -1,6 +1,9 @@
 <template>
   <div class="pageRubric">
 
+	  <!--<rubricHead-->
+		  <!--:rubricHeadData="this.$store.state.rubrics[0]" />-->
+
     <breadCrumbs
       :breadCrumbsData="{
 	      name_ru: rubric.name_ru,
@@ -87,6 +90,7 @@
 <script>
   import { urlAPI } from '../../api/agroApi'
 	import axios from 'axios';
+  const rubricHead = () => import('./templatesElement/rubricHead.vue');
 	const breadCrumbs = () => import('./breadCrumbs.vue');
 	const articleImage = () => import('./templatesElement/articleImage.vue');
 	const articleContent = () => import('./templatesElement/articleContent.vue');
@@ -97,6 +101,7 @@
 	export default {
 		name: `pageRubric`,
 		components: {
+      rubricHead,
 			breadCrumbs,
 			articleImage,
 			articleContent,
