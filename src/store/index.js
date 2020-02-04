@@ -9,20 +9,10 @@ Vue.use(Vuex)
 export function createStore () {
   return new Vuex.Store({
     state: {
-      rubrics: [],
-      article: {}
-
-      // activeType: null,
-      // itemsPerPage: 20,
-      // items: {/* [id: number]: Item */},
-      // users: {/* [id: string]: User */},
-      // lists: {
-      //   top: [/* number */],
-      //   new: [],
-      //   show: [],
-      //   ask: [],
-      //   job: []
-      // },
+      menuData: {},
+      mainPageData: [],
+      rubricPageData: {},
+      articlePageData: {}
     },
     actions,
     mutations,

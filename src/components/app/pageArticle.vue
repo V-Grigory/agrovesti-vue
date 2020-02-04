@@ -143,25 +143,13 @@
       };
     },
     mounted() {
-      // this.getArticle()
-      this.article = this.$store.state.article
+      this.article = this.$store.state.articlePageData
     },
     methods: {
       initData () {
         this.notificate.reg.successTextNotificate = '';
         this.notificate.reg.failTextNotificate = '';
       },
-      // getArticle () {
-      //   axios.get(
-      //     `http://${urlAPI}/api/articles/${this.$route.params.id}`
-      //   ).then(res => {
-      //     this.article = res.data
-      //     // console.log(this.article)
-      //   })
-      //   .catch(error => {
-      //     console.log(error)
-      //   });
-      // },
       getAuthToken () {
         let params = { params: {accessCode: this.accessCode} };
         axios.get(`http://${urlAPI}/api/getAuthToken/`, params).then(res => {
@@ -247,20 +235,7 @@
 
 <style lang="scss">
   .pageArticle {
-    /*
-    h1 {
-      text-align: center;
-      font-size: 23px;
-      color: #515A5A;
-      margin-bottom: 20px;
-    }
-    .description {
-      font-family: sans-serif;
-      font-size: 18px;
-      color: #424949;
-      margin-bottom: 35px;
-      line-height: 1.4;
-    } */
+    margin-top: 50px;
 
     .datePublication {
       font-size: 12px;

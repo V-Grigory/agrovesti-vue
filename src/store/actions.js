@@ -1,14 +1,27 @@
 // import { fetchUser, fetchItems, fetchIdsByType } from '../api'
-import { getRubrics, getArticle } from '../api/agroApi'
+import {
+  getMenuData, getMainPageData, getRubricPageData, getArticlePageData
+} from '../api/agroApi'
 
 export default {
+
+  GET_MENU: ({ commit }) => {
+    return getMenuData().then(v => commit('SET_MENU', v))
+  },
+
   GET_MAIN_PAGE: ({ commit }) => {
     // return Promise.resolve()
-    return getRubrics().then(v => commit('SET_MAIN_PAGE', v))
+    return getMainPageData()
+        .then(v => commit('SET_MAIN_PAGE', v))
+  },
+
+  GET_RUBRIC_PAGE: ({ commit }, { id, page }) => {
+    return getRubricPageData(id, page)
+        .then(v => commit('SET_RUBRIC_PAGE', v))
   },
 
   GET_ARTICLE_PAGE: ({ commit }, id) => {
-    return getArticle(id)
+    return getArticlePageData(id)
         .then(v => commit('SET_ARTICLE_PAGE', v))
   },
 

@@ -1,12 +1,21 @@
 // import Vue from 'vue'
 
 export default {
+
+  SET_MENU: (state, data) => {
+    state.menuData = data
+  },
+
   SET_MAIN_PAGE: (state, data) => {
-    state.rubrics = data
+    state.mainPageData = data
+  },
+
+  SET_RUBRIC_PAGE: (state, data) => {
+    state.rubricPageData = data
   },
 
   SET_ARTICLE_PAGE: (state, data) => {
-    state.article = data
+    state.articlePageData = data
   },
 
   // SET_ACTIVE_TYPE: (state, { type }) => {

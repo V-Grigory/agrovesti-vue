@@ -4,32 +4,32 @@
     <router-link to="/">ГЛАВНАЯ</router-link>
 
     <span v-if="breadCrumbsData.parent" class="delimiter">/</span>
-    <!--<router-link-->
-      <!--v-if="breadCrumbsData.parent"-->
-      <!--:to="`/rubrics/${breadCrumbsData.parent.name_en}`"-->
-    <!--&gt;-->
-      <!--{{breadCrumbsData.parent.name_ru.trim()}}-->
-    <!--</router-link>-->
-    <a
+    <router-link
       v-if="breadCrumbsData.parent"
-      :href="`/rubrics/${breadCrumbsData.parent.name_en}`"
+      :to="`/rubrics/${breadCrumbsData.parent.name_en}`"
     >
       {{breadCrumbsData.parent.name_ru.trim()}}
-    </a>
+    </router-link>
+    <!--<a-->
+      <!--v-if="breadCrumbsData.parent"-->
+      <!--:href="`/rubrics/${breadCrumbsData.parent.name_en}`"-->
+    <!--&gt;-->
+      <!--{{breadCrumbsData.parent.name_ru.trim()}}-->
+    <!--</a>-->
 
     <span class="delimiter">/</span>
-    <!--<router-link-->
-      <!--v-if="breadCrumbsData.name_ru"-->
-      <!--:to="`/rubrics/${breadCrumbsData.name_en}`"-->
-    <!--&gt;-->
-      <!--{{breadCrumbsData.name_ru.trim()}}-->
-    <!--</router-link>-->
-    <a
+    <router-link
       v-if="breadCrumbsData.name_ru"
-      :href="`/rubrics/${breadCrumbsData.name_en}`"
+      :to="`/rubrics/${breadCrumbsData.name_en}`"
     >
       {{breadCrumbsData.name_ru.trim()}}
-    </a>
+    </router-link>
+    <!--<a-->
+      <!--v-if="breadCrumbsData.name_ru"-->
+      <!--:href="`/rubrics/${breadCrumbsData.name_en}`"-->
+    <!--&gt;-->
+      <!--{{breadCrumbsData.name_ru.trim()}}-->
+    <!--</a>-->
 
   </div>
 </template>
@@ -45,7 +45,8 @@
 
 <style lang="scss" scoped>
   .breadCrumbs {
-    margin: 40px 0;
+    /*margin: 40px 0;*/
+    margin: 0 0 20px 0;
     font-size: 13px;
     color: #4d545c;
     font-weight: bold;

@@ -1,8 +1,10 @@
 <template>
   <div class="pageRubric">
 
-	  <!--<rubricHead-->
-		  <!--:rubricHeadData="this.$store.state.rubrics[0]" />-->
+	  <rubricHead
+      v-if="$store.state.menuData
+          && $store.state.menuData.hasOwnProperty('rubricator')"
+		  :rubricHeadData="rubricator" />
 
     <breadCrumbs
       :breadCrumbsData="{
@@ -88,8 +90,6 @@
 </template>
 
 <script>
-  import { urlAPI } from '../../api/agroApi'
-	import axios from 'axios';
   const rubricHead = () => import('./templatesElement/rubricHead.vue');
 	const breadCrumbs = () => import('./breadCrumbs.vue');
 	const articleImage = () => import('./templatesElement/articleImage.vue');
@@ -110,46 +110,76 @@
     },
 		data() {
 			return {
-				rubric: {},
 				articlesOnPage: 7
 			};
 		},
-		mounted() {
-			this.getPage(1)
-		},
-		methods: {
-      getPage (pageNumber) {
-        // console.log('pageNumber: ' + pageNumber)
-	      let url = `http://${urlAPI}/api/rubrics`
-        axios.get(
-          `${url}/${this.$route.params.id}?p=${pageNumber}`
-        ).then(res => {
-          // console.log(res)
-          this.rubric = res.data
-          window.scrollTo(0,0)
-        }).catch(error => {
-          console.log(error)
-        });
+    computed: {
+      rubricator () {
+        let rubricator = this.$store.state.menuData.rubricator
+        let rubricId = this.$store.state.rubricPageData.id
+        let out = rubricator.filter(v => v.id === rubricId)
+        // console.log(rubricId)
+        // console.log(out)
+        // console.log(out.length)
+        if(out.length > 0) {
+          return out[0]
+        }
+        rubricator.forEach(v => {
+          v.children.forEach(i => {
+            if (i.id === rubricId) {
+              out = v
+            }
+          })
+        })
+        // console.log(out)
+        window.scrollTo(0,0)
+        return out
+      },
+      rubric () {
+        return this.$store.state.rubricPageData
       }
-		}
+    },
+		mounted() {},
+    // watch: {
+    //   '$route' (to, from) {
+    //     console.log(to) // console.log(from)
+    //   }
+    // },
+		methods: {
+		  // пагинацию переделать чере роут !!
+      getPage (pageNumber) {
+        this.$store.dispatch('GET_RUBRIC_PAGE', {
+          id: this.$route.params.id, page: pageNumber
+        })
+        window.scrollTo(0,0)
+      },
+		},
+    asyncData ({ store, route: { params: { id }}}) {
+      return store.dispatch('GET_RUBRIC_PAGE', { id: id, page: 1 })
+    }
 	};
 </script>
 
 <style lang="scss" scoped>
 
-  .leftSide-49 { float: left; width: 49%; margin: 0 0 25px 0; }
-  .rightSide-49 { float: right; width: 49%; margin: 0 0 25px 0; }
-  .leftSide-65 { float: left; width: 65%; margin: 0 0 25px 0; }
-  .rightSide-33 { float: right; width: 33%; margin: 0 0 25px 0; }
+  .pageRubric {
+    margin-top: 50px;
 
-  @media (max-width: 620px) {
-    .leftSide-49, .rightSide-49, .leftSide-65, .rightSide-33 {
-      float: none; width: 100%;
+    .leftSide-49 { float: left; width: 49%; margin: 0 0 25px 0; }
+    .rightSide-49 { float: right; width: 49%; margin: 0 0 25px 0; }
+    .leftSide-65 { float: left; width: 65%; margin: 0 0 25px 0; }
+    .rightSide-33 { float: right; width: 33%; margin: 0 0 25px 0; }
+
+    @media (max-width: 620px) {
+      .leftSide-49, .rightSide-49, .leftSide-65, .rightSide-33 {
+        float: none; width: 100%;
+      }
     }
-  }
 
-  .margin-top-25 { margin-top: 25px; }
-  .margin-bottom-25 { margin-bottom: 25px; }
-  .border-top { padding: 15px 0 0 0; border-top: 1px solid #c0c0c0; }
+    .margin-top-25 { margin-top: 25px; }
+    .margin-bottom-25 { margin-bottom: 25px; }
+    /*.border-top { padding: 15px 0 0 0; border-top: 1px solid #c0c0c0; }*/
+
+  }
 
 </style>

@@ -2,7 +2,7 @@
   <div class="pageHome">
 
     <rubricsTemplate
-      v-for="(rubric, index) in rubrics"
+      v-for="(rubric, index) in $store.state.mainPageData"
       :key="index"
       :rubricData="rubric"
     />
@@ -11,10 +11,7 @@
 </template>
 
 <script>
-  // import { urlAPI } from '../../api/agroApi'
-  // import axios from 'axios';
   import rubricsTemplate from './rubricsTemplate.vue';
-  // const rubricsTemplate = () => import('../template/template.vue');
 
   export default {
     name: `pageHome`,
@@ -22,19 +19,9 @@
       rubricsTemplate
     },
     data() {
-      return {
-        rubrics: this.$store.state.rubrics
-      };
+      return {};
     },
-    mounted() {
-      // axios.get(`http://${urlAPI}/api`).then(res => {
-      //   // console.log(res)
-      //   this.rubrics = res.data.data
-      // })
-      // .catch(error => {
-      //   console.log(error)
-      // });
-    },
+    mounted() {},
     asyncData ({ store }) {
       return store.dispatch('GET_MAIN_PAGE')
     }

@@ -6,16 +6,18 @@
       <div class="topMenu menuWrapper contentWrappper">
         <div class="leftSide">
           <span class="title">Консалтинг  компаний:</span>
-          <a
-            href="/rubrics/konsalting-kompaniy-dlya-polya2307190556"
+          <router-link
+            to="/rubrics/konsalting-kompaniy-dlya-polya2307190556"
             class="menuItem"
-          >решения для поля
-          </a>
-          <a
-            href="/rubrics/konsalting-kompaniy-dlya-fermy2307190559"
+          >
+            решения для поля
+          </router-link>
+          <router-link
+            to="/rubrics/konsalting-kompaniy-dlya-fermy2307190559"
             class="menuItem"
-          >решения для фермы
-          </a>
+          >
+            решения для фермы
+          </router-link>
         </div>
         <div class="rightSide">
           <!--<a href="#" class="menuItem logIn">ВОЙТИ</a>-->
@@ -62,11 +64,6 @@
 
       <div class="mainMenu menuWrapper contentWrappper">
         <div class="leftSide">
-          <!--
-          <a href="/" class="logo">
-            <img src="../images/logo.png" alt="agrovesti">
-          </a>
-          -->
           <router-link to="/">
             <img src="../images/logo.png" alt="agrovesti">
           </router-link>
@@ -74,18 +71,17 @@
         <div
           v-if="menu.rubriks && menu.rubriks.main_menu" class="rightSide"
         >
-          <a
+          <router-link
             v-for="(item, i) in menu.rubriks.main_menu"
             :key="i"
-            :href="`/rubrics/${item.name_en}`"
+            :to="`/rubrics/${item.name_en}`"
             class="menuItem"
           >
             {{ item.name_ru }}
-          </a>
+          </router-link>
         </div>
       </div>
 
-      <!--<div class="headerBorderBottom"></div>-->
     </div>
 
 
@@ -126,9 +122,12 @@
                   v-for="(item, i) in menu.rubriks.footer_menu"
                   :key="i" class="item"
                 >
-                  <a :href="`/rubrics/${item.name_en}`">
+                  <!--скролл наверх !!-->
+                  <router-link
+                    :to="`/rubrics/${item.name_en}`"
+                  >
                     {{ item.name_ru }}
-                  </a>
+                  </router-link>
                 </p>
               </div>
             </div>
@@ -226,7 +225,6 @@
 		name: `app`,
 		data() {
 			return {
-				menu: {},
         search: {
 				  showBlock: false,
           text: '',
@@ -234,15 +232,13 @@
         }
 			};
 		},
+    computed: {
+      menu () {
+        return this.$store.state.menuData
+      }
+    },
 		mounted() {
-		  // !! нужно забирать только один раз, при первом заходе
-			axios.get(`http://${urlAPI}/api/menu`).then(res => {
-				// console.log(res)
-				this.menu = res.data
-			})
-      .catch(error => {
-        console.log(error)
-      });
+      this.$store.dispatch('GET_MENU').then(() => {})
       this.yandexMetrika()
 		},
     methods: {
