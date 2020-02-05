@@ -115,9 +115,9 @@
 		},
     computed: {
       rubricator () {
-        let rubricator = this.$store.state.menuData.rubricator
-        let rubricId = this.$store.state.rubricPageData.id
-        let out = rubricator.filter(v => v.id === rubricId)
+        let rubricator = this.$store.state.menuData.rubricator;
+        let rubricId = this.$store.state.rubricPageData.id;
+        let out = rubricator.filter(v => v.id === rubricId);
         // console.log(rubricId)
         // console.log(out)
         // console.log(out.length)
@@ -130,7 +130,7 @@
               out = v
             }
           })
-        })
+        });
         // console.log(out)
         window.scrollTo(0,0)
         return out

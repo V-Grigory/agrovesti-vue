@@ -1,6 +1,11 @@
 <template>
   <div class="pageArticle" ref="art">
 
+    <rubricHead
+      v-if="$store.state.menuData
+          && $store.state.menuData.hasOwnProperty('rubricator')"
+      :rubricHeadData="rubricator" />
+
     <breadCrumbs
       v-if="article.rubriks"
       :breadCrumbsData="{
@@ -117,11 +122,13 @@
 <script>
   import { urlAPI } from '../../api/agroApi'
   import axios from 'axios';
+  const rubricHead = () => import('./templatesElement/rubricHead.vue');
 	const breadCrumbs = () => import('./breadCrumbs.vue');
 
   export default {
     name: `pageArticle`,
     components: {
+      rubricHead,
 			breadCrumbs
     },
     data() {
@@ -141,6 +148,24 @@
           }
         }
       };
+    },
+    computed: {
+      rubricator () {
+        let rubricator = this.$store.state.menuData.rubricator;
+        let rubricId = this.$store.state.articlePageData.rubriks[0].id;
+        let out = rubricator.filter(v => v.id === rubricId);
+        if(out.length > 0) {
+          return out[0]
+        }
+        rubricator.forEach(v => {
+          v.children.forEach(i => {
+            if (i.id === rubricId) {
+              out = v
+            }
+          })
+        });
+        return out
+      },
     },
     mounted() {
       this.article = this.$store.state.articlePageData

@@ -10,12 +10,6 @@
     >
       {{breadCrumbsData.parent.name_ru.trim()}}
     </router-link>
-    <!--<a-->
-      <!--v-if="breadCrumbsData.parent"-->
-      <!--:href="`/rubrics/${breadCrumbsData.parent.name_en}`"-->
-    <!--&gt;-->
-      <!--{{breadCrumbsData.parent.name_ru.trim()}}-->
-    <!--</a>-->
 
     <span class="delimiter">/</span>
     <router-link
@@ -24,12 +18,6 @@
     >
       {{breadCrumbsData.name_ru.trim()}}
     </router-link>
-    <!--<a-->
-      <!--v-if="breadCrumbsData.name_ru"-->
-      <!--:href="`/rubrics/${breadCrumbsData.name_en}`"-->
-    <!--&gt;-->
-      <!--{{breadCrumbsData.name_ru.trim()}}-->
-    <!--</a>-->
 
   </div>
 </template>
@@ -51,9 +39,10 @@
     color: #4d545c;
     font-weight: bold;
     a {
-      font-size: 14px;
-      color: #4d545c;
+      font-size: 12px;
+      color: #000;
       text-transform: uppercase;
+      font-weight: normal;
       &:hover { color: #c0c0c0; }
     }
     .delimiter {
