@@ -26,7 +26,7 @@
             class="menuItem search" href="#"
           >ПОИСК</a>
           <a
-            href="/articles/stranitsa-oformleniya-podpiski"
+            href="/articles/oformlenie-podpiski"
             class="menuItem describe"
           >ПОДПИСАТЬСЯ</a>
         </div>
