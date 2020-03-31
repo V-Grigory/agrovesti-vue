@@ -18,8 +18,10 @@
       Дата публикации: {{ getNormDate(article.created_at) }}
     </div>
 
+    <!--v-html="article.tilda_content ? article.tilda_content : article.article"-->
+    <!--v-html-js="{html: article.tilda_content}"-->
     <div
-      v-html="article.tilda_content ? article.tilda_content : article.article"
+      v-html-js="{html: article.tilda_content ? article.tilda_content : article.article}"
       :class="[{'closedArticle': (article.need_pay == 1
         && !articlesAccessToken())}]"
     >
@@ -152,7 +154,11 @@
     computed: {
       rubricator () {
         let rubricator = this.$store.state.menuData.rubricator;
-        let rubricId = this.$store.state.articlePageData.rubriks[0].id;
+        let pageData = this.$store.state.articlePageData
+        let rubricId
+        if(pageData && pageData.rubrics) {
+          rubricId = pageData.rubriks[0].id;
+        }
         let out = rubricator.filter(v => v.id === rubricId);
         if(out.length > 0) {
           return out[0]
@@ -168,7 +174,10 @@
       },
     },
     mounted() {
-      this.article = this.$store.state.articlePageData
+      // this.article = this.$store.state.articlePageData
+      this.$store.dispatch('GET_ARTICLE_PAGE', this.$route.params.id).then(() => {
+        this.article = this.$store.state.articlePageData
+      })
     },
     methods: {
       initData () {
@@ -252,9 +261,9 @@
         return `${day} ${textMonth[month]} ${year}`
       }
     },
-    asyncData ({ store, route: { params: { id }}}) {
-      return store.dispatch('GET_ARTICLE_PAGE', id)
-    }
+    // asyncData ({ store, route: { params: { id }}}) {
+    //   return store.dispatch('GET_ARTICLE_PAGE', id)
+    // }
   };
 </script>
 
