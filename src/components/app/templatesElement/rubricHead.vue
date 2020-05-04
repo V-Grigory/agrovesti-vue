@@ -142,7 +142,7 @@
       display: none;
       text-transform: none;
       .item {
-        font-size: 14px;
+        /*font-size: 14px;*/
       }
       .delimiter {
         margin-left: 5px;

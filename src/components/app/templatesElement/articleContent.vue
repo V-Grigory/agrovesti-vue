@@ -66,7 +66,7 @@
 			}
 			margin: 15px 0 0 0;
 			/*color: #424949;*/
-			font-size: 16px;
+			font-size: 17px;
 			line-height: 1.4;
 		}
 	}

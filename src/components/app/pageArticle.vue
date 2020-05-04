@@ -1,10 +1,12 @@
 <template>
   <div class="pageArticle" ref="art">
 
+    <!--
     <rubricHead
       v-if="$store.state.menuData
           && $store.state.menuData.hasOwnProperty('rubricator')"
       :rubricHeadData="rubricator" />
+    -->
 
     <breadCrumbs
       v-if="article.rubriks"
@@ -35,12 +37,14 @@
     >
 
       <!--<img src="../../images/headAuth.png" alt="" class="headAuth">-->
+      <!--
       <p class="textOffer">
         Ваша поддержка в качестве подписчика позволяет публиковать
         объективные результаты опыта внедрения новинок и инноваций
       </p>
+      -->
 
-      <p class="textOffer">&nbsp;</p>
+      <!--<p class="textOffer">&nbsp;</p>-->
       <p class="textOffer">Для продолжения чтения введите ваш код подписчика</p>
       <p class="textOffer">
         (номер вашего мобильного телефона или четырехзначный код доступа)
@@ -124,13 +128,13 @@
 <script>
   import { urlAPI } from '../../api/agroApi'
   import axios from 'axios';
-  const rubricHead = () => import('./templatesElement/rubricHead.vue');
+  // const rubricHead = () => import('./templatesElement/rubricHead.vue');
 	const breadCrumbs = () => import('./breadCrumbs.vue');
 
   export default {
     name: `pageArticle`,
     components: {
-      rubricHead,
+      // rubricHead,
 			breadCrumbs
     },
     data() {
@@ -152,26 +156,26 @@
       };
     },
     computed: {
-      rubricator () {
-        let rubricator = this.$store.state.menuData.rubricator;
-        let pageData = this.$store.state.articlePageData
-        let rubricId
-        if(pageData && pageData.rubrics) {
-          rubricId = pageData.rubriks[0].id;
-        }
-        let out = rubricator.filter(v => v.id === rubricId);
-        if(out.length > 0) {
-          return out[0]
-        }
-        rubricator.forEach(v => {
-          v.children.forEach(i => {
-            if (i.id === rubricId) {
-              out = v
-            }
-          })
-        });
-        return out
-      },
+      // rubricator () {
+      //   let rubricator = this.$store.state.menuData.rubricator;
+      //   let pageData = this.$store.state.articlePageData
+      //   let rubricId
+      //   if(pageData && pageData.rubrics) {
+      //     rubricId = pageData.rubriks[0].id;
+      //   }
+      //   let out = rubricator.filter(v => v.id === rubricId);
+      //   if(out.length > 0) {
+      //     return out[0]
+      //   }
+      //   rubricator.forEach(v => {
+      //     v.children.forEach(i => {
+      //       if (i.id === rubricId) {
+      //         out = v
+      //       }
+      //     })
+      //   });
+      //   return out
+      // },
     },
     mounted() {
       // this.article = this.$store.state.articlePageData
@@ -269,12 +273,12 @@
 
 <style lang="scss">
   .pageArticle {
-    margin-top: 50px;
+    margin-top: 20px;
 
     .datePublication {
       font-size: 12px;
       color: #4d545c;
-      margin: 0 0 25px 0;
+      margin: 0 0 5px 0;
     }
 
     .closedArticle {

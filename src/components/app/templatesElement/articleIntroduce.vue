@@ -61,7 +61,7 @@
     ul {
       li {
         /*color: #424949;*/
-        font-size: 16px;
+        font-size: 17px;
         line-height: 1.3;
         margin: 0 0 10px 0;
         list-style: none;
