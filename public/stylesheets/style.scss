@@ -1,0 +1,47 @@
+@import '../../node_modules/reset-css/sass/reset';
+
+body { font-family: 'Nunito', sans-serif; }
+a { text-decoration: none; }
+
+.contentWrappper {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.menuWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-transform: uppercase;
+}
+
+.leftSide-49 { float: left; width: 49%; margin: 0 0 25px 0; }
+.rightSide-49 { float: right; width: 49%; margin: 0 0 25px 0; }
+.leftSide-65 { float: left; width: 65%; margin: 0 0 25px 0; }
+.rightSide-33 { float: right; width: 33%; margin: 0 0 25px 0; }
+
+@media (max-width: 620px) {
+  .leftSide-49, .rightSide-49, .leftSide-65, .rightSide-33 {
+    float: none; width: 100%;
+  }
+}
+
+.margin-top-25 { margin-top: 25px; }
+.margin-bottom-25 { margin-bottom: 25px; }
+.border-top { padding: 15px 0 0 0; border-top: 1px solid #c0c0c0; }
+
+
+@import 'header';
+
+@import 'breadCrumbs';
+
+@import 'templateElements/rubricHead';
+@import 'templateElements/articleImage';
+@import 'templateElements/articleContent';
+@import 'templateElements/articleIntroduce';
+
+@import 'pagination';
+
+@import 'articlePage';
+
+@import 'footer';

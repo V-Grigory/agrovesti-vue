@@ -1,0 +1,99 @@
+<div class="rubricPage" style="margin-top: 50px;">
+	<div class="contentWrappper">
+
+		<%- include('templateElements/rubricHead',
+			{ rubricHeadData: pageData.rubricator}
+		);
+		%>
+
+		<%- include('breadCrumbs',
+			{ breadCrumbsData: {
+				name_ru: pageData.rubricPageData.name_ru,
+				name_en: pageData.rubricPageData.name_en,
+				parent: pageData.rubricPageData.parent}
+			});
+		%>
+
+		<% if (pageData.rubricPageData.articles
+			&& pageData.rubricPageData.articles.length
+		) { %>
+
+			<%# first item %>
+			<div class="leftSide-49">
+
+				<%- include('templateElements/articleImage',
+					{ articleImageData: pageData.rubricPageData.articles[0].image }
+				); %>
+
+			</div>
+			<div class="rightSide-49">
+
+				<%- include('templateElements/articleContent',
+					{ articleContentData: {
+					tag: pageData.rubricPageData.articles[0].tag,
+					name_ru: pageData.rubricPageData.articles[0].name_ru,
+					name_en: pageData.rubricPageData.articles[0].name_en,
+					subtitle: pageData.rubricPageData.articles[0].subtitle,
+					description: pageData.rubricPageData.articles[0].description,
+					mainClass: 'articleContent margin-bottom-25'
+					}
+				}); %>
+
+				<%- include('templateElements/articleIntroduce',
+					{ articleIntroduceData: {
+					title_introduce: pageData.rubricPageData.articles[0].title_introduce,
+					introduce: JSON.parse(pageData.rubricPageData.articles[0].introduce)
+					}
+				}); %>
+
+			</div>
+			<div style="clear: both;"></div>
+
+			<%# all other items %>
+			<% pageData.rubricPageData.articles.forEach((article, index) => {
+				if (index !== 0) { %>
+
+					<div class="<%- index % 2 ? 'leftSide-49' : 'rightSide-49' %>">
+
+						<%- include('templateElements/articleImage',
+							{ articleImageData: article.image }
+						); %>
+
+						<%- include('templateElements/articleContent',
+							{ articleContentData: {
+							tag: article.tag,
+							name_ru: article.name_ru,
+							name_en: article.name_en,
+							subtitle: article.subtitle,
+							description: article.description,
+							mainClass: 'articleContent margin-top-25 margin-bottom-25'
+						}
+						}); %>
+
+						<%- include('templateElements/articleIntroduce',
+							{ articleIntroduceData: {
+							title_introduce: article.title_introduce,
+							introduce: JSON.parse(article.introduce)
+							}
+						}); %>
+
+					</div>
+
+					<% if (!(index % 2)
+						|| index === pageData.rubricPageData.articles.length - 1
+					) { %>
+						<div style="clear: both;"></div>
+					<% } %>
+
+			<% }
+			}); %>
+
+			<%# pagination %>
+			<% if (pageData.pagination) { %>
+				<%- include('pagination', { pagItems: pageData.pagination }); %>
+			<% } %>
+
+		<% } %>
+
+	</div>
+</div>

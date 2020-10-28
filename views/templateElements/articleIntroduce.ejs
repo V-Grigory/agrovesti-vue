@@ -1,0 +1,18 @@
+<div class="articleIntroduce">
+
+	<div class="title">
+		<%= articleIntroduceData.title_introduce
+		? articleIntroduceData.title_introduce
+		: 'ИЗ МАТЕРИАЛА ВЫ УЗНАЕТЕ' %>:
+	</div>
+
+	<ul>
+		<%# articleIntroduceData.introduce.forEach(item => { %>
+		<% for(let item of articleIntroduceData.introduce) { %>
+			<li>
+				<%= item %>
+			</li>
+		<% } %>
+	</ul>
+
+</div>

@@ -1,0 +1,58 @@
+.rubricHead {
+  text-transform: uppercase;
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+
+  h1 {
+    font-size: 26px;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 50px;
+    a {
+      color: #0f4f96;
+    }
+  }
+
+  .items, .hiddenItems {
+    display: inline-block;
+    .item {
+      font-size: 18px;
+      margin: 10px 5px 0 0;
+      display: inline-block;
+      nobr {
+        a {
+          color: #000;
+          &:hover { color: #2E86C1; }
+        }
+        img {
+          margin: 2px 0 2px 5px;
+        }
+        .arrowTitle {
+          text-transform: none;
+          font-size: 13px;
+          color: #0f4f96;
+          display: inline-block;
+          font-weight: bold;
+          margin-left: 5px;
+          cursor: pointer;
+          img {
+            margin: 0 0 0 5px;
+          }
+          .arrow {}
+          .rotatedArrow { transform: rotate(180deg); }
+        }
+      }
+    }
+  }
+  .hiddenItems {
+    display: none;
+    text-transform: none;
+    .item {
+      margin: 10px 5px 0 0;
+    }
+    .delimiter {
+      margin-left: 5px;
+    }
+  }
+}

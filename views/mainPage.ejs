@@ -1,0 +1,264 @@
+<div class="mainPage">
+	<div class="contentWrappper">
+
+		<% pageData.mainPageData.forEach(mainPageData => { %>
+
+			<div class="rubricsTemplate" style="margin-top: 50px;">
+
+				<%- include('templateElements/rubricHead',
+					{ rubricHeadData: mainPageData}
+				); %>
+
+				<% if ( !mainPageData.articles.length ) return; %>
+
+				<% if (mainPageData.template_number == 8) { %>
+
+					<div class="templateNumber-8">
+
+						<% mainPageData.articles.forEach((article, index) => { %>
+
+							<a
+								href="/articles/<%= article.name_en %>"
+								style="display: block; margin-bottom: 30px;"
+							>
+								<img
+									class="image_as_template"
+									src="http://old.agrovesti.ru/images/assets/preview_template_number_8.png"
+									alt=""
+									style="width: 100%;"
+								/>
+							</a>
+
+						<% }); %>
+
+					</div>
+
+				<% } %>
+
+				<% if (mainPageData.template_number == 10) { %>
+
+					<div class="templateNumber-10">
+
+						<%# first item %>
+						<div class="leftSide-49">
+
+							<%- include('templateElements/articleImage',
+								{ articleImageData: mainPageData.articles[0].image }
+							); %>
+
+						</div>
+						<div class="rightSide-49">
+
+							<%- include('templateElements/articleContent',
+							{ articleContentData: {
+								tag: mainPageData.articles[0].tag,
+								name_ru: mainPageData.articles[0].name_ru,
+								name_en: mainPageData.articles[0].name_en,
+								subtitle: mainPageData.articles[0].subtitle,
+								description: mainPageData.articles[0].description,
+								mainClass: 'articleContent margin-bottom-25'
+								}
+							}); %>
+
+							<%- include('templateElements/articleIntroduce',
+							{ articleIntroduceData: {
+								title_introduce: mainPageData.articles[0].title_introduce,
+								introduce: JSON.parse(mainPageData.articles[0].introduce)
+								}
+							}); %>
+
+						</div>
+						<div style="clear: both;"></div>
+
+						<%# all other items %>
+						<%
+						mainPageData.articles.forEach((article, index) => {
+							if (index !== 0) { %>
+
+								<div class="<%- index % 2 ? 'leftSide-49' : 'rightSide-49' %>">
+
+									<%- include('templateElements/articleImage',
+										{ articleImageData: article.image }
+									); %>
+
+									<%- include('templateElements/articleContent',
+									{ articleContentData: {
+										tag: article.tag,
+										name_ru: article.name_ru,
+										name_en: article.name_en,
+										subtitle: article.subtitle,
+										description: article.description,
+										mainClass: 'articleContent margin-top-25 margin-bottom-25'
+										}
+									}); %>
+
+									<%- include('templateElements/articleIntroduce',
+										{ articleIntroduceData: {
+										title_introduce: article.title_introduce,
+										introduce: JSON.parse(article.introduce)
+										}
+									}); %>
+
+								</div>
+
+								<% if (!(index % 2) || index === mainPageData.articles.length - 1) { %>
+									<div style="clear: both;"></div>
+								<% } %>
+
+							<% }
+						}); %>
+
+					</div>
+
+				<% } %>
+
+				<% if (mainPageData.template_number == 11) { %>
+
+					<div class="templateNumber-11">
+
+						<%# first item %>
+						<div class="leftSide-65">
+
+							<%- include('templateElements/articleImage',
+								{ articleImageData: mainPageData.articles[0].image }
+							); %>
+
+							<%- include('templateElements/articleContent',
+								{ articleContentData: {
+								tag: mainPageData.articles[0].tag,
+								name_ru: mainPageData.articles[0].name_ru,
+								name_en: mainPageData.articles[0].name_en,
+								subtitle: mainPageData.articles[0].subtitle,
+								description: mainPageData.articles[0].description,
+								mainClass: 'articleContent margin-top-25 margin-bottom-25'
+								}
+							}); %>
+
+							<%- include('templateElements/articleIntroduce',
+								{ articleIntroduceData: {
+								title_introduce: mainPageData.articles[0].title_introduce,
+								introduce: JSON.parse(mainPageData.articles[0].introduce)
+								}
+							}); %>
+
+						</div>
+
+						<%# all other items %>
+						<div class="rightSide-33">
+
+							<%
+							mainPageData.articles.forEach((article, index) => {
+							if (index !== 0) { %>
+
+								<%- include('templateElements/articleContent',
+								{ articleContentData: {
+									tag: article.tag,
+									name_ru: article.name_ru,
+									name_en: article.name_en,
+									subtitle: article.subtitle,
+									description: article.description,
+									mainClass: 'articleContent border-top margin-bottom-25'
+									}
+								}); %>
+
+								<% }
+								}); %>
+
+						</div>
+						<div style="clear: both;"></div>
+
+					</div>
+
+				<% } %>
+
+				<% if (mainPageData.template_number == 12) { %>
+
+					<div class="templateNumber-12">
+
+						<% mainPageData.articles.forEach((article, index) => { %>
+
+							<div class="<%- index % 2 ? 'leftSide-49' : 'rightSide-49' %>">
+
+								<%- include('templateElements/articleContent',
+									{ articleContentData: {
+									tag: article.tag,
+									name_ru: article.name_ru,
+									name_en: article.name_en,
+									subtitle: article.subtitle,
+									description: article.description,
+									mainClass: 'articleContent margin-top-25 margin-bottom-25'
+									}
+								}); %>
+
+								<%- include('templateElements/articleIntroduce',
+									{ articleIntroduceData: {
+									title_introduce: article.title_introduce,
+									introduce: JSON.parse(article.introduce)
+									}
+								}); %>
+
+							</div>
+
+							<div class="<%- index % 2 ? 'rightSide-49' : 'leftSide-49' %>">
+
+								<%- include('templateElements/articleImage',
+									{ articleImageData: article.image }
+								); %>
+
+							</div>
+
+							<div style="clear: both;"></div>
+
+						<% }); %>
+
+					</div>
+
+				<% } %>
+
+				<% if (mainPageData.template_number == 13) { %>
+
+					<div class="templateNumber-13">
+
+						<% mainPageData.articles.forEach((article, index) => { %>
+
+							<div class="<%- index % 2 === 0 ? 'leftSide-49' : 'rightSide-49' %>">
+
+								<%- include('templateElements/articleImage',
+									{ articleImageData: article.image }
+								); %>
+
+								<%- include('templateElements/articleContent',
+									{ articleContentData: {
+									tag: article.tag,
+									name_ru: article.name_ru,
+									name_en: article.name_en,
+									subtitle: article.subtitle,
+									description: article.description,
+									mainClass: 'articleContent margin-top-25 margin-bottom-25'
+									}
+								}); %>
+
+								<%- include('templateElements/articleIntroduce',
+									{ articleIntroduceData: {
+									title_introduce: article.title_introduce,
+									introduce: JSON.parse(article.introduce)
+									}
+								}); %>
+
+							</div>
+
+							<% if (index % 2 > 0 || index === mainPageData.articles.length - 1) { %>
+								<div style="clear: both;"></div>
+							<% } %>
+
+						<% }); %>
+
+					</div>
+
+				<% } %>
+
+			</div>
+		<% }); %>
+
+	</div>
+</div>

@@ -1,0 +1,65 @@
+<div class="rubricHead">
+
+	<h1>
+		<a href="/rubrics/<%- rubricHeadData.name_en %>">
+			<%- rubricHeadData.name_ru %>
+		</a>
+	</h1>
+
+	<div class="items">
+		<% rubricHeadData.children.forEach((item, index) => { %>
+			<% if (index <= 2) { %>
+
+				<div class="item">
+					<nobr>
+						<a href="/rubrics/<%- item.name_en %>">
+							<%- item.name_ru %>
+						</a>
+
+						<% if (index < 2) { %>
+							<img src="/images/iconTemplateHeadItem.png" />
+						<% } %>
+
+						<% if (index === 2 && rubricHeadData.children.length > 3) { %>
+							<p
+								onclick="showHiddenItems(<%- rubricHeadData.id %>)"
+								class="arrowTitle"
+							>
+							<span id="<%- 'managerHiddenItems-' + rubricHeadData.id %>">больше</span>
+								<img
+									id="<%- 'managerArrow-' + rubricHeadData.id %>"
+									src="/images/iconTemplateHeadArrowItem.png"
+								/>
+							</p>
+						<% } %>
+					</nobr>
+				</div>
+
+			<% } %>
+		<% }); %>
+	</div>
+
+	<% if (rubricHeadData.children.length > 2) { %>
+		<div class="hiddenItems" id="<%- 'hiddenItems-' + rubricHeadData.id %>">
+
+			<% rubricHeadData.children.forEach((item, index) => { %>
+				<% if (index > 2) { %>
+
+					<div class="item">
+						<nobr>
+							<a href="/rubrics/<%- item.name_en %>">
+								<%- item.name_ru %>
+							</a>
+							<% if (index < rubricHeadData.children.length - 1) { %>
+								<span class="delimiter">|</span>
+							<% } %>
+						</nobr>
+					</div>
+
+				<% } %>
+			<% }); %>
+
+		</div>
+	<% } %>
+
+</div>
