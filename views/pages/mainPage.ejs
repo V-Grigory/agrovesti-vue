@@ -1,0 +1,27 @@
+<div class="mainPage">
+	<div class="contentWrapper">
+
+		<% pageData.mainPageData.forEach(mainPageData => { %>
+
+			<%- include('../pageElements/rubricHead',
+				{ rubricHeadData: mainPageData}
+			); %>
+
+			<% if ( !mainPageData.articles.length ) return; %>
+
+			<div class="rubricArticles">
+				<% mainPageData.articles.forEach((article, index) => { %>
+
+					<%- include('../pageElements/rubricArticle', {
+						article: article,
+						index: index,
+						articlesCount: mainPageData.articles.length
+					}); %>
+
+				<% }); %>
+			</div>
+
+		<% }); %>
+
+	</div>
+</div>

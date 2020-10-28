@@ -1,0 +1,23 @@
+.mainMenuWithImg {
+  .itemsMemu {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .itemMemu {
+      flex: 1 1 360px;
+      height: 250px;
+      margin: 10px;
+      text-align: center;
+      display: flex;
+      span {
+        color: #ffffff;
+        font-size: 27px;
+        font-weight: bold;
+        line-height: 1.2;
+        margin: auto 15px;
+      }
+    }
+
+  }
+}

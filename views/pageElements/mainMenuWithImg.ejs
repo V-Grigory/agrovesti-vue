@@ -1,0 +1,21 @@
+<div class="mainMenuWithImg">
+  <% if (pageData.menuData.rubriks.main_menu.length) { %>
+
+    <div class="contentWrapper">
+      <div class="itemsMemu">
+
+        <% pageData.menuData.rubriks.main_menu.forEach(menuItem => { %>
+          <a
+            class="itemMemu"
+            style="background: url('/images/mainMenu/<%= menuItem.name_img %>') no-repeat center; background-size: cover;"
+            href="/rubrics/<%= menuItem.name_en %>"
+          >
+            <span><%= menuItem.name_ru_full %></span>
+          </a>
+        <% }); %>
+
+      </div>
+    </div>
+
+  <% } %>
+</div>

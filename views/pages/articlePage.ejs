@@ -1,0 +1,71 @@
+<div class="pageArticle">
+
+	<div class="contentWrapper">
+
+		<%- include('../pageElements/breadCrumbs',
+			{ breadCrumbsData: {
+			name_ru: pageData.articlePageData.rubriks[0].name_ru,
+			name_en: pageData.articlePageData.rubriks[0].name_en,
+			parent: pageData.articlePageData.rubriks[0].parent}
+			});
+		%>
+
+		<div class="datePublication">
+			Дата публикации:
+			<%- pageData.articlePageData.getNormDate(
+			    pageData.articlePageData.created_at
+			) %>
+		</div>
+
+	</div>
+
+	<div id="contentPageArticle">
+
+		<div
+			id="<%- pageData.articlePageData.need_pay == 1 ? 'closedArticle' : 'o' %>"
+			class="<%- pageData.articlePageData.need_pay == 1 ? 'closedArticle' : 'o' %>"
+		>
+			<%- pageData.articlePageData.tilda_content %>
+		</div>
+
+		<authorization />
+
+	</div>
+
+	<% if (pageData.articlePageData.readMore.length) { %>
+
+		<div class="readMoreBlock">
+			<div class="contentWrapper" style="font-size: 0;">
+
+				<div class="titleReadMoreBlock">
+					ЧИТАЙТЕ ТАКЖЕ >>
+				</div>
+
+				<% pageData.articlePageData.readMore.forEach(article => { %>
+
+					<div class="wrapItemReadMoreBlock">
+						<a href="/articles/<%- article.name_en %>" class="itemReadMore">
+							<img
+								src="http://old.agrovesti.ru/images/<%- article.image %>"
+								alt="<%- article.name_ru %>"
+							>
+							<div class="title">
+								<%- article.name_ru %>
+							</div>
+							<div class="dateCreated">
+								<%- pageData.articlePageData.getNormDate(article.created_at) %>
+							</div>
+							<div class="description">
+								<%- article.description %>
+							</div>
+						</a>
+					</div>
+
+				<% }); %>
+
+			</div>
+		</div>
+
+	<% } %>
+
+</div>

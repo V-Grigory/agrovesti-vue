@@ -1,0 +1,23 @@
+<div class="breadCrumbs">
+
+	<a href="/">ГЛАВНАЯ</a>
+
+	<% if (breadCrumbsData.parent) { %>
+		<span class="delimiter">/</span>
+	<% } %>
+
+	<% if (breadCrumbsData.parent) { %>
+		<a href="/rubrics/<%- breadCrumbsData.parent.name_en %>">
+			<%- breadCrumbsData.parent.name_ru.trim() %>
+		</a>
+	<% } %>
+
+	<span class="delimiter">/</span>
+
+	<% if (breadCrumbsData.name_ru) { %>
+		<a href="/rubrics/<%- breadCrumbsData.name_en %>">
+			<%- breadCrumbsData.name_ru.trim() %>
+		</a>
+	<% } %>
+
+</div>

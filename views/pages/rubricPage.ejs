@@ -1,0 +1,41 @@
+<div class="rubricPage">
+	<div class="contentWrapper">
+
+		<%- include('../pageElements/rubricHead',
+			{ rubricHeadData: pageData.rubricator}
+		);
+		%>
+
+		<%- include('../pageElements/breadCrumbs',
+			{ breadCrumbsData: {
+				name_ru: pageData.rubricPageData.name_ru,
+				name_en: pageData.rubricPageData.name_en,
+				parent: pageData.rubricPageData.parent}
+			});
+		%>
+
+		<% if (pageData.rubricPageData.articles
+			&& pageData.rubricPageData.articles.length
+		) { %>
+
+			<div class="rubricArticles">
+				<% pageData.rubricPageData.articles.forEach((article, index) => { %>
+
+					<%- include('../pageElements/rubricArticle', {
+						article: article,
+						index: index,
+						articlesCount: pageData.rubricPageData.articles.length
+					}); %>
+
+				<% }); %>
+			</div>
+
+			<%# pagination %>
+			<% if (pageData.pagination) { %>
+				<%- include('../pageElements/pagination', { pagItems: pageData.pagination }); %>
+			<% } %>
+
+		<% } %>
+
+	</div>
+</div>

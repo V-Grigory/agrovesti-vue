@@ -1,0 +1,26 @@
+<div
+	class="<%- index % 2 === 0
+		? 'rubricArticle leftSide-49'
+		: 'rubricArticle rightSide-49' %>"
+>
+
+	<a href="/articles/<%= article.name_en %>" class="link">
+
+		<%# !!! вынести путь до ассетов в конфиг %>
+		<img
+			src="http://old.agrovesti.ru/images/<%= article.image %>"
+			class="articleImage"
+			alt=""
+		>
+
+		<h2 class="title"><%= article.name_ru %></h2>
+
+	</a>
+
+	<div class="description"><%= article.description %></div>
+
+</div>
+
+<% if (index % 2 > 0 || index === articlesCount - 1) { %>
+	<div style="clear: both;"></div>
+<% } %>
