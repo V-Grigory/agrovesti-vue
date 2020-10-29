@@ -1,1 +1,1 @@
-# dev.agrovesti.ru
+# agrovesti.ru

@@ -208,6 +208,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  const manageMobuleMenu = document.getElementById('manageMobuleMenu');
+  const burger = document.getElementById('burger');
+
+  const wrapperMenu = document.getElementById('wrapperMenu');
+  const closeButtonMobileMainMenu = document.getElementById('closeButtonMobileMainMenu');
+
+  burger.addEventListener('click', function () {
+    manageMobuleMenu.style.display = 'none';
+    wrapperMenu.style.display = 'block';
+  })
+  closeButtonMobileMainMenu.addEventListener('click', function () {
+    manageMobuleMenu.style.display = 'block';
+    wrapperMenu.style.display = 'none';
+  })
+
 });
 
 /* фиксация вверху главного меню при прокрутке страницы */

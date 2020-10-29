@@ -11,21 +11,33 @@
             <% if (pageData.menuData.rubriks.main_menu.length) { %>
                 <div class="rightSide">
 
-                    <div class="closeButtonMobileMainMenu">
-                        &#10799;
+                    <div id="manageMobuleMenu" class="manageMobuleMenu">
+                        <a class="menuItem search" href="/search">
+                            &#9906;
+                        </a>
+                        <div id="burger" class="burger">
+                            <div></div><div></div><div></div>
+                        </div>
                     </div>
 
-                    <% pageData.menuData.rubriks.main_menu.forEach(menuItem => { %>
-                      <a
-                        href="/rubrics/<%= menuItem.name_en %>"
-                        class="menuItem"
-                      >
-                        <%= menuItem.name_ru %>
-                      </a>
-                    <% }); %>
-                    <a class="menuItem search" href="/search">
-                        &#9906;
-                    </a>
+                    <div id="wrapperMenu" class="wrapperMenu">
+                        <div id="closeButtonMobileMainMenu" class="closeButtonMobileMainMenu">
+                            &#10799;
+                        </div>
+
+                        <% pageData.menuData.rubriks.main_menu.forEach(menuItem => { %>
+                          <a
+                            href="/rubrics/<%= menuItem.name_en %>"
+                            class="menuItem"
+                          >
+                            <%= menuItem.name_ru %>
+                          </a>
+                        <% }); %>
+                        <a class="menuItem search" href="/search">
+                            &#9906;
+                        </a>
+                    </div>
+
                 </div>
             <% } %>
 
