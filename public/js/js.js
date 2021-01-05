@@ -1,19 +1,7 @@
 
-function showHiddenItems(idElement) {
-
-  let elMan = document.getElementById('managerHiddenItems-' + idElement);
-  elMan.innerHTML = elMan.innerHTML === 'больше' ? 'скрыть' : 'больше';
-
-  let elArrow = document.getElementById('managerArrow-' + idElement);
-  elArrow.className = elArrow.className === 'rotatedArrow' ? '' : 'rotatedArrow';
-
-  let el = document.getElementById('hiddenItems-' + idElement);
-  el.style.display = el.style.display === 'block' ? 'none' : 'block';
-
-}
-
 document.addEventListener("DOMContentLoaded", () => {
 
+  /*
   new Vue({
     el: '#contentPageArticle',
     components: {
@@ -22,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div v-if="needAuth">
             <div class="bottomClosedArticle"></div>
             <div class="authorization">
-          
+
               <p class="textOffer">
                 Для продолжения чтения введите ваш код подписчика
               </p>
@@ -37,12 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 {{notificate.auth.failTextNotificate}}
               </p>
               <button @click="getAuthToken()">ВОЙТИ</button>
-      
+
               <p
                 @click="openRegisterBlock = !openRegisterBlock"
                 class="question"
               >Еще не подписчик?</p>
-      
+
               <div v-show="openRegisterBlock">
                 <p class="textOffer">&nbsp;</p>
                 <p class="textOffer">
@@ -68,13 +56,13 @@ document.addEventListener("DOMContentLoaded", () => {
                   ОТПРАВИТЬ
                 </button>
               </div>
-      
+
               <p class="textOffer">&nbsp;</p>
               <p class="textOffer" style="text-align: left;">
-                Оформив подписку, вы и команда специалистов вашего предприятия, 
-                получает возможность системно и долгосрочно знакомиться с 
-                накопленным опытом по внедрению новинок, инноваций ведущих 
-                сельхозпредприятий России, отслеживать технические премьеры 
+                Оформив подписку, вы и команда специалистов вашего предприятия,
+                получает возможность системно и долгосрочно знакомиться с
+                накопленным опытом по внедрению новинок, инноваций ведущих
+                сельхозпредприятий России, отслеживать технические премьеры
                 и перспективные разработки.
               </p>
               <!--<p class="textOfferDetail">-->
@@ -84,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!--как интегрировать новые технические решения в действующее производство-->
               <!--</p>-->
               <p class="textOffer">&nbsp;</p>
-        
+
               <p class="textOffer" style="text-align: left;">
                 Для оформления подписки позвоните или напишите нам:
               </p>
@@ -104,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   agro211019@mail.ru
                 </a>
               </p>
-            
+
             </div>
           </div>
         `,
@@ -207,34 +195,21 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  */
 
-  const manageMobuleMenu = document.getElementById('manageMobuleMenu');
   const burger = document.getElementById('burger');
-
-  const wrapperMenu = document.getElementById('wrapperMenu');
-  const closeButtonMobileMainMenu = document.getElementById('closeButtonMobileMainMenu');
+  const menuItems = document.getElementById('menuItems');
 
   burger.addEventListener('click', function () {
-    manageMobuleMenu.style.display = 'none';
-    wrapperMenu.style.display = 'block';
-  })
-  closeButtonMobileMainMenu.addEventListener('click', function () {
-    manageMobuleMenu.style.display = 'block';
-    wrapperMenu.style.display = 'none';
+    menuItems.style.display = menuItems.style.display === 'block' ? 'none' : 'block';
   })
 
 });
 
-/* фиксация вверху главного меню при прокрутке страницы */
-let menuIsFixed = false;
 window.addEventListener('scroll', () => {
-  if(pageYOffset > 40 && menuIsFixed === false) {
-    document.getElementById('header').className = 'header fixedHeader';
-    document.getElementById('imgLogo').src = '/images/logoMobile.png';
-    menuIsFixed = true;
-  } else if(pageYOffset <= 40 && menuIsFixed === true) {
-    document.getElementById('header').className = 'header';
-    document.getElementById('imgLogo').src = '/images/logo.png';
-    menuIsFixed = false;
+  if(pageYOffset > 0) {
+    document.getElementById('mainMenu').className = 'mainMenu reactWindowScroll';
+  } else {
+    document.getElementById('mainMenu').className = 'mainMenu';
   }
 });

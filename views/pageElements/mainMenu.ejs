@@ -1,0 +1,23 @@
+<div id="mainMenu" class="mainMenu">
+
+	<img src="/images/burger.png" id="burger" class="burger">
+
+	<div class="contentWrapper">
+
+		<a href="/" class="logo" title="agrovesti.ru">
+			<img src="/images/logo_white_color.png" class="logoWhiteColor" alt="agrovesti.ru">
+			<img src="/images/logo_blue_color.png" class="logoBlueColor" alt="agrovesti.ru">
+		</a>
+
+		<div id="menuItems" class="menuItems">
+
+			<% pageData.mainMenu.forEach(menuItem => { %>
+				<a href="/rubrics/<%= menuItem.name_en %>" class="menuItem">
+					<%= menuItem.name_ru %>
+				</a>
+			<% }); %>
+
+		</div>
+
+	</div>
+</div>

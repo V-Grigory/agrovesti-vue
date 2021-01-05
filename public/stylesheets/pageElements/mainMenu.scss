@@ -1,0 +1,85 @@
+.mainMenu {
+  position: fixed;
+  width: 100%;
+
+  .burger {
+    display: none;
+  }
+
+  .contentWrapper {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .logo {
+      .logoWhiteColor { display: block; }
+      .logoBlueColor { display: none; }
+    }
+
+    .menuItems {
+      display: block;
+      margin: auto 0 auto auto;
+
+      .menuItem {
+        text-transform: uppercase;
+        color: #000000;
+        font-weight: bold;
+        font-size: 13px;
+        margin: 0 0 0 15px;
+      }
+    }
+
+  }
+}
+
+.reactWindowScroll {
+  background-color: white;
+  box-shadow: rgba(0,0,0,.13) 0 4px 16px;
+
+  .contentWrapper {
+    .logo {
+      .logoWhiteColor { display: none; }
+      .logoBlueColor { display: block; }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .mainMenu {
+    background-color: white;
+
+    .burger {
+      display: block;
+    }
+
+    .contentWrapper {
+      display: block;
+      padding-top: 0;
+      padding-bottom: 0;
+
+      .logo {
+        display: none;
+      }
+
+      .menuItems {
+        margin: 0;
+        display: none;
+
+        .menuItem {
+          text-transform: uppercase;
+          color: #000000;
+          font-weight: bold;
+          font-size: 23px;
+          margin: 30px 0;
+          display: block;
+          text-align: center;
+        }
+      }
+      //.menuItemsOpenInMobile {
+      //  display: block;
+      //}
+
+    }
+
+  }
+}

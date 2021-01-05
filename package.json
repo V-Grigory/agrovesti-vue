@@ -1,7 +1,7 @@
 {
   "name": "agrovesti.ru",
   "version": "1.0.0",
-  "description": "App run by nodeJS on backend (Express) and ejs, vueJs on frontend",
+  "description": "App run by nodeJS on backend (Express, ejs) and vueJs on frontend",
   "private": true,
   "scripts": {
     "buildProdFront": "cross-env PORT=3000 NODE_ENV=production webpack --progress",

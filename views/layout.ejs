@@ -57,20 +57,14 @@
 
   <body>
 
-    <%# === header === %>
-    <%- include('pageElements/header'); %>
+  <%- include('pageElements/mainMenu'); %>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-    <%# === slider === %>
-    <div id="appSlider"></div>
-    <script src="/js/appSlider.js"></script>
-<!--    <div style="background-color: #00ace5;">-->
-<!--      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
-<!--    </div>-->
+    <% if (false) { %>
+      <%- include('pageElements/mainMenu'); %>
 
-    <%# === mainMenuWithImg === %>
-    <%- include('pageElements/mainMenuWithImg'); %>
-
-    <%# === CONTENT === %>
+      <%- include('pageElements/header'); %>
+      <%- include('pageElements/mainMenuWithImg'); %>
 
     <% if (pageData.pageName === 'mainPage') { %>
       <%- include('pages/mainPage'); %>
@@ -89,8 +83,9 @@
       <script src="/js/appSearch.js"></script>
     <% } %>
 
-    <%# === footer === %>
     <%- include('pageElements/footer'); %>
+    <% } %>
+
 
   </body>
 
