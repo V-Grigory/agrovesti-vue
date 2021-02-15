@@ -1,6 +1,6 @@
 @import '../../node_modules/reset-css/sass/reset';
 
-body { font-family: sans-serif; background-color: #c0c0c0; }
+body { font-family: sans-serif; }
 a { text-decoration: none; }
 
 .contentWrapper {
@@ -26,7 +26,13 @@ a { text-decoration: none; }
 //.border-top { padding: 15px 0 0 0; border-top: 1px solid #c0c0c0; }
 
 
+@import 'pageElements/slider';
 @import 'pageElements/mainMenu';
+@import 'pageElements/header';
+@import 'pageElements/partials/button';
+
+@import 'pageElements/blockTemplates/template_1';
+
 //@import 'pageElements/mainMenuWithImg';
 
 //@import 'pageElements/rubricHead';

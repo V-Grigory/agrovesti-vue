@@ -1,9 +1,11 @@
 .mainMenu {
   position: fixed;
   width: 100%;
+  z-index: 1;
 
   .burger {
     display: none;
+    cursor: pointer;
   }
 
   .contentWrapper {
@@ -26,6 +28,10 @@
         font-weight: bold;
         font-size: 13px;
         margin: 0 0 0 15px;
+        padding: 0;
+        &:hover {
+          color: #2874A6;
+        }
       }
     }
 
@@ -46,13 +52,15 @@
 
 @media (max-width: 1000px) {
   .mainMenu {
-    background-color: white;
+    background: none;
+    box-shadow: none;
 
     .burger {
       display: block;
     }
 
     .contentWrapper {
+      background-color: white;
       display: block;
       padding-top: 0;
       padding-bottom: 0;
@@ -64,20 +72,22 @@
       .menuItems {
         margin: 0;
         display: none;
+        padding: 30px 0 30px 0;
 
         .menuItem {
           text-transform: uppercase;
           color: #000000;
           font-weight: bold;
           font-size: 23px;
-          margin: 30px 0;
+          margin: 0;
+          padding: 30px 0;
           display: block;
           text-align: center;
         }
       }
-      //.menuItemsOpenInMobile {
-      //  display: block;
-      //}
+      .menuItemsOpenInMobile {
+        display: block;
+      }
 
     }
 

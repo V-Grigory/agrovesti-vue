@@ -1,46 +1,23 @@
 <div id="header" class="header">
     <div class="contentWrapper">
-        <div class="mainMenu">
 
-            <div class="leftSide">
-                <a href="/" class="logo">
-                    <img id="imgLogo" src="/images/logo.png" alt="agrovesti">
-                </a>
-            </div>
+	    <div class="namePortal">
+		    Центр аграрного опыта и <br>инноваций
+	    </div>
 
-            <% if (pageData.menuData.rubriks.main_menu.length) { %>
-                <div class="rightSide">
+	    <div class="descrPortal">
+		    Изучение современного опыта и новых методов повышения <br>рентабельности аграрного производства
+	    </div>
 
-                    <div id="manageMobuleMenu" class="manageMobuleMenu">
-                        <a class="menuItem search" href="/search">
-                            &#9906;
-                        </a>
-                        <div id="burger" class="burger">
-                            <div></div><div></div><div></div>
-                        </div>
-                    </div>
+	    <div class="buttons">
+		    <%- include('partials/button', {
+		    classButton: 'blueButton', text: 'Новые кейсы', link: '#'
+		    }); %>
+		    &nbsp;
+		    <%- include('partials/button', {
+		    classButton: 'whiteButton', text: 'Свежий отчет', link: '#'
+		    }); %>
+	    </div>
 
-                    <div id="wrapperMenu" class="wrapperMenu">
-                        <div id="closeButtonMobileMainMenu" class="closeButtonMobileMainMenu">
-                            &#10799;
-                        </div>
-
-                        <% pageData.menuData.rubriks.main_menu.forEach(menuItem => { %>
-                          <a
-                            href="/rubrics/<%= menuItem.name_en %>"
-                            class="menuItem"
-                          >
-                            <%= menuItem.name_ru %>
-                          </a>
-                        <% }); %>
-                        <a class="menuItem search" href="/search">
-                            &#9906;
-                        </a>
-                    </div>
-
-                </div>
-            <% } %>
-
-        </div>
     </div>
 </div>

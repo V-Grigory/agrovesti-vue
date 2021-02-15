@@ -1,0 +1,23 @@
+<div id="template_1" class="template_1">
+	<div class="contentWrapper">
+
+		<div class="title"><%= data.title %></div>
+
+		<div class="description"><%= data.description %></div>
+
+		<div class="links">
+
+			<% data.links.forEach((link, index) => { %>
+				<a
+					class="link"
+					style="background-image: url('/images/mainMenu/<%= index + 1 %>.png');"
+					href="<%= link.url %>"
+				>
+					<span><%= link.ankor %></span>
+				</a>
+			<% }); %>
+
+		</div>
+
+	</div>
+</div>

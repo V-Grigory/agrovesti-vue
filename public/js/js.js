@@ -201,7 +201,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuItems = document.getElementById('menuItems');
 
   burger.addEventListener('click', function () {
-    menuItems.style.display = menuItems.style.display === 'block' ? 'none' : 'block';
+    // menuItems.style.display = menuItems.style.display === 'block' ? 'none' : 'block';
+    if(menuItems.className === 'menuItems') {
+      menuItems.className = 'menuItems menuItemsOpenInMobile'
+    } else {
+      menuItems.className = 'menuItems'
+    }
+
   })
 
 });

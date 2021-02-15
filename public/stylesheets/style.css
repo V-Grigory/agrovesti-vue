@@ -50,8 +50,7 @@ table {
   border-spacing: 0; }
 
 body {
-  font-family: sans-serif;
-  background-color: #c0c0c0; }
+  font-family: sans-serif; }
 
 a {
   text-decoration: none; }
@@ -62,11 +61,21 @@ a {
   padding: 0 10px;
   position: relative; }
 
+.slider {
+  background: url("/images/slider/slider_1.png") no-repeat top right;
+  height: 618px;
+  width: 100%;
+  position: fixed;
+  background-size: cover;
+  z-index: -1; }
+
 .mainMenu {
   position: fixed;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
   .mainMenu .burger {
-    display: none; }
+    display: none;
+    cursor: pointer; }
   .mainMenu .contentWrapper {
     display: flex;
     padding-top: 20px;
@@ -83,7 +92,10 @@ a {
         color: #000000;
         font-weight: bold;
         font-size: 13px;
-        margin: 0 0 0 15px; }
+        margin: 0 0 0 15px;
+        padding: 0; }
+        .mainMenu .contentWrapper .menuItems .menuItem:hover {
+          color: #2874A6; }
 
 .reactWindowScroll {
   background-color: white;
@@ -95,10 +107,12 @@ a {
 
 @media (max-width: 1000px) {
   .mainMenu {
-    background-color: white; }
+    background: none;
+    box-shadow: none; }
     .mainMenu .burger {
       display: block; }
     .mainMenu .contentWrapper {
+      background-color: white;
       display: block;
       padding-top: 0;
       padding-bottom: 0; }
@@ -106,14 +120,110 @@ a {
         display: none; }
       .mainMenu .contentWrapper .menuItems {
         margin: 0;
-        display: none; }
+        display: none;
+        padding: 30px 0 30px 0; }
         .mainMenu .contentWrapper .menuItems .menuItem {
           text-transform: uppercase;
           color: #000000;
           font-weight: bold;
           font-size: 23px;
-          margin: 30px 0;
+          margin: 0;
+          padding: 30px 0;
           display: block;
-          text-align: center; } }
+          text-align: center; }
+      .mainMenu .contentWrapper .menuItemsOpenInMobile {
+        display: block; } }
+
+.header {
+  padding: 140px 0 0 0;
+  height: 478px;
+  color: white; }
+  .header .namePortal {
+    font-size: 50px;
+    font-weight: bold;
+    line-height: 1.2; }
+  .header .descrPortal {
+    font-size: 23px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin: 35px 0 0 0; }
+  .header .buttons {
+    margin: 90px 0 0 0; }
+
+@media (max-width: 850px) {
+  .header .namePortal {
+    font-size: 40px; }
+  .header .buttons {
+    margin: 30px 0 0 0; } }
+
+.button {
+  display: inline-block;
+  padding: 20px 60px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin: 0 0 10px 0; }
+  .button:hover {
+    background-color: #5DADE2;
+    color: white; }
+
+.blueButton {
+  background-color: #3498DB;
+  color: white; }
+
+.whiteButton {
+  background-color: white;
+  color: black; }
+
+.template_1 {
+  padding: 100px 0 0 0;
+  text-align: center;
+  background-color: white; }
+  .template_1 .title {
+    font-size: 65px;
+    font-weight: bold; }
+  .template_1 .description {
+    font-size: 24px;
+    margin: 40px 105px 50px 105px;
+    line-height: 1.6; }
+  .template_1 .links {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between; }
+    .template_1 .links .link {
+      flex: 1 1 380px;
+      height: 380px;
+      margin: 20px;
+      text-align: left;
+      display: flex;
+      position: relative;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.5s; }
+      .template_1 .links .link:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6); }
+      .template_1 .links .link:hover {
+        transform: scale(1.02); }
+        .template_1 .links .link:hover:after {
+          background: rgba(0, 0, 0, 0.4); }
+      .template_1 .links .link span {
+        color: #ffffff;
+        font-size: 35px;
+        font-weight: bold;
+        line-height: 1.2;
+        margin: auto 40px;
+        z-index: 1; }
+
+@media (max-width: 850px) {
+  .template_1 .title {
+    font-size: 45px; }
+  .template_1 .description {
+    margin: 40px 0 50px 0; } }
 
 /*# sourceMappingURL=style.css.map */

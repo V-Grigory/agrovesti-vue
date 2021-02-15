@@ -1,27 +1,9 @@
-<div class="mainPage">
-	<div class="contentWrapper">
+<div id="mainPage" class="mainPage">
 
-		<% pageData.mainPageData.forEach(mainPageData => { %>
+	<% pageData.data.forEach(pageData => { %>
 
-			<%- include('../pageElements/rubricHead',
-				{ rubricHeadData: mainPageData}
-			); %>
+		<%- include(`../pageElements/blockTemplates/${pageData.tepmlate_name}`, { data: pageData }); %>
 
-			<% if ( !mainPageData.articles.length ) return; %>
+	<% }); %>
 
-			<div class="rubricArticles">
-				<% mainPageData.articles.forEach((article, index) => { %>
-
-					<%- include('../pageElements/rubricArticle', {
-						article: article,
-						index: index,
-						articlesCount: mainPageData.articles.length
-					}); %>
-
-				<% }); %>
-			</div>
-
-		<% }); %>
-
-	</div>
 </div>
