@@ -1,19 +1,26 @@
 .button {
   display: inline-block;
-  padding: 20px 60px;
+  padding: 18px 60px;
   border-radius: 30px;
   font-weight: bold;
   margin: 0 0 10px 0;
+  border: 3px solid;
   &:hover {
     background-color: #5DADE2;
+    border-color: #5DADE2;
     color: white;
   }
 }
 .blueButton {
   background-color: #3498DB;
+  border-color: #3498DB;
   color: white;
 }
 .whiteButton {
   background-color: white;
+  border-color: white;
   color: black;
+}
+.withBorder {
+  border-color: black;
 }

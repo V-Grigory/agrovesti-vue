@@ -11,6 +11,52 @@
 				<div class="text">
 					<%= data.content.text %>
 				</div>
+				<div class="buttons">
+					<%- include('../partials/button', {
+						classButton: 'blueButton',
+						text: 'Читать онлайн',
+						link: data.content.url_read_more
+					}); %>
+				</div>
+			</div>
+			<div class="img">
+				<img src="/images/template_2/bg_content.jpg" alt="">
+			</div>
+		</div>
+
+		<div class="buttons">
+			<%- include('../partials/button', {
+				classButton: 'blueButton',
+				text: 'Скачать краткие выводы',
+				link: data.url_download_short_report
+			}); %>
+			&nbsp;
+			<%- include('../partials/button', {
+				classButton: 'whiteButton withBorder',
+				text: 'Скачать полный отчет',
+				link: data.url_download_full_report
+			}); %>
+		</div>
+
+		<div class="resultsReport">
+
+			<div class="title"><%= data.results_report.title %></div>
+
+			<% data.results_report.results.forEach((itemResultReport, index) => { %>
+				<div
+					class="itemResultReport"
+					style="background-image: url('/images/template_2/<%= index + 1 %>.svg');"
+				>
+					<%= itemResultReport %>
+				</div>
+			<% }); %>
+
+			<div class="buttons">
+				<%- include('../partials/button', {
+				classButton: 'whiteButton withBorder',
+				text: 'Посмотреть все отчеты',
+				link: data.url_read_all_reports
+				}); %>
 			</div>
 		</div>
 
