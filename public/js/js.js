@@ -1,3 +1,7 @@
+const changeTabsContent = () => {
+  const tabs = document.getElementsByClassName('tabs')
+  console.log(tabs)
+}
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -207,8 +211,9 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       menuItems.className = 'menuItems'
     }
-
   })
+
+  changeTabsContent()
 
 });
 

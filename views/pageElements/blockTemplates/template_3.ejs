@@ -1,0 +1,33 @@
+<div id="template_3" class="template_3">
+	<div class="contentWrapper">
+
+		<div class="title"><%= data.title %></div>
+
+		<div class="description"><%= data.description %></div>
+
+		<div class="tabs">
+			<% data.tabs.forEach((tab, index) => { %>
+				<div class="tab <% if(index === 0) { %>activeTab<% } %>">
+					<%= tab.title %>
+				</div>
+			<% }); %>
+		</div>
+
+		<div class="tabsContent">
+			<% data.tabs.forEach((tab, index) => { %>
+
+				<div class="tabContent <% if(index > 0) { %>hiddenTabContent<% } %>">
+
+					<% tab.content.forEach(tabContent => { %>
+						<div class="itemTabContent">
+							<%= tabContent.date %>
+							<!--<img src="images/template_3/<%= tabContent.img %>" alt="">-->
+						</div>
+					<% }); %>
+
+				</div>
+			<% }); %>
+		</div>
+
+	</div>
+</div>

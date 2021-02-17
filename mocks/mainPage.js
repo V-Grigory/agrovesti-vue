@@ -71,7 +71,194 @@ const mockPageData = [
       ],
       url_read_all_reports: 'http://ya.ru'
     }
+  },
+  {
+    tepmlate_name: 'template_3',
+    title: 'Новые кейсы',
+    description: '',
+    tabs: [
+      {
+        id: 'opyt',
+        title: 'Опыт',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Let your culture be your brand',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Nordic nature and Scandinavian lifestyle',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          }
+        ]
+      },
+      {
+        title: 'Премьеры',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Вторник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+        ]
+      },
+      {
+        title: 'Тренды',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Среда, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+        ]
+      },
+    ]
+  },
+  /*
+  {
+    tepmlate_name: 'template_3',
+    title: 'Партнерские материалы',
+    description: 'Ведущие компании-разработчики и поставщики технологических ' +
+        'решений раскрывают в материалах важные аспекты и функциональность ' +
+        'продуктов, информируют о своих новых разработках, дают важные ' +
+        'рекомендации по их применению.',
+    tabs: [
+      {
+        id: '',
+        title: 'Цифровизация',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Let your culture be your brand',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Nordic nature and Scandinavian lifestyle',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          }
+        ]
+      },
+      {
+        title: 'Техника',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+        ]
+      },
+      {
+        title: 'Агрохимия',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+        ]
+      },
+      {
+        title: 'Сорта',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+        ]
+      },
+      {
+        title: 'Животноводство',
+        content: [
+          {
+            img: '1_1.jpg',
+            tag: 'Travel',
+            date: 'Понедельник, 25 июня',
+            title: 'Why every designer should visit Rotterdam?',
+            description: 'After initial crisis re-construction the center of Rotterdam has become ' +
+                'the site of ambitious new architecture.',
+            url: 'mail.ru'
+          },
+        ]
+      },
+    ]
   }
+  */
 ];
 
 module.exports = mockPageData;
