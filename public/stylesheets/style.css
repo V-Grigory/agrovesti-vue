@@ -322,6 +322,8 @@ a {
   .template_3 .tabs .activeTab {
     color: black;
     border-bottom: 1px solid black; }
+  .template_3 .tabsContent .hiddenTabContent {
+    display: none; }
 
 @media (max-width: 850px) {
   .template_3 .title {

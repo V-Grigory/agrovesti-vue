@@ -78,12 +78,11 @@ const mockPageData = [
     description: '',
     tabs: [
       {
-        id: 'opyt',
         title: 'Опыт',
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Опыт',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -92,7 +91,7 @@ const mockPageData = [
           },
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Опыт',
             date: 'Понедельник, 25 июня',
             title: 'Let your culture be your brand',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -101,7 +100,7 @@ const mockPageData = [
           },
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Опыт',
             date: 'Понедельник, 25 июня',
             title: 'Nordic nature and Scandinavian lifestyle',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -110,7 +109,7 @@ const mockPageData = [
           },
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Опыт',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -124,7 +123,7 @@ const mockPageData = [
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Премьеры',
             date: 'Вторник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -138,7 +137,7 @@ const mockPageData = [
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Тренды',
             date: 'Среда, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -149,7 +148,6 @@ const mockPageData = [
       },
     ]
   },
-  /*
   {
     tepmlate_name: 'template_3',
     title: 'Партнерские материалы',
@@ -159,12 +157,11 @@ const mockPageData = [
         'рекомендации по их применению.',
     tabs: [
       {
-        id: '',
         title: 'Цифровизация',
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Цифровизация',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -173,7 +170,7 @@ const mockPageData = [
           },
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Цифровизация',
             date: 'Понедельник, 25 июня',
             title: 'Let your culture be your brand',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -182,7 +179,7 @@ const mockPageData = [
           },
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Цифровизация',
             date: 'Понедельник, 25 июня',
             title: 'Nordic nature and Scandinavian lifestyle',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -191,7 +188,7 @@ const mockPageData = [
           },
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Цифровизация',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -205,7 +202,7 @@ const mockPageData = [
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Техника',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -219,7 +216,7 @@ const mockPageData = [
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Агрохимия',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -233,7 +230,7 @@ const mockPageData = [
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Сорта',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -247,7 +244,7 @@ const mockPageData = [
         content: [
           {
             img: '1_1.jpg',
-            tag: 'Travel',
+            tag: 'Travel - Животноводство',
             date: 'Понедельник, 25 июня',
             title: 'Why every designer should visit Rotterdam?',
             description: 'After initial crisis re-construction the center of Rotterdam has become ' +
@@ -258,7 +255,6 @@ const mockPageData = [
       },
     ]
   }
-  */
 ];
 
 module.exports = mockPageData;

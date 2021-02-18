@@ -1,6 +1,46 @@
+const openAndCloseMenuInMobail = () => {
+  const burger = document.getElementById('burger');
+  const menuItems = document.getElementById('menuItems');
+
+  burger.addEventListener('click', function () {
+    if(menuItems.className === 'menuItems') {
+      addClassToElement(menuItems, 'menuItemsOpenInMobile')
+    } else {
+      deleteClassFromElement(menuItems, 'menuItemsOpenInMobile')
+    }
+  })
+}
+
+const deleteClassFromElement = (element, className) => {
+  element.className = element.className
+      .split(' ')
+      .filter(v => v !== className)
+      .join(' ')
+}
+
+const addClassToElement = (element, className) => {
+  if (element.className.indexOf(className) !== -1) return
+  element.className += ' ' + className
+}
+
 const changeTabsContent = () => {
-  const tabs = document.getElementsByClassName('tabs')
-  console.log(tabs)
+  const tabs = document.querySelectorAll('.tabs > .tab')
+  for (let tab of tabs) {
+    tab.addEventListener('click', function () {
+
+      for (let otherTab of this.parentElement.querySelectorAll('.tab')) {
+        deleteClassFromElement(otherTab, 'activeTab')
+      }
+      addClassToElement(this, 'activeTab')
+
+      let tabsContent = this.parentElement.nextSibling.nextSibling
+      for (let tabContent of tabsContent.querySelectorAll('.tabContent')) {
+        addClassToElement(tabContent, 'hiddenTabContent')
+      }
+      let tabContentForShow = tabsContent.querySelector('#tabContent_' + this.id)
+      deleteClassFromElement(tabContentForShow, 'hiddenTabContent')
+    })
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -201,20 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   */
 
-  const burger = document.getElementById('burger');
-  const menuItems = document.getElementById('menuItems');
-
-  burger.addEventListener('click', function () {
-    // menuItems.style.display = menuItems.style.display === 'block' ? 'none' : 'block';
-    if(menuItems.className === 'menuItems') {
-      menuItems.className = 'menuItems menuItemsOpenInMobile'
-    } else {
-      menuItems.className = 'menuItems'
-    }
-  })
-
+  openAndCloseMenuInMobail()
   changeTabsContent()
-
 });
 
 window.addEventListener('scroll', () => {

@@ -7,7 +7,7 @@
 
 		<div class="tabs">
 			<% data.tabs.forEach((tab, index) => { %>
-				<div class="tab <% if(index === 0) { %>activeTab<% } %>">
+				<div id="<%= index %>" class="tab <% if(index === 0) { %>activeTab<% } %>">
 					<%= tab.title %>
 				</div>
 			<% }); %>
@@ -16,11 +16,11 @@
 		<div class="tabsContent">
 			<% data.tabs.forEach((tab, index) => { %>
 
-				<div class="tabContent <% if(index > 0) { %>hiddenTabContent<% } %>">
+				<div id="tabContent_<%= index %>" class="tabContent <% if(index > 0) { %>hiddenTabContent<% } %>">
 
 					<% tab.content.forEach(tabContent => { %>
 						<div class="itemTabContent">
-							<%= tabContent.date %>
+							<%= tabContent.tag %>
 							<!--<img src="images/template_3/<%= tabContent.img %>" alt="">-->
 						</div>
 					<% }); %>
