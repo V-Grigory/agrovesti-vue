@@ -181,6 +181,30 @@ a {
 .withBorder {
   border-color: black; }
 
+.itemTabContent {
+  flex: 1 1 280px;
+  margin: 20px;
+  text-align: left;
+  display: flex; }
+  .itemTabContent a {
+    color: #777; }
+    .itemTabContent a img {
+      width: 100%; }
+    .itemTabContent a .tagAndDate {
+      margin: 15px 0 0 0;
+      font-size: 12px;
+      text-transform: uppercase; }
+    .itemTabContent a .title {
+      margin: 10px 0 0 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: black;
+      line-height: 1.3; }
+    .itemTabContent a .description {
+      font-size: 16px;
+      margin: 10px 0 0 0;
+      line-height: 1.5; }
+
 .template_1 {
   padding: 100px 0 0 0;
   text-align: center;
@@ -309,7 +333,7 @@ a {
     margin: 40px 105px 50px 105px;
     line-height: 1.6; }
   .template_3 .tabs .tab {
-    display: inline;
+    display: inline-block;
     padding: 15px 25px;
     font-size: 20px;
     font-weight: bold;
@@ -322,8 +346,16 @@ a {
   .template_3 .tabs .activeTab {
     color: black;
     border-bottom: 1px solid black; }
-  .template_3 .tabsContent .hiddenTabContent {
-    display: none; }
+  .template_3 .tabsContent {
+    margin: 25px 0 0 0;
+    border-bottom: 1px solid #c0c0c0;
+    padding: 0 0 25px 0; }
+    .template_3 .tabsContent .tabContent .wrapTtemsTabContent {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between; }
+    .template_3 .tabsContent .hiddenTabContent {
+      display: none; }
 
 @media (max-width: 850px) {
   .template_3 .title {

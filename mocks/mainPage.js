@@ -116,7 +116,8 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           }
-        ]
+        ],
+        button: { text: 'Перейти в панель исследований', url: 'ya.ru' }
       },
       {
         title: 'Премьеры',
@@ -130,7 +131,8 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           },
-        ]
+        ],
+        button: { text: 'Перейти в панель исследований', url: 'ya.ru' }
       },
       {
         title: 'Тренды',
@@ -144,7 +146,8 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           },
-        ]
+        ],
+        button: { text: 'Перейти в панель исследований', url: 'ya.ru' }
       },
     ]
   },
@@ -195,7 +198,8 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           }
-        ]
+        ],
+        button: { text: 'Все статьи партнеров', url: 'ya.ru' }
       },
       {
         title: 'Техника',
@@ -209,7 +213,8 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           },
-        ]
+        ],
+        button: { text: 'Все статьи партнеров', url: 'ya.ru' }
       },
       {
         title: 'Агрохимия',
@@ -223,7 +228,8 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           },
-        ]
+        ],
+        button: { text: 'Все статьи партнеров', url: 'ya.ru' }
       },
       {
         title: 'Сорта',
@@ -237,7 +243,8 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           },
-        ]
+        ],
+        button: { text: 'Все статьи партнеров', url: 'ya.ru' }
       },
       {
         title: 'Животноводство',
@@ -251,9 +258,20 @@ const mockPageData = [
                 'the site of ambitious new architecture.',
             url: 'mail.ru'
           },
-        ]
+        ],
+        button: { text: 'Все статьи партнеров', url: 'ya.ru' }
       },
     ]
+  },
+  {
+    tepmlate_name: 'template_4',
+    title: 'Общероссийский журнал об инновациях АПК',
+    content: 'Общероссийский журнал об инновациях АПК "Аграрная Политика" ' +
+        'выходит с периодичностью 11 номеров в год. За этот период в издании ' +
+        'публикуется более 150 инновационных производственных кейсов, подготовленных ' +
+        'Центром аграрного опыта и инноваций.',
+    url_download: '111',
+    url: '222'
   }
 ];
 

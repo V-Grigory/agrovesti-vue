@@ -16,7 +16,7 @@
 
   .tabs {
     .tab {
-      display: inline;
+      display: inline-block;
       padding: 15px 25px;
       font-size: 20px;
       font-weight: bold;
@@ -35,9 +35,14 @@
   }
 
   .tabsContent {
+    margin: 25px 0 0 0;
+    border-bottom: 1px solid #c0c0c0;
+    padding: 0 0 25px 0;
     .tabContent {
-      .itemTabContent {
-
+      .wrapTtemsTabContent {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
       }
     }
     .hiddenTabContent {

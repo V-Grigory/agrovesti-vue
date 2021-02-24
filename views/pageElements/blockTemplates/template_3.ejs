@@ -18,12 +18,17 @@
 
 				<div id="tabContent_<%= index %>" class="tabContent <% if(index > 0) { %>hiddenTabContent<% } %>">
 
-					<% tab.content.forEach(tabContent => { %>
-						<div class="itemTabContent">
-							<%= tabContent.tag %>
-							<!--<img src="images/template_3/<%= tabContent.img %>" alt="">-->
-						</div>
-					<% }); %>
+					<div class="wrapTtemsTabContent">
+						<% tab.content.forEach(tabContent => { %>
+							<%- include('../partials/itemTabContentInTemplate_3', { tabContent: tabContent }); %>
+						<% }); %>
+						<div class="itemTabContent"></div>
+						<div class="itemTabContent"></div>
+					</div>
+
+					<%- include('../partials/button', {
+					classButton: 'whiteButton withBorder', text: tab.button.text, link: tab.button.url
+					}); %>
 
 				</div>
 			<% }); %>
