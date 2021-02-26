@@ -363,4 +363,41 @@ a {
   .template_3 .description {
     margin: 40px 0 50px 0; } }
 
+.template_4 {
+  text-align: center;
+  padding: 90px 0 0 0;
+  background-color: white; }
+  .template_4 .contentWrapper {
+    border-bottom: 1px solid #c0c0c0;
+    padding: 0 0 25px 0; }
+    .template_4 .contentWrapper .wrapper {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between; }
+      .template_4 .contentWrapper .wrapper .leftSide {
+        flex: 1 1 380px;
+        text-align: left;
+        padding: 85px 50px 0 0; }
+        .template_4 .contentWrapper .wrapper .leftSide .title {
+          font-size: 38px;
+          display: inline-block;
+          padding: 0 0 15px 0;
+          border-bottom: 3px solid #3498DB;
+          margin: 0 0 35px 0;
+          font-weight: bold;
+          line-height: 1.1; }
+        .template_4 .contentWrapper .wrapper .leftSide .content {
+          font-size: 19px;
+          line-height: 1.5; }
+      .template_4 .contentWrapper .wrapper .rightSide {
+        flex: 1 1 380px; }
+        .template_4 .contentWrapper .wrapper .rightSide img {
+          width: 100%; }
+    .template_4 .contentWrapper .buttons {
+      margin: 70px 0 0 0; }
+
+@media (max-width: 850px) {
+  .template_4 .contentWrapper .wrapper .leftSide {
+    padding: 0 0 50px 0; } }
+
 /*# sourceMappingURL=style.css.map */

@@ -13,9 +13,23 @@
 			</div>
 
 			<div class="rightSide">
-
+				<img src="images/template_4/bg_content.jpg" alt="">
 			</div>
 
+		</div>
+
+		<div class="buttons">
+			<%- include('../partials/button', {
+			classButton: 'blueButton',
+			text: 'Скачать номер в PDF',
+			link: data.url_download
+			}); %>
+			&nbsp;
+			<%- include('../partials/button', {
+			classButton: 'whiteButton withBorder',
+			text: 'Примеры статей журнала',
+			link: data.url
+			}); %>
 		</div>
 
 	</div>
