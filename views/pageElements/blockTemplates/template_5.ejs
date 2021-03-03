@@ -1,0 +1,22 @@
+<div id="template_5" class="template_5">
+	<div class="contentWrapper">
+
+		<div class="title">
+			<%= data.title %>
+		</div>
+
+		<div class="itemsContent">
+			<% data.content.forEach(itemContent => { %>
+				<div class="itemContent">
+					<div class="title">
+						<%= itemContent.title %>
+					</div>
+					<div class="content">
+						<%= itemContent.content %>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+
+	</div>
+</div>
