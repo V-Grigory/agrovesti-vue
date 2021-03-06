@@ -434,7 +434,7 @@ a {
   background-color: white; }
   .template_6 .contentWrapper {
     border-bottom: 1px solid #c0c0c0;
-    padding-bottom: 25px; }
+    padding-bottom: 65px; }
     .template_6 .contentWrapper .title {
       font-size: 40px;
       font-weight: bold; }
@@ -488,5 +488,45 @@ a {
       border-left: 2px solid #e0e0e0; }
       .template_6 .contentWrapper .itemsContent .leftItemContent .dot {
         left: -13px; } }
+
+.template_7 {
+  text-align: center;
+  padding: 90px 0 0 0;
+  background-color: white; }
+  .template_7 .contentWrapper {
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 30px; }
+    .template_7 .contentWrapper .title {
+      font-size: 40px;
+      font-weight: bold; }
+    .template_7 .contentWrapper .description {
+      font-size: 22px;
+      margin: 40px 0 40px 0; }
+    .template_7 .contentWrapper .itemsContent {
+      margin-bottom: 60px; }
+      .template_7 .contentWrapper .itemsContent .itemContent {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px; }
+        .template_7 .contentWrapper .itemsContent .itemContent .leftSide {
+          width: 100px;
+          height: 100px;
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: cover;
+          border-radius: 50%;
+          flex-shrink: 0; }
+        .template_7 .contentWrapper .itemsContent .itemContent .rightSide {
+          max-width: 550px;
+          margin: 50px 0 0 30px;
+          text-align: left;
+          font-size: 20px;
+          line-height: 1.5; }
+          .template_7 .contentWrapper .itemsContent .itemContent .rightSide .fio {
+            font-weight: bold; }
+          .template_7 .contentWrapper .itemsContent .itemContent .rightSide .position {
+            color: grey;
+            font-size: 16px;
+            margin-bottom: 10px; }
 
 /*# sourceMappingURL=style.css.map */

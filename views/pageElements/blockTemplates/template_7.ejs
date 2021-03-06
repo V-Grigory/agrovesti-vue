@@ -1,0 +1,36 @@
+<div id="template_7" class="template_7">
+	<div class="contentWrapper">
+
+		<div class="title">
+			<%= data.title %>
+		</div>
+		<div class="description">
+			<%= data.description %>
+		</div>
+
+		<div class="itemsContent">
+			<% data.content.forEach(itemContent => { %>
+				<div class="itemContent">
+					<div
+						class="leftSide"
+						style="background-image: url('/images/template_7/<%= itemContent.urlAvatar %>')"
+					></div>
+					<div class="rightSide">
+						<div class="fio"><%= itemContent.fio %></div>
+						<div class="position"><%= itemContent.position %></div>
+						<div class="content"><%= itemContent.content %></div>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+
+		<div class="buttons">
+			<%- include('../partials/button', {
+			classButton: 'whiteButton withBorder',
+			text: data.button.text,
+			link: data.button.url
+			}); %>
+		</div>
+
+	</div>
+</div>
