@@ -428,4 +428,65 @@ a {
           margin: 15px 0 0 0;
           line-height: 1.4; }
 
+.template_6 {
+  text-align: center;
+  padding: 90px 0 0 0;
+  background-color: white; }
+  .template_6 .contentWrapper {
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 25px; }
+    .template_6 .contentWrapper .title {
+      font-size: 40px;
+      font-weight: bold; }
+    .template_6 .contentWrapper .itemsContent {
+      margin: 80px auto 0 auto;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+      align-items: center;
+      max-width: 720px; }
+      .template_6 .contentWrapper .itemsContent .itemContent {
+        text-align: left;
+        max-width: 320px;
+        position: relative; }
+        .template_6 .contentWrapper .itemsContent .itemContent .dot {
+          width: 20px;
+          height: 20px;
+          border-radius: 100px;
+          background: #222;
+          position: absolute;
+          top: 2px;
+          border: 2px solid #fff; }
+        .template_6 .contentWrapper .itemsContent .itemContent .title {
+          font-size: 20px;
+          font-weight: bold;
+          line-height: 1.3; }
+        .template_6 .contentWrapper .itemsContent .itemContent .content {
+          margin: 15px 0 0 0;
+          line-height: 1.4;
+          font-size: 18px; }
+      .template_6 .contentWrapper .itemsContent .leftItemContent {
+        align-self: flex-start;
+        border-right: 2px solid #e0e0e0;
+        padding: 0 38px 40px 0; }
+        .template_6 .contentWrapper .itemsContent .leftItemContent .dot {
+          right: -13px; }
+      .template_6 .contentWrapper .itemsContent .rightItemContent {
+        align-self: flex-end;
+        border-left: 2px solid #e0e0e0;
+        padding: 0 0 40px 40px; }
+        .template_6 .contentWrapper .itemsContent .rightItemContent .dot {
+          left: -13px; }
+
+@media (max-width: 745px) {
+  .template_6 .contentWrapper .itemsContent {
+    display: block;
+    margin-left: 10px; }
+    .template_6 .contentWrapper .itemsContent .leftItemContent {
+      padding: 0 0 40px 40px;
+      border-right: none;
+      border-left: 2px solid #e0e0e0; }
+      .template_6 .contentWrapper .itemsContent .leftItemContent .dot {
+        left: -13px; } }
+
 /*# sourceMappingURL=style.css.map */

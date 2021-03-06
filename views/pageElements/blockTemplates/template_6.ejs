@@ -1,0 +1,23 @@
+<div id="template_6" class="template_6">
+	<div class="contentWrapper">
+
+		<div class="title">
+			<%= data.title %>
+		</div>
+
+		<div class="itemsContent">
+			<% data.content.forEach((itemContent, index) => { %>
+				<div class="itemContent <% if(index % 2) { %>rightItemContent<% } else { %>leftItemContent<% } %>">
+					<div class="dot"></div>
+					<div class="title">
+						<%= itemContent.title %>
+					</div>
+					<div class="content">
+						<%= itemContent.content %>
+					</div>
+				</div>
+			<% }); %>
+		</div>
+
+	</div>
+</div>
