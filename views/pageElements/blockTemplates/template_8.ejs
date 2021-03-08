@@ -1,0 +1,20 @@
+<div id="template_8" class="template_8">
+	<div class="contentWrapper">
+
+		<div class="title">
+			<%= data.title %>
+		</div>
+		<div class="description">
+			<%= data.description %>
+		</div>
+
+		<div class="buttons">
+			<%- include('../partials/button', {
+			classButton: 'blueButton',
+			text: data.button.text,
+			link: data.button.url
+			}); %>
+		</div>
+
+	</div>
+</div>

@@ -1,0 +1,21 @@
+.template_8 {
+  text-align: center;
+  padding: 90px 0 0 0;
+  background-color: white;
+
+  .contentWrapper {
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 30px;
+
+    .title {
+      font-size: 46px;
+      font-weight: bold;
+    }
+    .description {
+      font-size: 22px;
+      margin: 40px auto 60px auto;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+  }
+}
