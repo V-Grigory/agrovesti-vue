@@ -1,0 +1,37 @@
+<div id="template_10" class="template_10">
+	<div class="contentWrapper">
+
+		<div class="title">
+			<%= data.title %>
+		</div>
+
+		<div class="events">
+			<% data.events.forEach(event => { %>
+
+				<div class="event">
+					<div class="date"><%= event.date %></div>
+					<div class="title"><%= event.title %></div>
+					<% if (event.place) { %>
+						<div class="place"><b>Место проведения:</b> <%= event.place %></div>
+					<% } %>
+					<div class="description"><%= event.description %></div>
+					<div class="member">
+						<div
+							class="image"
+							style="background-image: url('/images/template_10/<%= event.member.image %>')"
+						></div>
+						<div class="info">
+							<b><%= event.member.info.name %></b>
+							<span><%= event.member.info.position %></span>
+							<a href="<%= event.member.info.site.url %>" target="_blank">
+								<%= event.member.info.site.name %>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			<% }); %>
+		</div>
+
+	</div>
+</div>

@@ -373,6 +373,100 @@ const mockPageData = [
     title: 'Нас читают',
     description: 'руководители и специалисты ведущих агропромышленных предприятий России.',
     logos: ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg']
+  },
+  {
+    tepmlate_name: 'template_10',
+    title: 'Календарь аграрных выставок',
+    events: [
+      {
+        date: '2-3 февраля 2021 г.',
+        title: 'АгроЭкспо',
+        place: 'г. Москва, ВВЦ',
+        description: 'Распространение номеров журналов на ' +
+            'выставке: №11 (декабрь 2020), №1 (февраль 2021)',
+        member: {
+          image: '1.jpg',
+          info: {
+            name: '',
+            position: '',
+            site: { name: '', url: 'agroexpo.ru' }
+          }
+        }
+      },
+      {
+        date: '5 февраля 2021 г. 13:00–14:30',
+        title: 'Greetings and introduction of delegates',
+        place: '',
+        description: 'Denis Mayer will tell about upcoming conference',
+        member: {
+          image: '',
+          info: {
+            name: '',
+            position: '',
+            site: { name: '', url: '' }
+          }
+        }
+      },
+      {
+        date: '13:00–14:30',
+        title: 'Greetings and introduction of delegates',
+        place: '',
+        description: 'Denis Mayer will tell about upcoming conference',
+        member: {
+          image: '',
+          info: {
+            name: '',
+            position: '',
+            site: { name: '', url: '' }
+          }
+        }
+      },
+      {
+        date: '2-3 февраля 2021 г.',
+        title: 'Calligraphy workshop',
+        place: '',
+        description: 'Lettering workshop with guru of pens, brushes, colapens, ' +
+            'bamboo dip pens and other cool tools',
+        member: {
+          image: '2.jpg',
+          info: {
+            name: 'Maria Wilson',
+            position: 'projects manager',
+            site: { name: 'Pixel', url: 'https://yandex.ru/' }
+          }
+        }
+      },
+      {
+        date: '2-3 февраля 2021 г.',
+        title: 'Calligraphy workshop',
+        place: '',
+        description: 'Lettering workshop with guru of pens, brushes, colapens, ' +
+            'bamboo dip pens and other cool tools',
+        member: {
+          image: '3.jpg',
+          info: {
+            name: 'Lysa Mayer',
+            position: 'creative director',
+            site: { name: 'DD Agency', url: 'https://yandex.ru/' }
+          }
+        }
+      },
+      {
+        date: '2-3 февраля 2021 г.',
+        title: 'Calligraphy workshop',
+        place: '',
+        description: 'Lettering workshop with guru of pens, brushes, colapens, ' +
+            'bamboo dip pens and other cool tools',
+        member: {
+          image: '3.jpg',
+          info: {
+            name: 'Lysa Mayer',
+            position: 'creative director',
+            site: { name: 'DD Agency', url: 'https://yandex.ru/' }
+          }
+        }
+      }
+    ]
   }
 ];
 
