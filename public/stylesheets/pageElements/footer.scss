@@ -1,82 +1,40 @@
 .footer {
   background-color: #3c3f44;
-  padding: 0 0 45px 0;
-  .blocks {
-    display: flex;
-    .block {
-      margin-top: 55px;
-      .title {
-        font-size: 14px;
-        color: #ffffff;
-        font-weight: bold;
-        margin-bottom: 25px;
-        text-transform: uppercase;
-      }
-      .content {
-        padding-right: 10px;
-        .items {
-          .item {
-            color: #c7c7c9;
-            font-size: 14px;
-            margin-bottom: 13px;
-            a {
-              color: #c7c7c9;
-              text-decoration: underline;
-              &:hover {
-                text-decoration: none;
-              }
-            }
-          }
-        }
-        .social {
-          margin-top: 20px;
-          a {
-            display: inline-block;
-            height: 42px;
-            width: 42px;
-            margin: 0 5px 5px 0;
-          }
-          .instagram {
-            background: url("../../images/iconSocialInstagram.png") no-repeat center;
-          }
-          .youtube {
-            background: url("../../images/iconSocialYoutube.png") no-repeat center;
-          }
-          .vk {
-            background: url("../../images/iconSocialVk.png") no-repeat center;
-          }
-          .facebook {
-            background: url("../../images/iconSocialFacebook.png") no-repeat center;
-          }
-          .twitter {
-            background: url("../../images/iconSocialTwitter.png") no-repeat center;
-          }
-          .odnoklassniki {
-            background: url("../../images/iconSocialOdnoklassniki.png") no-repeat center;
-          }
-          /*.google {*/
-          /*background: url("../public/images/iconSocialGoogle.png") no-repeat center;*/
-          /*}*/
-        }
-      }
-    }
-    .block-1 { width: 40% }
-    .block-2 { width: 30% }
-    .block-3 { width: 30% }
-  }
-  .registrationInfo {
-    border-top: 1px solid #6c6e71;
-    color: #b3b4b5;
-    padding-top: 6px;
-    font-size: 12px;
-    line-height: 1.4;
-    margin: 25px 0 10px 0;
-  }
+  padding: 50px 0 60px 0;
 
-  @media (max-width: 650px) {
-    .blocks {
-      display: inline-block;
-      .block-1, .block-2, .block-3 { width: 100%; }
+  .contentWrapper {
+
+    .menuBlocks {
+      display: flex;
+      flex-wrap: wrap;
+
+      .menuBlock {
+        width: 25%;
+        min-width: 220px;
+        margin: 0 0 25px 0;
+        flex-grow: 1;
+
+        .socNets {
+          margin: 0 0 20px 0;
+          a { margin: 0 3px 0 0; }
+        }
+        .copyRight {
+          color: #7F8C8D;
+          font-size: 13px;
+        }
+        .title {
+          color: #909497;
+          font-weight: bold;
+        }
+        .menuItem {
+          display: block;
+          margin: 15px 5px 15px 0;
+          color: #D5DBDB;
+          font-size: 15px;
+          line-height: 1.2;
+        }
+      }
     }
+
   }
 }

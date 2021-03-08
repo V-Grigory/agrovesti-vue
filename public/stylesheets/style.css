@@ -647,6 +647,8 @@ a {
         text-align: left;
         margin: 0 20px 40px 20px;
         position: relative; }
+        .template_11 .contentWrapper .events .event img {
+          width: 100%; }
         .template_11 .contentWrapper .events .event .title {
           font-size: 20px;
           font-weight: bold;
@@ -660,5 +662,33 @@ a {
           color: grey;
           font-weight: bold;
           margin: 10px 0; }
+
+.footer {
+  background-color: #3c3f44;
+  padding: 50px 0 60px 0; }
+  .footer .contentWrapper .menuBlocks {
+    display: flex;
+    flex-wrap: wrap; }
+    .footer .contentWrapper .menuBlocks .menuBlock {
+      width: 25%;
+      min-width: 220px;
+      margin: 0 0 25px 0;
+      flex-grow: 1; }
+      .footer .contentWrapper .menuBlocks .menuBlock .socNets {
+        margin: 0 0 20px 0; }
+        .footer .contentWrapper .menuBlocks .menuBlock .socNets a {
+          margin: 0 3px 0 0; }
+      .footer .contentWrapper .menuBlocks .menuBlock .copyRight {
+        color: #7F8C8D;
+        font-size: 13px; }
+      .footer .contentWrapper .menuBlocks .menuBlock .title {
+        color: #909497;
+        font-weight: bold; }
+      .footer .contentWrapper .menuBlocks .menuBlock .menuItem {
+        display: block;
+        margin: 15px 5px 15px 0;
+        color: #D5DBDB;
+        font-size: 15px;
+        line-height: 1.2; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,131 +1,31 @@
-<div class="footer">
-    <div class="contentWrapper">
+<div id="footer" class="footer">
+	<div class="contentWrapper">
 
-        <div class="blocks">
+		<div class="menuBlocks">
 
-            <div class="block block-1">
-                <p class="title">Размещение рекламы</p>
-                <div class="content">
+			<div class="menuBlock">
+				<div class="socNets">
+					<% pageData.footerMenu.socialNets.forEach(socialNet => { %>
+						<a href="<%= socialNet.url %>" target="_blank" title="<%= socialNet.url %>">
+							<%- include(`../pageElements/partials/socialNetIcons/${socialNet.name}`); %>
+						</a>
+					<% }) %>
+				</div>
+				<div class="copyRight">© Центр аграрного опыта и инноваций</div>
+			</div>
 
-                    <% if (pageData.menuData.articles.footer_menu.menu_1.length) { %>
-                        <div class="items">
-                            <% pageData.menuData.articles.footer_menu.menu_1.forEach(menuItem => { %>
-                                <p class="item">
-                                    <a href="/articles/<%= menuItem.name_en %>">
-                                        <%= menuItem.name_ru %>
-                                    </a>
-                                </p>
-                            <% }); %>
-                        </div>
-                    <% } %>
+			<% pageData.footerMenu.menuBlocks.forEach(menuBlock => { %>
+				<div class="menuBlock">
+					<div class="title"><%= menuBlock.title %></div>
+					<% menuBlock.menuItems.forEach(menuItem => { %>
+						<a href="<%= menuItem.url %>" class="menuItem" title="<%= menuItem.title %>">
+							<%= menuItem.title %>
+						</a>
+					<% }) %>
+				</div>
+			<% }) %>
 
-                </div>
-            </div>
+		</div>
 
-            <div class="block block-2">
-                <p class="title">Рубрики</p>
-                <div class="content">
-
-                    <% if (pageData.menuData.rubriks.footer_menu.length) { %>
-                        <div class="items">
-                            <% pageData.menuData.rubriks.footer_menu.forEach(menuItem => { %>
-                                <p class="item">
-                                    <a href="/rubrics/<%= menuItem.name_en %>">
-                                        <%= menuItem.name_ru %>
-                                    </a>
-                                </p>
-                            <% }); %>
-                        </div>
-                    <% } %>
-
-                </div>
-            </div>
-
-            <div class="block block-3">
-                <p class="title">О нас</p>
-                <div class="content">
-
-                    <% if (pageData.menuData.articles.footer_menu.menu_2.length) { %>
-                        <div class="items">
-                            <% pageData.menuData.articles.footer_menu.menu_2.forEach(menuItem => { %>
-                                <p class="item">
-                                    <a href="/articles/<%= menuItem.name_en %>">
-                                        <%= menuItem.name_ru %>
-                                    </a>
-                                </p>
-                            <% }); %>
-                        </div>
-                    <% } %>
-
-                    <div class="social">
-                        <a
-                                href="https://www.instagram.com/agrarnaya_politika/"
-                                title="https://www.instagram.com/agrarnaya_politika/"
-                                class="instagram"
-                                target="_blank"
-                        ></a>
-                        <a
-                                href="https://www.youtube.com/channel/UCYjCv8lY13TS94lfhX0VdsQ"
-                                title="https://www.youtube.com/channel/UCYjCv8lY13TS94lfhX0VdsQ"
-                                class="youtube"
-                                target="_blank"
-                        ></a>
-                        <a
-                                href="https://vk.com/public172093914"
-                                title="https://vk.com/public172093914"
-                                class="vk"
-                                target="_blank"
-                        ></a>
-                        <a
-                                href="https://www.facebook.com/groups/596192440784158/"
-                                title="https://www.facebook.com/groups/596192440784158/"
-                                class="facebook"
-                                target="_blank"
-                        ></a>
-                        <a
-                                href="https://twitter.com/agrovesti"
-                                title="https://twitter.com/agrovesti"
-                                class="twitter"
-                                target="_blank"
-                        ></a>
-                        <a
-                                href="https://ok.ru/profile/577033813172"
-                                title="https://ok.ru/profile/577033813172"
-                                class="odnoklassniki"
-                                target="_blank"
-                        ></a>
-                        <!--<a href="#" class="google"></a>-->
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-        <div class="registrationInfo">
-            <p>Журнал "Аграрная политика" зарегистрирован в
-                Федеральной службе по надзору в сфере связи,
-                информационных технологий и массовых коммуникаций.</p>
-            <p>Свидетельство: ПИ № ФС 77-71663 от 23.11.2017 г.</p>
-        </div>
-
-        <% if (process.env.NODE_ENV === 'production') { %>
-            <!-- Yandex.Metrika informer -->
-            <a href="https://metrika.yandex.ru/stat/?id=65022697&amp;from=informer"
-               target="_blank" rel="nofollow"
-            >
-                <img
-                        src="https://informer.yandex.ru/informer/65022697/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
-                        style="width:88px; height:31px; border:0;"
-                        alt="Яндекс.Метрика"
-                        title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
-                        class="ym-advanced-informer"
-                        data-cid="65022697"
-                        data-lang="ru"
-                />
-            </a>
-            <!-- /Yandex.Metrika informer -->
-        <% } %>
-
-    </div>
+	</div>
 </div>
