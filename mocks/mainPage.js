@@ -367,6 +367,12 @@ const mockPageData = [
       text: 'Оформить подписку',
       url: 'http://ya.ru'
     }
+  },
+  {
+    tepmlate_name: 'template_9',
+    title: 'Нас читают',
+    description: 'руководители и специалисты ведущих агропромышленных предприятий России.',
+    logos: ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','7.jpg','8.jpg','9.jpg','10.jpg']
   }
 ];
 

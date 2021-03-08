@@ -1,0 +1,20 @@
+<div id="template_9" class="template_9">
+	<div class="contentWrapper">
+
+		<div class="title">
+			<%= data.title %>
+		</div>
+		<div class="description">
+			<%= data.description %>
+		</div>
+
+		<div class="logos">
+			<% data.logos.forEach(logo => { %>
+				<div class="logo">
+					<img src="images/template_9/<%= logo %>" alt="">
+				</div>
+			<% }); %>
+		</div>
+
+	</div>
+</div>
