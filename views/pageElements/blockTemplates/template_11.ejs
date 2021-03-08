@@ -1,0 +1,20 @@
+<div id="template_11" class="template_11">
+	<div class="contentWrapper">
+
+		<div class="title">
+			<%= data.title %>
+		</div>
+
+		<div class="events">
+			<% data.events.forEach(event => { %>
+				<div class="event">
+					<img src="images/template_11/<%= event.image %>" alt="">
+					<div class="title"><%= event.title %></div>
+					<div class="description"><%= event.description %></div>
+					<div class="date"><%= event.date %></div>
+				</div>
+			<% }); %>
+		</div>
+
+	</div>
+</div>

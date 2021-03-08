@@ -579,7 +579,7 @@ a {
       font-size: 40px;
       font-weight: bold; }
     .template_10 .contentWrapper .events {
-      margin: 40px 0 0 0;
+      margin: 60px 0 0 0;
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-start; }
@@ -627,5 +627,38 @@ a {
               color: #777777; }
             .template_10 .contentWrapper .events .event .member .info a {
               color: #ff8562; }
+
+.template_11 {
+  text-align: center;
+  padding: 90px 0 0 0;
+  background-color: white; }
+  .template_11 .contentWrapper {
+    padding-bottom: 30px; }
+    .template_11 .contentWrapper .title {
+      font-size: 40px;
+      font-weight: bold; }
+    .template_11 .contentWrapper .events {
+      margin: 60px 0 0 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center; }
+      .template_11 .contentWrapper .events .event {
+        width: 360px;
+        text-align: left;
+        margin: 0 20px 40px 20px;
+        position: relative; }
+        .template_11 .contentWrapper .events .event .title {
+          font-size: 20px;
+          font-weight: bold;
+          margin: 10px 0; }
+        .template_11 .contentWrapper .events .event .description {
+          font-size: 15px;
+          line-height: 1.4;
+          margin: 10px 0; }
+        .template_11 .contentWrapper .events .event .date {
+          font-size: 12px;
+          color: grey;
+          font-weight: bold;
+          margin: 10px 0; }
 
 /*# sourceMappingURL=style.css.map */

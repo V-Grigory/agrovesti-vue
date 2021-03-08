@@ -467,6 +467,36 @@ const mockPageData = [
         }
       }
     ]
+  },
+  {
+    tepmlate_name: 'template_11',
+    title: 'Пресс-релизы мероприятий',
+    events: [
+      {
+        image: '1.jpg',
+        title: 'October book fair',
+        description: 'There is the most important event of the literary market. ' +
+            'The festival takes place on the territory of the cluster Star in ' +
+            'the second pavilion',
+        date: '03.10.2021',
+      },
+      {
+        image: '2.jpg',
+        title: 'October book fair',
+        description: 'There is the most important event of the literary market. ' +
+            'The festival takes place on the territory of the cluster Star in ' +
+            'the second pavilion',
+        date: '04.10.2021',
+      },
+      {
+        image: '3.jpg',
+        title: 'October book fair',
+        description: 'There is the most important event of the literary market. ' +
+            'The festival takes place on the territory of the cluster Star in ' +
+            'the second pavilion',
+        date: '05.10.2021',
+      }
+    ]
   }
 ];
 
