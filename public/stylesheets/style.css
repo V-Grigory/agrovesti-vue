@@ -156,6 +156,12 @@ a {
   .header .buttons {
     margin: 30px 0 0 0; } }
 
+@media (max-width: 400px) {
+  .header .namePortal {
+    font-size: 32px; }
+  .header .descrPortal {
+    font-size: 20px; } }
+
 .button {
   display: inline-block;
   padding: 18px 60px;
@@ -253,9 +259,16 @@ a {
 
 @media (max-width: 850px) {
   .template_1 .title {
-    font-size: 45px; }
+    font-size: 36px; }
   .template_1 .description {
-    margin: 40px 0 50px 0; } }
+    margin: 40px 0 50px 0; }
+  .template_1 .links .link span {
+    font-size: 22px; } }
+
+@media (max-width: 400px) {
+  .template_1 .links .link span {
+    font-size: 18px;
+    line-height: 1.4; } }
 
 .template_2 {
   padding: 100px 0 0 0;
@@ -320,6 +333,10 @@ a {
     top: 0; }
   .template_2 .resultsReport {
     padding: 60px 0 25px 0; } }
+
+@media (max-width: 450px) {
+  .template_2 .contentWrapper .title {
+    font-size: 28px; } }
 
 .template_3 {
   padding: 100px 0 0 0;
@@ -399,6 +416,10 @@ a {
 @media (max-width: 850px) {
   .template_4 .contentWrapper .wrapper .leftSide {
     padding: 0 0 50px 0; } }
+
+@media (max-width: 400px) {
+  .template_4 .contentWrapper .wrapper .leftSide .title {
+    font-size: 26px; } }
 
 .template_5 {
   text-align: center;
@@ -544,6 +565,10 @@ a {
       margin: 40px auto 60px auto;
       line-height: 1.5;
       max-width: 600px; }
+
+@media (max-width: 450px) {
+  .template_8 .contentWrapper .title {
+    font-size: 28px; } }
 
 .template_9 {
   text-align: center;

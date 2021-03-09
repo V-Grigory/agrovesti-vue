@@ -61,10 +61,24 @@
 @media (max-width: 850px) {
   .template_1 {
     .title {
-      font-size: 45px;
+      font-size: 36px;
     }
     .description {
       margin: 40px 0 50px 0;
+    }
+    .links {
+      .link {
+        span { font-size: 22px; }
+      }
+    }
+  }
+}
+@media (max-width: 400px) {
+  .template_1 {
+    .links {
+      .link {
+        span { font-size: 18px; line-height: 1.5; }
+      }
     }
   }
 }
